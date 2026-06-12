@@ -1,0 +1,868 @@
+<html lang="he" dir="rtl"><head><style type="text/css">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error: var(--toastify-color-error);--toastify-container-width: fit-content;--toastify-toast-width: 320px;--toastify-toast-offset: 16px;--toastify-toast-top: max(var(--toastify-toast-offset), env(safe-area-inset-top));--toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-right));--toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-left));--toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));--toastify-toast-background: #fff;--toastify-toast-padding: 14px;--toastify-toast-min-height: 64px;--toastify-toast-max-height: 800px;--toastify-toast-bd-radius: 6px;--toastify-toast-shadow: 0px 4px 12px rgba(0, 0, 0, .1);--toastify-font-family: sans-serif;--toastify-z-index: 9999;--toastify-text-color-light: #757575;--toastify-text-color-dark: #fff;--toastify-text-color-info: #fff;--toastify-text-color-success: #fff;--toastify-text-color-warning: #fff;--toastify-text-color-error: #fff;--toastify-spinner-color: #616161;--toastify-spinner-color-empty-area: #e0e0e0;--toastify-color-progress-light: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);--toastify-color-progress-dark: #bb86fc;--toastify-color-progress-info: var(--toastify-color-info);--toastify-color-progress-success: var(--toastify-color-success);--toastify-color-progress-warning: var(--toastify-color-warning);--toastify-color-progress-error: var(--toastify-color-error);--toastify-color-progress-bgo: .2}.Toastify__toast-container{z-index:var(--toastify-z-index);-webkit-transform:translate3d(0,0,var(--toastify-z-index));position:fixed;width:var(--toastify-container-width);box-sizing:border-box;color:#fff;display:flex;flex-direction:column}.Toastify__toast-container--top-left{top:var(--toastify-toast-top);left:var(--toastify-toast-left)}.Toastify__toast-container--top-center{top:var(--toastify-toast-top);left:50%;transform:translate(-50%);align-items:center}.Toastify__toast-container--top-right{top:var(--toastify-toast-top);right:var(--toastify-toast-right);align-items:end}.Toastify__toast-container--bottom-left{bottom:var(--toastify-toast-bottom);left:var(--toastify-toast-left)}.Toastify__toast-container--bottom-center{bottom:var(--toastify-toast-bottom);left:50%;transform:translate(-50%);align-items:center}.Toastify__toast-container--bottom-right{bottom:var(--toastify-toast-bottom);right:var(--toastify-toast-right);align-items:end}.Toastify__toast{--y: 0;position:relative;touch-action:none;width:var(--toastify-toast-width);min-height:var(--toastify-toast-min-height);box-sizing:border-box;margin-bottom:1rem;padding:var(--toastify-toast-padding);border-radius:var(--toastify-toast-bd-radius);box-shadow:var(--toastify-toast-shadow);max-height:var(--toastify-toast-max-height);font-family:var(--toastify-font-family);z-index:0;display:flex;flex:1 auto;align-items:center;word-break:break-word}@media only screen and (max-width: 480px){.Toastify__toast-container{width:100vw;left:env(safe-area-inset-left);margin:0}.Toastify__toast-container--top-left,.Toastify__toast-container--top-center,.Toastify__toast-container--top-right{top:env(safe-area-inset-top);transform:translate(0)}.Toastify__toast-container--bottom-left,.Toastify__toast-container--bottom-center,.Toastify__toast-container--bottom-right{bottom:env(safe-area-inset-bottom);transform:translate(0)}.Toastify__toast-container--rtl{right:env(safe-area-inset-right);left:initial}.Toastify__toast{--toastify-toast-width: 100%;margin-bottom:0;border-radius:0}}.Toastify__toast-container[data-stacked=true]{width:var(--toastify-toast-width)}.Toastify__toast--stacked{position:absolute;width:100%;transform:translate3d(0,var(--y),0) scale(var(--s));transition:transform .3s}.Toastify__toast--stacked[data-collapsed] .Toastify__toast-body,.Toastify__toast--stacked[data-collapsed] .Toastify__close-button{transition:opacity .1s}.Toastify__toast--stacked[data-collapsed=false]{overflow:visible}.Toastify__toast--stacked[data-collapsed=true]:not(:last-child)>*{opacity:0}.Toastify__toast--stacked:after{content:"";position:absolute;left:0;right:0;height:calc(var(--g) * 1px);bottom:100%}.Toastify__toast--stacked[data-pos=top]{top:0}.Toastify__toast--stacked[data-pos=bot]{bottom:0}.Toastify__toast--stacked[data-pos=bot].Toastify__toast--stacked:before{transform-origin:top}.Toastify__toast--stacked[data-pos=top].Toastify__toast--stacked:before{transform-origin:bottom}.Toastify__toast--stacked:before{content:"";position:absolute;left:0;right:0;bottom:0;height:100%;transform:scaleY(3);z-index:-1}.Toastify__toast--rtl{direction:rtl}.Toastify__toast--close-on-click{cursor:pointer}.Toastify__toast-icon{margin-inline-end:10px;width:22px;flex-shrink:0;display:flex}.Toastify--animate{animation-fill-mode:both;animation-duration:.5s}.Toastify--animate-icon{animation-fill-mode:both;animation-duration:.3s}.Toastify__toast-theme--dark{background:var(--toastify-color-dark);color:var(--toastify-text-color-dark)}.Toastify__toast-theme--light,.Toastify__toast-theme--colored.Toastify__toast--default{background:var(--toastify-color-light);color:var(--toastify-text-color-light)}.Toastify__toast-theme--colored.Toastify__toast--info{color:var(--toastify-text-color-info);background:var(--toastify-color-info)}.Toastify__toast-theme--colored.Toastify__toast--success{color:var(--toastify-text-color-success);background:var(--toastify-color-success)}.Toastify__toast-theme--colored.Toastify__toast--warning{color:var(--toastify-text-color-warning);background:var(--toastify-color-warning)}.Toastify__toast-theme--colored.Toastify__toast--error{color:var(--toastify-text-color-error);background:var(--toastify-color-error)}.Toastify__progress-bar-theme--light{background:var(--toastify-color-progress-light)}.Toastify__progress-bar-theme--dark{background:var(--toastify-color-progress-dark)}.Toastify__progress-bar--info{background:var(--toastify-color-progress-info)}.Toastify__progress-bar--success{background:var(--toastify-color-progress-success)}.Toastify__progress-bar--warning{background:var(--toastify-color-progress-warning)}.Toastify__progress-bar--error{background:var(--toastify-color-progress-error)}.Toastify__progress-bar-theme--colored.Toastify__progress-bar--info,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--success,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--warning,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--error{background:var(--toastify-color-transparent)}.Toastify__close-button{color:#fff;position:absolute;top:6px;right:6px;background:transparent;outline:none;border:none;padding:0;cursor:pointer;opacity:.7;transition:.3s ease;z-index:1}.Toastify__toast--rtl .Toastify__close-button{left:6px;right:unset}.Toastify__close-button--light{color:#000;opacity:.3}.Toastify__close-button>svg{fill:currentColor;height:16px;width:14px}.Toastify__close-button:hover,.Toastify__close-button:focus{opacity:1}@keyframes Toastify__trackProgress{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Toastify__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:100%;z-index:1;opacity:.7;transform-origin:left}.Toastify__progress-bar--animated{animation:Toastify__trackProgress linear 1 forwards}.Toastify__progress-bar--controlled{transition:transform .2s}.Toastify__progress-bar--rtl{right:0;left:initial;transform-origin:right;border-bottom-left-radius:initial}.Toastify__progress-bar--wrp{position:absolute;overflow:hidden;bottom:0;left:0;width:100%;height:5px;border-bottom-left-radius:var(--toastify-toast-bd-radius);border-bottom-right-radius:var(--toastify-toast-bd-radius)}.Toastify__progress-bar--wrp[data-hidden=true]{opacity:0}.Toastify__progress-bar--bg{opacity:var(--toastify-color-progress-bgo);width:100%;height:100%}.Toastify__spinner{width:20px;height:20px;box-sizing:border-box;border:2px solid;border-radius:100%;border-color:var(--toastify-spinner-color-empty-area);border-right-color:var(--toastify-spinner-color);animation:Toastify__spin .65s linear infinite}@keyframes Toastify__bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutRight{20%{opacity:1;transform:translate3d(-20px,var(--y),0)}to{opacity:0;transform:translate3d(2000px,var(--y),0)}}@keyframes Toastify__bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutLeft{20%{opacity:1;transform:translate3d(20px,var(--y),0)}to{opacity:0;transform:translate3d(-2000px,var(--y),0)}}@keyframes Toastify__bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes Toastify__bounceOutUp{20%{transform:translate3d(0,calc(var(--y) - 10px),0)}40%,45%{opacity:1;transform:translate3d(0,calc(var(--y) + 20px),0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes Toastify__bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes Toastify__bounceOutDown{20%{transform:translate3d(0,calc(var(--y) - 10px),0)}40%,45%{opacity:1;transform:translate3d(0,calc(var(--y) + 20px),0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Toastify__bounce-enter--top-left,.Toastify__bounce-enter--bottom-left{animation-name:Toastify__bounceInLeft}.Toastify__bounce-enter--top-right,.Toastify__bounce-enter--bottom-right{animation-name:Toastify__bounceInRight}.Toastify__bounce-enter--top-center{animation-name:Toastify__bounceInDown}.Toastify__bounce-enter--bottom-center{animation-name:Toastify__bounceInUp}.Toastify__bounce-exit--top-left,.Toastify__bounce-exit--bottom-left{animation-name:Toastify__bounceOutLeft}.Toastify__bounce-exit--top-right,.Toastify__bounce-exit--bottom-right{animation-name:Toastify__bounceOutRight}.Toastify__bounce-exit--top-center{animation-name:Toastify__bounceOutUp}.Toastify__bounce-exit--bottom-center{animation-name:Toastify__bounceOutDown}@keyframes Toastify__zoomIn{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes Toastify__zoomOut{0%{opacity:1}50%{opacity:0;transform:translate3d(0,var(--y),0) scale3d(.3,.3,.3)}to{opacity:0}}.Toastify__zoom-enter{animation-name:Toastify__zoomIn}.Toastify__zoom-exit{animation-name:Toastify__zoomOut}@keyframes Toastify__flipIn{0%{transform:perspective(400px) rotateX(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateX(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateX(10deg);opacity:1}80%{transform:perspective(400px) rotateX(-5deg)}to{transform:perspective(400px)}}@keyframes Toastify__flipOut{0%{transform:translate3d(0,var(--y),0) perspective(400px)}30%{transform:translate3d(0,var(--y),0) perspective(400px) rotateX(-20deg);opacity:1}to{transform:translate3d(0,var(--y),0) perspective(400px) rotateX(90deg);opacity:0}}.Toastify__flip-enter{animation-name:Toastify__flipIn}.Toastify__flip-exit{animation-name:Toastify__flipOut}@keyframes Toastify__slideInRight{0%{transform:translate3d(110%,0,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInLeft{0%{transform:translate3d(-110%,0,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInUp{0%{transform:translate3d(0,110%,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInDown{0%{transform:translate3d(0,-110%,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideOutRight{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(110%,var(--y),0)}}@keyframes Toastify__slideOutLeft{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(-110%,var(--y),0)}}@keyframes Toastify__slideOutDown{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(0,500px,0)}}@keyframes Toastify__slideOutUp{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(0,-500px,0)}}.Toastify__slide-enter--top-left,.Toastify__slide-enter--bottom-left{animation-name:Toastify__slideInLeft}.Toastify__slide-enter--top-right,.Toastify__slide-enter--bottom-right{animation-name:Toastify__slideInRight}.Toastify__slide-enter--top-center{animation-name:Toastify__slideInDown}.Toastify__slide-enter--bottom-center{animation-name:Toastify__slideInUp}.Toastify__slide-exit--top-left,.Toastify__slide-exit--bottom-left{animation-name:Toastify__slideOutLeft;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--top-right,.Toastify__slide-exit--bottom-right{animation-name:Toastify__slideOutRight;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--top-center{animation-name:Toastify__slideOutUp;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--bottom-center{animation-name:Toastify__slideOutDown;animation-timing-function:ease-in;animation-duration:.3s}@keyframes Toastify__spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-id="th-modified">מערכת הדרכה סיעודית - צליאק בילדים</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&amp;family=Heebo:wght@400;700;900&amp;display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                        heading: ['Heebo', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            500: '#334e68',
+                            800: '#102a43',
+                            900: '#0b1c2c',
+                        },
+                        gold: {
+                            100: '#fcf3e3',
+                            500: '#cca163',
+                            600: '#b88c4d',
+                        },
+                        warmbg: '#fbfaf9'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Reset & Base */
+        html, body {
+            height: 100%;
+            background-color: #fbfaf9;
+            color: #102a43;
+            overflow-x: hidden;
+        }
+
+        /* <!-- Chosen Palette: Warm Neutrals with Classic Navy & Elegant Gold Accents -->
+        <!-- Application Structure Plan: The application uses a classic Dashboard/Sidebar layout. This structure was chosen because clinical staff need quick, random access to specific guidelines (e.g., jumping straight to "Serology" or "Follow-up") during patient visits. The content is broken down into thematic sections: Overview, Symptoms, Diagnostic Pathway, Special Cases, and Nursing Protocol. Interactive elements include an accordion for diagnostics, clickable symptom categories, and an interactive checklist for annual follow-ups to make the tool actively useful rather than just a static reading document. -->
+        <!-- Visualization & Content Choices: 
+            - Prevalence -> Goal: Inform -> Chart.js Donut Chart -> Hover details -> Visually separates the 1% celiac population.
+            - Symptoms -> Goal: Organize -> Interactive Tabbed Grid -> Click to show details -> Prevents overwhelming the user with a wall of text.
+            - Diagnostic Pathway -> Goal: Process Flow -> Interactive Accordion -> Click to expand steps -> Highlights sequential nature and hides complexity until needed.
+            - Follow-up Protocol -> Goal: Actionable Tasks -> Interactive Checklist (JS toggles) -> Click to cross off -> Turns guidelines into a practical tool.
+            Libraries used: Chart.js for data. NO SVG, NO Mermaid JS. 
+        -->
+        <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Unicode used for icons. -->
+        */
+
+        /* Chart Container Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 300px;
+        }
+
+        /* Sidebar & Layout */
+        .nav-link.active {
+            background-color: #f0f4f8;
+            border-right: 4px solid #cca163;
+            color: #102a43;
+            font-weight: 700;
+        }
+        
+        .section-container {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .section-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Interactive Elements Custom Styles */
+        .symptom-card {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .symptom-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .symptom-card.active {
+            border-color: #cca163;
+            background-color: #fcf3e3;
+        }
+
+        .accordion-content {
+            display: none;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .checklist-item.checked {
+            opacity: 0.6;
+        }
+        .checklist-item.checked span.text {
+            text-decoration: line-through;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Modals */
+        .modal-overlay {
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Assistant, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-left-10{left:-2.5rem}.-top-10{top:-2.5rem}.left-4{left:1rem}.top-4{top:1rem}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.-m-8{margin:-2rem}.m-4{margin:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.ml-3{margin-left:0.75rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.mr-4{margin-right:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-\[calc\(100\%\+4rem\)\]{height:calc(100% + 4rem)}.h-full{height:100%}.h-6{height:1.5rem}.min-h-screen{min-height:100vh}.min-h-\[160px\]{min-height:160px}.min-h-\[350px\]{min-height:350px}.w-10{width:2.5rem}.w-full{width:100%}.w-6{width:1.5rem}.max-w-5xl{max-width:64rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.break-all{word-break:break-all}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-l-lg{border-top-left-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-l-xl{border-top-left-radius:0.75rem;border-bottom-left-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r-4{border-right-width:4px}.border-t{border-top-width:1px}.border-t-4{border-top-width:4px}.border-t-8{border-top-width:8px}.border-gold-500{--tw-border-opacity:1;border-color:rgb(204 161 99 / var(--tw-border-opacity, 1))}.border-gold-500\/20{border-color:rgb(204 161 99 / 0.2)}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-navy-100{--tw-border-opacity:1;border-color:rgb(217 226 236 / var(--tw-border-opacity, 1))}.border-navy-500{--tw-border-opacity:1;border-color:rgb(51 78 104 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-gold-100{--tw-bg-opacity:1;background-color:rgb(252 243 227 / var(--tw-bg-opacity, 1))}.bg-gold-500{--tw-bg-opacity:1;background-color:rgb(204 161 99 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-navy-100{--tw-bg-opacity:1;background-color:rgb(217 226 236 / var(--tw-bg-opacity, 1))}.bg-navy-50{--tw-bg-opacity:1;background-color:rgb(240 244 248 / var(--tw-bg-opacity, 1))}.bg-navy-800{--tw-bg-opacity:1;background-color:rgb(16 42 67 / var(--tw-bg-opacity, 1))}.bg-navy-900{--tw-bg-opacity:1;background-color:rgb(11 28 44 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-2{padding-bottom:0.5rem}.pr-4{padding-right:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-heading{font-family:Heebo, sans-serif}.font-sans{font-family:Assistant, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-9xl{font-size:8rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-wider{letter-spacing:0.05em}.tracking-wide{letter-spacing:0.025em}.text-gold-500{--tw-text-opacity:1;color:rgb(204 161 99 / var(--tw-text-opacity, 1))}.text-gold-600{--tw-text-opacity:1;color:rgb(184 140 77 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-navy-100{--tw-text-opacity:1;color:rgb(217 226 236 / var(--tw-text-opacity, 1))}.text-navy-500{--tw-text-opacity:1;color:rgb(51 78 104 / var(--tw-text-opacity, 1))}.text-navy-800{--tw-text-opacity:1;color:rgb(16 42 67 / var(--tw-text-opacity, 1))}.text-navy-900{--tw-text-opacity:1;color:rgb(11 28 44 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-red-900{--tw-text-opacity:1;color:rgb(127 29 29 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-5{opacity:0.05}.opacity-90{opacity:0.9}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.last\:border-0:last-child{border-width:0px}.hover\:bg-gold-100:hover{--tw-bg-opacity:1;background-color:rgb(252 243 227 / var(--tw-bg-opacity, 1))}.hover\:bg-gold-600:hover{--tw-bg-opacity:1;background-color:rgb(184 140 77 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:bg-navy-900:hover{--tw-bg-opacity:1;background-color:rgb(11 28 44 / var(--tw-bg-opacity, 1))}.hover\:text-gray-800:hover{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.hover\:text-navy-800:hover{--tw-text-opacity:1;color:rgb(16 42 67 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-navy-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(51 78 104 / var(--tw-ring-opacity, 1))}@media (min-width: 768px){.md\:relative{position:relative}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:w-72{width:18rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:p-12{padding:3rem}.md\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 1024px){.lg\:w-1\/3{width:33.333333%}.lg\:w-2\/3{width:66.666667%}.lg\:flex-row{flex-direction:row}}</style><meta property="og:title" content="מערכת הדרכה סיעודית - צליאק בילדים" data-id="th-modified"><meta name="description" content="celiac_nursing_app" data-id="th-modified"><meta property="og:description" content="celiac_nursing_app" data-id="th-modified"><meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified"><meta property="og:image:width" content="1501" data-id="th-modified"><meta property="og:image:height" content="1501" data-id="th-modified"><meta property="og:image:type" content="image/png" data-id="th-modified"><meta property="og:url" content="https://celliac.tiiny.site/" data-id="th-modified"><meta property="og:type" content="website" data-id="th-modified"><script defer="" data-domain="celliac.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Assistant, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-left-10{left:-2.5rem}.-top-10{top:-2.5rem}.left-4{left:1rem}.top-4{top:1rem}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.-m-8{margin:-2rem}.m-4{margin:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.ml-3{margin-left:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-6{height:1.5rem}.h-\[calc\(100\%\+4rem\)\]{height:calc(100% + 4rem)}.h-full{height:100%}.min-h-\[350px\]{min-height:350px}.min-h-screen{min-height:100vh}.min-h-\[160px\]{min-height:160px}.w-10{width:2.5rem}.w-6{width:1.5rem}.w-full{width:100%}.max-w-5xl{max-width:64rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.break-all{word-break:break-all}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-l-lg{border-top-left-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-l-xl{border-top-left-radius:0.75rem;border-bottom-left-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r-4{border-right-width:4px}.border-t{border-top-width:1px}.border-t-8{border-top-width:8px}.border-t-4{border-top-width:4px}.border-gold-500{--tw-border-opacity:1;border-color:rgb(204 161 99 / var(--tw-border-opacity, 1))}.border-gold-500\/20{border-color:rgb(204 161 99 / 0.2)}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-navy-100{--tw-border-opacity:1;border-color:rgb(217 226 236 / var(--tw-border-opacity, 1))}.border-navy-500{--tw-border-opacity:1;border-color:rgb(51 78 104 / var(--tw-border-opacity, 1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.bg-gold-100{--tw-bg-opacity:1;background-color:rgb(252 243 227 / var(--tw-bg-opacity, 1))}.bg-gold-500{--tw-bg-opacity:1;background-color:rgb(204 161 99 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-navy-100{--tw-bg-opacity:1;background-color:rgb(217 226 236 / var(--tw-bg-opacity, 1))}.bg-navy-50{--tw-bg-opacity:1;background-color:rgb(240 244 248 / var(--tw-bg-opacity, 1))}.bg-navy-800{--tw-bg-opacity:1;background-color:rgb(16 42 67 / var(--tw-bg-opacity, 1))}.bg-navy-900{--tw-bg-opacity:1;background-color:rgb(11 28 44 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-2{padding-bottom:0.5rem}.pr-4{padding-right:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-heading{font-family:Heebo, sans-serif}.font-sans{font-family:Assistant, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-9xl{font-size:8rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-none{line-height:1}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-gold-500{--tw-text-opacity:1;color:rgb(204 161 99 / var(--tw-text-opacity, 1))}.text-gold-600{--tw-text-opacity:1;color:rgb(184 140 77 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-navy-100{--tw-text-opacity:1;color:rgb(217 226 236 / var(--tw-text-opacity, 1))}.text-navy-800{--tw-text-opacity:1;color:rgb(16 42 67 / var(--tw-text-opacity, 1))}.text-navy-900{--tw-text-opacity:1;color:rgb(11 28 44 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-red-900{--tw-text-opacity:1;color:rgb(127 29 29 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-navy-500{--tw-text-opacity:1;color:rgb(51 78 104 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-5{opacity:0.05}.opacity-90{opacity:0.9}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.last\:border-0:last-child{border-width:0px}.hover\:bg-gold-100:hover{--tw-bg-opacity:1;background-color:rgb(252 243 227 / var(--tw-bg-opacity, 1))}.hover\:bg-gold-600:hover{--tw-bg-opacity:1;background-color:rgb(184 140 77 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:bg-navy-900:hover{--tw-bg-opacity:1;background-color:rgb(11 28 44 / var(--tw-bg-opacity, 1))}.hover\:text-gray-800:hover{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.hover\:text-navy-800:hover{--tw-text-opacity:1;color:rgb(16 42 67 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-navy-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(51 78 104 / var(--tw-ring-opacity, 1))}@media (min-width: 768px){.md\:relative{position:relative}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:w-72{width:18rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:p-12{padding:3rem}.md\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 1024px){.lg\:w-1\/3{width:33.333333%}.lg\:w-2\/3{width:66.666667%}.lg\:flex-row{flex-direction:row}}</style></head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <!-- Mobile Header -->
+    <header class="md:hidden bg-navy-900 text-white p-4 flex justify-between items-center shadow-md z-20 relative">
+        <h1 class="font-heading font-bold text-xl">ניהול קליני: צליאק</h1>
+        <button id="mobile-menu-btn" class="text-2xl focus:outline-none">☰</button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" class="bg-white w-full md:w-72 shadow-xl z-10 flex-shrink-0 hidden md:flex md:flex-col transition-all duration-300 absolute md:relative h-full border-l border-gray-100">
+        <div class="p-6 bg-navy-900 text-white hidden md:block">
+            <h1 class="font-heading text-2xl font-black mb-1">מחלת הדגנת</h1>
+            <p class="text-sm text-navy-100 opacity-90">מדריך אינטראקטיבי לצוות הסיעוד</p>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="p-4 border-b border-gray-100 flex flex-col gap-3">
+            <button onclick="downloadHTMLFile()" class="bg-navy-800 hover:bg-navy-900 text-white rounded-lg py-2 px-4 flex items-center justify-center gap-2 transition-colors font-bold text-sm">
+                <span>⬇️</span> הורד מסמך למחשב
+            </button>
+            <button onclick="generateQRCode()" class="bg-gold-500 hover:bg-gold-600 text-white rounded-lg py-2 px-4 flex items-center justify-center gap-2 transition-colors font-bold text-sm">
+                <span>📱</span> שתף באמצעות QR
+            </button>
+            <div id="notification" class="hidden text-center text-xs font-bold text-green-700 bg-green-100 p-2 rounded">הקובץ הורד בהצלחה</div>
+        </div>
+
+        <ul class="flex flex-col py-4 font-sans text-lg">
+            <li>
+                <button onclick="navTo('overview')" class="nav-link w-full text-right py-4 px-6 text-gray-600 hover:bg-gray-50 transition-colors active">
+                    <span class="ml-2">📖</span> רקע ופתופיזיולוגיה
+                </button>
+            </li>
+            <li>
+                <button onclick="navTo('symptoms')" class="nav-link w-full text-right py-4 px-6 text-gray-600 hover:bg-gray-50 transition-colors">
+                    <span class="ml-2">🔍</span> התוויות לבירור
+                </button>
+            </li>
+            <li>
+                <button onclick="navTo('diagnosis')" class="nav-link w-full text-right py-4 px-6 text-gray-600 hover:bg-gray-50 transition-colors">
+                    <span class="ml-2">🧪</span> מסלול האבחון
+                </button>
+            </li>
+            <li>
+                <button onclick="navTo('special')" class="nav-link w-full text-right py-4 px-6 text-gray-600 hover:bg-gray-50 transition-colors">
+                    <span class="ml-2">⚠️</span> מצבים מיוחדים
+                </button>
+            </li>
+            <li>
+                <button onclick="navTo('protocol')" class="nav-link w-full text-right py-4 px-6 text-gray-600 hover:bg-gray-50 transition-colors">
+                    <span class="ml-2">📋</span> מעקב וטיפול סיעודי
+                </button>
+            </li>
+        </ul>
+
+        <div class="mt-auto p-6 border-t border-gray-100 text-sm text-gray-400 font-sans">
+            מבוסס על הנחיות איגוד הגסטרואנטרולוגיה ותזונה בילדים.
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-6 md:p-12 overflow-y-auto">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- SECTION: Overview -->
+            <section id="overview" class="section-container active">
+                <header class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-gold-100 text-gold-600 rounded-full text-sm font-bold mb-3 shadow-sm border border-gold-500/20">מבוא רפואי</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-black text-navy-900 mb-4">מהי מחלת הצליאק?</h2>
+                    <p class="text-lg text-gray-600 border-r-4 border-gold-500 pr-4 leading-relaxed bg-white p-4 rounded-l-lg shadow-sm">
+                        בחלק זה נסקור את הגדרת המחלה, המנגנון הפיזיולוגי העומד מאחוריה ושכיחותה באוכלוסייה. הבנת הבסיס הפתופיזיולוגי חיונית לצוות הסיעודי כדי להסביר למשפחות מדוע הקפדה על דיאטה היא קריטית, גם בהיעדר תסמינים.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-2xl font-heading font-bold text-navy-800 mb-4">פתופיזיולוגיה</h3>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            מחלת צליאק היא <strong>מחלה אוטואימונית סיסטמית כרונית</strong> המופעלת כתוצאה מחשיפה לחלבון הגלוטן באנשים בעלי נטייה גנטית (HLA DQ2/DQ8).
+                        </p>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            חשיפה למקטע הגליאדין מעוררת תגובה חיסונית דלקתית הגורמת ל<strong>אנטרופטיה</strong> – הרס והשטחה של סיסי המעי הדק (Villi). כתוצאה מכך, נוצרת תת-ספיגה חמורה ודלקת מערכתית.
+                        </p>
+                        
+                        <div class="mt-6 space-y-4">
+                            <div class="p-4 bg-navy-50 rounded-xl border-r-4 border-navy-500">
+                                <h4 class="font-bold text-navy-900 flex items-center"><span class="text-xl ml-2">🔴</span> מחלה פעילה</h4>
+                                <p class="text-sm mt-1 text-gray-600">תסמינים קליניים + סרולוגיה חיובית + גנטיקה + פגיעה היסטולוגית בביופסיה.</p>
+                            </div>
+                            <div class="p-4 bg-gold-100 rounded-xl border-r-4 border-gold-500">
+                                <h4 class="font-bold text-navy-900 flex items-center"><span class="text-xl ml-2">🟡</span> מחלה שקטה (Sub-clinical)</h4>
+                                <p class="text-sm mt-1 text-gray-600">סרולוגיה חיובית ופגיעה היסטולוגית בביופסיה, <strong>ללא תסמינים מורגשים</strong>. דורשת טיפול קפדני וזהה.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
+                        <h3 class="text-xl font-heading font-bold text-navy-800 mb-2 w-full text-right">שכיחות באוכלוסייה</h3>
+                        <p class="text-sm text-gray-500 w-full text-right mb-6">כ-1% מהאוכלוסייה חולים, אך רבים נותרים ללא אבחנה.</p>
+                        
+                        <!-- Chart Container constraint -->
+                        <div class="chart-container">
+                            <canvas id="prevalenceChart" width="300" height="300" style="display: block; box-sizing: border-box; height: 300px; width: 300px;"></canvas>
+                        </div>
+                        
+                        <div class="mt-6 text-center text-sm text-gray-600 bg-gray-50 p-4 rounded-lg w-full">
+                            זיהוי מוקדם והדרכה מונעים סיבוכים כאוסטאופורוזיס ופגיעה בגדילה.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: Symptoms & Indications -->
+            <section id="symptoms" class="section-container">
+                <header class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-gold-100 text-gold-600 rounded-full text-sm font-bold mb-3 shadow-sm border border-gold-500/20">זיהוי מוקדם</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-black text-navy-900 mb-4">מתי עולה חשד קליני?</h2>
+                    <p class="text-lg text-gray-600 border-r-4 border-gold-500 pr-4 leading-relaxed bg-white p-4 rounded-l-lg shadow-sm">
+                        אחות המרפאה נמצאת בחזית האיתור. פרק זה מרכז את התסמינים השונים (קלאסיים וסיסטמיים) ואת קבוצות הסיכון המחייבות ביצוע סקירה (Screening) אקטיבית, ומאפשר לחקור כל קטגוריה בנפרד.
+                    </p>
+                </header>
+
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Categories -->
+                    <div class="w-full lg:w-1/3 space-y-3">
+                        <button onclick="showSymptom('gi', this)" class="symptom-card w-full text-right p-4 rounded-xl border border-gray-200 bg-white flex items-center justify-between active">
+                            <div>
+                                <span class="text-2xl ml-3">🤢</span>
+                                <span class="font-bold text-navy-800 text-lg">מערכת העיכול</span>
+                            </div>
+                            <span class="text-gray-400">❮</span>
+                        </button>
+                        
+                        <button onclick="showSymptom('growth', this)" class="symptom-card w-full text-right p-4 rounded-xl border border-gray-200 bg-white flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl ml-3">📏</span>
+                                <span class="font-bold text-navy-800 text-lg">גדילה והתפתחות</span>
+                            </div>
+                            <span class="text-gray-400">❮</span>
+                        </button>
+
+                        <button onclick="showSymptom('systemic', this)" class="symptom-card w-full text-right p-4 rounded-xl border border-gray-200 bg-white flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl ml-3">🩸</span>
+                                <span class="font-bold text-navy-800 text-lg">ממצאים מעבדתיים</span>
+                            </div>
+                            <span class="text-gray-400">❮</span>
+                        </button>
+
+                        <button onclick="showSymptom('risk', this)" class="symptom-card w-full text-right p-4 rounded-xl border-2 border-navy-100 bg-navy-50 flex items-center justify-between mt-6">
+                            <div>
+                                <span class="text-2xl ml-3">👥</span>
+                                <span class="font-bold text-navy-900 text-lg">קבוצות סיכון (סקר יזום)</span>
+                            </div>
+                            <span class="text-navy-400">❮</span>
+                        </button>
+                    </div>
+
+                    <!-- Details Panel -->
+                    <div class="w-full lg:w-2/3 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 min-h-[350px] relative">
+                        <!-- GI Content -->
+                        <div id="symp-gi" class="symptom-content block">
+                            <h3 class="text-2xl font-heading font-bold text-navy-800 mb-6 border-b pb-2">תסמיני מערכת העיכול (GI)</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">כאבי בטן:</strong> תלונות תדירות וחוזרות ללא הטבה ניכרת.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">תפיחות בטנית:</strong> ניכרת במיוחד בפעוטות, לעיתים מלווה בגפיים דקות עקב דלדול שריר.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">יציאות:</strong> שלשול כרוני (רירי או שומני), או לחילופין - <strong>עצירות עקשנית</strong> שאינה מגיבה למרככי צואה או שינוי תזונתי.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Growth Content -->
+                        <div id="symp-growth" class="symptom-content hidden">
+                            <h3 class="text-2xl font-heading font-bold text-navy-800 mb-6 border-b pb-2">הפרעות גדילה והתפתחות</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">ירידה באחוזונים:</strong> שבירת עקומות גדילה כלפי מטה (Failure to Thrive - FTT).</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">משקל:</strong> אובדן משקל או חוסר עלייה מספקת במשקל בהתאם לגיל.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">קומה:</strong> קומה נמוכה באופן חריג ביחס לפוטנציאל הגנטי של ההורים.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">התפתחות מינית:</strong> עיכוב בהופעת סימני מין משניים במתבגרים (Delayed Puberty).</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Systemic Content -->
+                        <div id="symp-systemic" class="symptom-content hidden">
+                            <h3 class="text-2xl font-heading font-bold text-navy-800 mb-6 border-b pb-2">ממצאים מעבדתיים וסיסטמיים</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">אנמיה מחסר ברזל:</strong> במיוחד כזו שאינה משתפרת ממתן ברזל פומי (עקב פגיעה בספיגה בתריסריון).</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">חסרים תזונתיים:</strong> חסר בחומצה פולית, ויטמין D, סידן. מלווה בעייפות כרונית.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">אנזימי כבד:</strong> עלייה באנזימי כבד (Transaminitis) ללא הסבר זיהומי.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gold-500 ml-3 mt-1">◼</span>
+                                    <p class="text-gray-700"><strong class="text-navy-900">אחרים:</strong> אפטות חוזרות בחלל הפה, פגיעה בצפיפות העצם (אוסטאופניה) או שברים מחבלות קלות.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Risk Groups Content -->
+                        <div id="symp-risk" class="symptom-content bg-navy-50 -m-8 p-8 h-[calc(100%+4rem)] rounded-2xl hidden">
+                            <h3 class="text-2xl font-heading font-bold text-navy-900 mb-4 pb-2">קבוצות לביצוע סקר יזום</h3>
+                            <p class="text-navy-800 mb-6 bg-white p-3 rounded shadow-sm text-sm">נדרשות למעקב סרולוגי שגרתי גם ללא תסמינים, עקב סיכון מוגבר ל"מחלה שקטה".</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <strong class="text-navy-900 text-lg block mb-1">1. קרובי משפחה מדרגה ראשונה</strong>
+                                    <p class="text-gray-600 text-sm">אחים, הורים או ילדים של חולה מאומת (סיכון של 10-15%).</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <strong class="text-navy-900 text-lg block mb-1">2. תסמונות גנטיות</strong>
+                                    <p class="text-gray-600 text-sm">תסמונת דאון, טרנר, ויליאמס, ומטופלים עם חסר מולד ב-IgA.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-sm">
+                                    <strong class="text-navy-900 text-lg block mb-1">3. מחלות אוטואימוניות נלוות</strong>
+                                    <p class="text-gray-600 text-sm">סוכרת נעורים (Type 1), מחלות כבד/מרה אוטואימוניות, האשימוטו, JIA.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: Diagnosis -->
+            <section id="diagnosis" class="section-container">
+                <header class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-gold-100 text-gold-600 rounded-full text-sm font-bold mb-3 shadow-sm border border-gold-500/20">אלגוריתם אבחוני</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-black text-navy-900 mb-4">מסלול האבחון</h2>
+                    <p class="text-lg text-gray-600 border-r-4 border-gold-500 pr-4 leading-relaxed bg-white p-4 rounded-l-lg shadow-sm">
+                        האבחנה דורשת סדר פעולות מדויק. פרק זה מציג את השלבים מהבדיקה הראשונית ועד לאישור ההיסטולוגי. תוכלו לפתוח כל שלב כדי לקרוא על המשמעות הקלינית של הבדיקות ולראות מתי נעשה שימוש במסלולים חלופיים.
+                    </p>
+                </header>
+
+                <!-- CRITICAL WARNING -->
+                <div class="bg-red-50 border-r-4 border-red-500 p-6 rounded-l-xl shadow-sm mb-8 flex items-start gap-4">
+                    <span class="text-3xl">⚠️</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-red-800 mb-1">אזהרה סיעודית קריטית!</h3>
+                        <p class="text-red-900">
+                            <strong>אין להפסיק או להפחית חשיפה לגלוטן טרם סיום מלא של הבירור (כולל ביופסיה)!</strong><br>
+                            הימנעות מוקדמת תוביל להחלמה זמנית של המעי ולתוצאות תקינות-כוזבות (False Negative) שימנעו אבחנה.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Accordion Pipeline -->
+                <div class="space-y-4">
+                    
+                    <!-- Step 1 -->
+                    <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion('acc1')" class="w-full text-right p-5 bg-white hover:bg-gray-50 flex items-center justify-between transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-navy-100 text-navy-800 flex items-center justify-center font-bold text-xl">1</div>
+                                <h3 class="text-xl font-bold text-navy-900">סרולוגיה (בדיקות דם ראשוניות)</h3>
+                            </div>
+                            <span id="icon-acc1" class="text-xl text-gray-400">▼</span>
+                        </button>
+                        <div id="acc1" class="accordion-content p-6 border-t border-gray-100 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <strong class="text-navy-800 block mb-1">Total IgA (חובה)</strong>
+                                    <p class="text-sm text-gray-600">מטרתה לשלול חסר חיסוני מולד. בהינתן חסר, בדיקות מבוססות IgA יהיו שליליות כוזבות.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <strong class="text-navy-800 block mb-1">Anti-TTG (IgA)</strong>
+                                    <p class="text-sm text-gray-600">בדיקת הבחירה הראשונית. ערך מעל פי 10 מהנורמה מחשיד מאוד ומקדם לאבחנה.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <strong class="text-navy-800 block mb-1">EMA (IgA)</strong>
+                                    <p class="text-sm text-gray-600">נוגדנים נגד אנדומיזיום. ספציפית ביותר, לאימות במקרים של TTG גבולי/נמוך.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <strong class="text-navy-800 block mb-1">DGP (IgG)</strong>
+                                    <p class="text-sm text-gray-600">בדיקת הגיבוי לחולים עם חסר מולד ב-IgA לאיתור תגובה לגליאדין.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="border border-gray-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion('acc2')" class="w-full text-right p-5 bg-white hover:bg-gray-50 flex items-center justify-between transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-navy-100 text-navy-800 flex items-center justify-center font-bold text-xl">2</div>
+                                <h3 class="text-xl font-bold text-navy-900">גנטיקה (HLA DQ2 / DQ8)</h3>
+                            </div>
+                            <span id="icon-acc2" class="text-xl text-gray-400">▼</span>
+                        </button>
+                        <div id="acc2" class="accordion-content p-6 border-t border-gray-100 bg-gray-50">
+                            <p class="mb-4 text-gray-700"><strong>אינה מאשרת אבחנה:</strong> כ-30% מהאוכלוסייה נושאים גנים אלו.</p>
+                            <p class="mb-4 text-gray-700"><strong>יכולת ניבוי שלילית (NPV) גבוהה:</strong> היעדר הגנים שולל צליאק בכמעט 100%.</p>
+                            <p class="text-gray-700"><strong>שימוש במרפאה:</strong> פתרון דילמות וספקות אבחנתיים, או כסקר ראשוני לקרובי משפחה (תשובה שלילית פוטרת מבדיקות עתידיות).</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="border border-gold-300 rounded-xl bg-white overflow-hidden shadow-md">
+                        <button onclick="toggleAccordion('acc3')" class="w-full text-right p-5 bg-gold-50 hover:bg-gold-100 flex items-center justify-between transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-xl">3</div>
+                                <h3 class="text-xl font-bold text-navy-900">ביופסיה (תקן הזהב)</h3>
+                            </div>
+                            <span id="icon-acc3" class="text-xl text-gold-600">▼</span>
+                        </button>
+                        <div id="acc3" class="accordion-content p-6 border-t border-gold-200 bg-white">
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-gold-500">▪</span>
+                                    <p class="text-gray-700">מבוצעת באנדוסקופיה. נדרשות לפחות 5 דגימות (4 מהתריסריון, 1 מהבצל).</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-gold-500">▪</span>
+                                    <p class="text-gray-700"><strong>סולם מארש (Marsh):</strong> דרגות 0 (תקין) עד 3c (אטרופיה מוחלטת).</p>
+                                </li>
+                                <li class="flex items-start gap-3 p-4 bg-gray-50 rounded mt-4">
+                                    <span class="text-xl">🩺</span>
+                                    <p class="text-sm text-gray-600"><strong>מסלול ללא ביופסיה (חריג):</strong> באישור מומחה גסטרו בלבד. מותנה ב: תסמינים + TTG &gt; פי 10 מהנורמה + EMA חיובי מדם שני.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION: Special Cases -->
+            <section id="special" class="section-container">
+                <header class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-gold-100 text-gold-600 rounded-full text-sm font-bold mb-3 shadow-sm border border-gold-500/20">אבחנות מבדלות</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-black text-navy-900 mb-4">מצבים קליניים מיוחדים</h2>
+                    <p class="text-lg text-gray-600 border-r-4 border-gold-500 pr-4 leading-relaxed bg-white p-4 rounded-l-lg shadow-sm">
+                        לא כל סרולוגיה חיובית משמעותה דיאטה מיידית, ולא כל מעי שהחלים משמעותו היעלמות המחלה. פרק זה עושה סדר בשני מצבי ביניים חשובים הדורשים מעקב והנחיות שונות מהצוות.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Potential -->
+                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-8 border-navy-500 relative overflow-hidden">
+                        <div class="absolute -left-10 -top-10 opacity-5 text-9xl text-navy-900">?</div>
+                        <h3 class="text-3xl font-heading font-bold text-navy-900 mb-2">צליאק פוטנציאלית</h3>
+                        <p class="text-sm text-gray-500 mb-6 uppercase tracking-wider font-bold">Potential Celiac</p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center gap-2 text-gray-700">
+                                <span class="text-green-500 font-bold">✔</span> סרולוגיה חיובית
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-700">
+                                <span class="text-green-500 font-bold">✔</span> גנטיקה מתאימה
+                            </div>
+                            <div class="flex items-center gap-2 font-bold text-red-600 bg-red-50 p-2 rounded">
+                                <span>✖</span> ביופסיה תקינה לחלוטין (Marsh 0-1)
+                            </div>
+                        </div>
+
+                        <div class="bg-navy-50 p-4 rounded-lg">
+                            <strong class="text-navy-900 block mb-1">הנחיה סיעודית: טיפול</strong>
+                            <p class="text-sm text-gray-700">אין המלצה לדיאטה נטולת גלוטן. נדרש מעקב קליני וסרולוגי הדוק להתפתחות עתידית.</p>
+                        </div>
+                    </div>
+
+                    <!-- Latent -->
+                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-8 border-gold-500 relative overflow-hidden">
+                        <div class="absolute -left-10 -top-10 opacity-5 text-9xl text-gold-900">💤</div>
+                        <h3 class="text-3xl font-heading font-bold text-navy-900 mb-2">צליאק חביונית</h3>
+                        <p class="text-sm text-gray-500 mb-6 uppercase tracking-wider font-bold">Latent Celiac</p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center gap-2 text-gray-700">
+                                <span class="text-green-500 font-bold">✔</span> אובחן ודאית בעבר
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-700">
+                                <span class="text-green-500 font-bold">✔</span> חזר לצרוך גלוטן מלא
+                            </div>
+                            <div class="flex items-center gap-2 font-bold text-navy-600 bg-navy-50 p-2 rounded">
+                                <span>✔</span> לא פיתח פגיעה חוזרת במעי כעת
+                            </div>
+                        </div>
+
+                        <div class="bg-gold-50 p-4 rounded-lg">
+                            <strong class="text-gold-900 block mb-1">הנחיה סיעודית: טיפול</strong>
+                            <p class="text-sm text-gray-700">מחלה רדומה, לא החלמה. נדרש מעקב קפדני מחשש להישנות פתאומית של הפגיעה בעתיד.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: Nursing Protocol -->
+            <section id="protocol" class="section-container">
+                <header class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-gold-100 text-gold-600 rounded-full text-sm font-bold mb-3 shadow-sm border border-gold-500/20">עבודה שוטפת</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-black text-navy-900 mb-4">טיפול, הדרכה ומעקב</h2>
+                    <p class="text-lg text-gray-600 border-r-4 border-gold-500 pr-4 leading-relaxed bg-white p-4 rounded-l-lg shadow-sm">
+                        כאן מרוכזות ההנחיות התזונתיות שיש להעביר למשפחה, לצד רשימת תיוג (Checklist) אינטראקטיבית לשימוש במהלך ביקורת שנתית במרפאה. סמנו את המשימות שבוצעו כדי לעקוב אחר ההתקדמות מול המטופל.
+                    </p>
+                </header>
+
+                <!-- Diet Principles -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
+                    <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><span class="text-gold-500">🍽️</span> הדרכה תזונתית (GFD)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-gray-50 rounded-xl">
+                            <strong class="text-navy-800 block mb-2">הימנעות מוחלטת</strong>
+                            <p class="text-sm text-gray-600">פחות מ-20 ppm לכל החיים. גם פירורים מפעילים את המערכת. חובה להדריך על קריאת תוויות ומקורות חבויים.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-xl">
+                            <strong class="text-navy-800 block mb-2">זיהום משני</strong>
+                            <p class="text-sm text-gray-600">הפרדת המטבח הביתי: מצנם נפרד, קרשי חיתוך, הימנעות מטיגון באותו שמן, וזהירות בצנצנות ממרח משותפות.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-xl">
+                            <strong class="text-navy-800 block mb-2">שיבולת שועל</strong>
+                            <p class="text-sm text-gray-600">מועדת לזיהום בתהליך הגידול/טחינה. להימנע בתחילת ההחלמה. בהמשך לשלב בהדרגה רק מוצרים המסומנים "ללא גלוטן".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Annual Follow-up Checklist -->
+                <h3 class="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"><span class="text-gold-500">☑️</span> רשימת תיוג: מעקב שנתי במרפאה</h3>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-2 overflow-hidden">
+                    <ul id="checklist" class="flex flex-col"><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl1">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl1', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">אנטרופומטריה</span>
+                            <span class="text text-gray-800 text-lg">שקילה מדויקת ומדידת גובה</span>
+                        </div>
+                    </label>
+                </li><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl2">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl2', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">אנטרופומטריה</span>
+                            <span class="text text-gray-800 text-lg">רישום אחוזונים וחישוב BMI (מעקב Catch-up growth)</span>
+                        </div>
+                    </label>
+                </li><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl3">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl3', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">מעבדה (סרולוגיה)</span>
+                            <span class="text text-gray-800 text-lg">בדיקת רמות TTG (מדד מרכזי להיענות לדיאטה)</span>
+                        </div>
+                    </label>
+                </li><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl4">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl4', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">מעבדה (כללי)</span>
+                            <span class="text text-gray-800 text-lg">ספירת דם מלאה ומאגרי ברזל (פריטין)</span>
+                        </div>
+                    </label>
+                </li><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl5">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl5', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">מעבדה (תזונה ובלוטות)</span>
+                            <span class="text text-gray-800 text-lg">רמות B12, חומצה פולית, ויטמין D, תפקודי כבד ו-TSH</span>
+                        </div>
+                    </label>
+                </li><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl6">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl6', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">תמיכה והערכה</span>
+                            <span class="text text-gray-800 text-lg">תשאול רגיש על קשיים חברתיים/רגשיים בשמירה על הדיאטה</span>
+                        </div>
+                    </label>
+                </li><li class="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-cl7">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('cl7', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">המשך טיפול</span>
+                            <span class="text text-gray-800 text-lg">הפניה לדיאטנית גסטרו / תמיכה פסיכולוגית לפי צורך</span>
+                        </div>
+                    </label>
+                </li></ul>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button onclick="resetChecklist()" class="text-sm text-navy-500 hover:text-navy-800 underline">אפס רשימה למטופל הבא</button>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Modal for QR Code -->
+    <div id="qrModal" class="fixed inset-0 modal-overlay items-center justify-center z-50 transition-opacity hidden">
+        <div class="bg-white p-8 rounded-2xl max-w-sm w-full text-center shadow-2xl relative border-t-4 border-gold-500 m-4">
+            <button onclick="closeQRModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-800 text-2xl font-bold leading-none">×</button>
+            <h3 class="font-heading font-black text-2xl text-navy-900 mb-2">שיתוף באמצעות QR</h3>
+            
+            <div id="qrWarning" class="bg-red-50 border border-red-200 text-red-700 text-sm p-3 rounded-lg text-right mb-4 hidden">
+                <strong>⚠️ אזהרה: צפייה מקומית</strong><br>
+                הקובץ פתוח כרגע ישירות מהמחשב שלך. הברקוד לא יעבוד במכשירים אחרים עד שתעלי את הקובץ לשרת ארגוני משותף (כמו SharePoint).
+            </div>
+
+            <div id="qrContainer" class="flex justify-center mb-4 min-h-[160px] bg-gray-50 rounded-xl p-4 border border-gray-100"><img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fcelliac.tiiny.site%2F&amp;margin=10" alt="QR Code" class="rounded shadow-sm"></div>
+            
+            <p class="text-xs text-gray-500 mb-1">הכתובת המקודדת בברקוד:</p>
+            <p id="qrUrl" class="text-xs text-navy-600 bg-navy-50 p-2 rounded break-all text-left dir-ltr">https://celliac.tiiny.site/</p>
+        </div>
+    </div>
+
+    <!-- Application Logic & Chart -->
+    <script>
+        // 1. Navigation Logic
+        function navTo(sectionId) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            document.querySelectorAll('.section-container').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+
+            const sidebar = document.getElementById('sidebar');
+            if(window.innerWidth < 768 && !sidebar.classList.contains('hidden')) {
+                sidebar.classList.add('hidden');
+            }
+            window.scrollTo(0,0);
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+
+        // 2. Interactive Symptoms Tabs
+        function showSymptom(type, btnElement) {
+            document.querySelectorAll('.symptom-card').forEach(btn => btn.classList.remove('active', 'border-gold-500', 'bg-gold-50'));
+            btnElement.classList.add('active');
+
+            document.querySelectorAll('.symptom-content').forEach(content => {
+                content.classList.remove('block');
+                content.classList.add('hidden');
+            });
+
+            document.getElementById('symp-' + type).classList.remove('hidden');
+            document.getElementById('symp-' + type).classList.add('block');
+        }
+
+        // 3. Interactive Accordion
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('open');
+                icon.textContent = '▲';
+            }
+        }
+
+        // 4. Checklist Logic
+        const checklistItems = [
+            { id: 'cl1', category: 'אנטרופומטריה', text: 'שקילה מדויקת ומדידת גובה' },
+            { id: 'cl2', category: 'אנטרופומטריה', text: 'רישום אחוזונים וחישוב BMI (מעקב Catch-up growth)' },
+            { id: 'cl3', category: 'מעבדה (סרולוגיה)', text: 'בדיקת רמות TTG (מדד מרכזי להיענות לדיאטה)' },
+            { id: 'cl4', category: 'מעבדה (כללי)', text: 'ספירת דם מלאה ומאגרי ברזל (פריטין)' },
+            { id: 'cl5', category: 'מעבדה (תזונה ובלוטות)', text: 'רמות B12, חומצה פולית, ויטמין D, תפקודי כבד ו-TSH' },
+            { id: 'cl6', category: 'תמיכה והערכה', text: 'תשאול רגיש על קשיים חברתיים/רגשיים בשמירה על הדיאטה' },
+            { id: 'cl7', category: 'המשך טיפול', text: 'הפניה לדיאטנית גסטרו / תמיכה פסיכולוגית לפי צורך' }
+        ];
+
+        function renderChecklist() {
+            const listEl = document.getElementById('checklist');
+            listEl.innerHTML = '';
+            
+            checklistItems.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors';
+                li.innerHTML = `
+                    <label class="flex items-center p-4 cursor-pointer checklist-item w-full" id="label-${item.id}">
+                        <div class="relative flex items-center">
+                            <input type="checkbox" class="w-6 h-6 border-2 border-gray-300 rounded text-navy-600 focus:ring-navy-500 cursor-pointer" onchange="toggleCheck('${item.id}', this.checked)">
+                        </div>
+                        <div class="mr-4 select-none">
+                            <span class="text-xs font-bold text-gold-600 uppercase tracking-wide block">${item.category}</span>
+                            <span class="text text-gray-800 text-lg">${item.text}</span>
+                        </div>
+                    </label>
+                `;
+                listEl.appendChild(li);
+            });
+        }
+
+        function toggleCheck(id, isChecked) {
+            const label = document.getElementById('label-' + id);
+            if(isChecked) {
+                label.classList.add('checked');
+            } else {
+                label.classList.remove('checked');
+            }
+        }
+
+        function resetChecklist() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.checklist-item').forEach(lbl => lbl.classList.remove('checked'));
+        }
+
+        // 5. Download HTML functionality
+        function downloadHTMLFile() {
+            let htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'celiac_nursing_app.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            const notification = document.getElementById('notification');
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 3000);
+        }
+
+        // 6. QR Code Functionality
+        function generateQRCode() {
+            const currentUrl = window.location.href;
+            const modal = document.getElementById('qrModal');
+            const container = document.getElementById('qrContainer');
+            const warning = document.getElementById('qrWarning');
+            const urlText = document.getElementById('qrUrl');
+
+            // Set the URL text in the modal
+            urlText.textContent = currentUrl;
+
+            // Detect & Alert logic: Check if running locally
+            if (window.location.protocol === 'file:' || currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1')) {
+                warning.classList.remove('hidden');
+            } else {
+                warning.classList.add('hidden');
+            }
+
+            // Generate QR Code using a public API
+            container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(currentUrl)}&margin=10" alt="QR Code" class="rounded shadow-sm" />`;
+
+            // Show the modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeQRModal() {
+            const modal = document.getElementById('qrModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 7. Initialize Chart
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChecklist();
+
+            const ctx = document.getElementById('prevalenceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['חולי צליאק (1%)', 'אוכלוסייה כללית (99%)'],
+                    datasets: [{
+                        data: [1, 99],
+                        backgroundColor: ['#cca163', '#e2e8f0'],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { family: 'Assistant', size: 14 } } },
+                        tooltip: {
+                            callbacks: { label: function(context) { return ' ' + context.label; } },
+                            titleFont: { family: 'Heebo' },
+                            bodyFont: { family: 'Assistant', size: 14 }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body></html>

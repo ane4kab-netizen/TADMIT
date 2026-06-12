@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אתר תדמית | אנה בולמבך זסלבסקי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Heebo', 'sans-serif'] },
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#3182ce',
+                        light: '#f7fafc',
+                        whatsapp: '#25D366',
+                        whatsappHover: '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .face-crop {
+            object-fit: cover;
+            object-position: center 20%;
+        }
+        
+        .logo-style {
+            object-fit: contain;
+            background-color: white;
+        }
+
+        /* סגנונות למודל יצירת קשר */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* עיצוב לקורות החיים (Timeline) */
+        .timeline-item {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3182ce;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #3182ce;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            right: 5px;
+            top: 1.5rem;
+            bottom: -1rem;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-light text-primary font-sans antialiased leading-relaxed">
+
+    <!-- סרגל ניווט עליון -->
+    <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 text-xl font-bold tracking-tight text-primary hover:text-accent transition">
+                <img src="logo.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23a0aec0\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\'/></svg>';" alt="לוגו - אנה בולמבך זסלבסקי" class="h-12 w-12 rounded-full border border-gray-200 shadow-sm logo-style p-0.5">
+                <span class="hidden sm:inline">אנה בולמבך זסלבסקי</span>
+            </a>
+           
+            <nav class="hidden lg:flex space-x-6 space-x-reverse text-sm font-medium">
+                <a href="#about" class="text-secondary hover:text-accent transition">מי אני</a>
+                <a href="#clinical-guidelines" class="text-secondary hover:text-accent transition">הנחיות קליניות</a>
+                <a href="#conferences" class="text-secondary hover:text-accent transition">כנסים</a>
+                <a href="#testimonials" class="text-secondary hover:text-accent transition">מטופלים כותבים</a>
+                <a href="#resume" class="text-secondary hover:text-accent transition">קורות חיים</a>
+                <a href="#contact" class="text-secondary hover:text-accent transition">צור קשר</a>
+            </nav>
+            
+            <!-- תפריט מובייל (המבורגר) שיוצג במסכים קטנים -->
+            <button class="lg:hidden text-primary text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- אזור פתיחה (Hero) -->
+    <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex items-center min-h-screen bg-gradient-to-b from-white to-light">
+        <div class="container mx-auto max-w-4xl text-center fade-in">
+            <div class="mb-8 flex justify-center">
+                <img src="me.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23cbd5e0\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg>';" alt="אנה בולמבך זסלבסקי" class="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-white shadow-2xl face-crop bg-gray-100">
+            </div>
+           
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-primary">שלום, אני אנה בולמבך זסלבסקי</h1>
+            <p class="text-xl md:text-2xl text-secondary mb-8 font-light">אחות מוסמכת RN, MA | מדריכה קלינית<br>סטודנטית למומחיות קלינית ברפואת משפחה (NP)</p>
+           
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <!-- כפתור יצירת קשר -->
+                <button onclick="openModal()" class="bg-primary hover:bg-accent text-white px-8 py-3.5 rounded-full font-medium transition duration-300 shadow-md flex items-center justify-center gap-2 text-lg w-full sm:w-auto">
+                    <i class="fas fa-envelope"></i> יצירת קשר
+                </button>
+                
+                <!-- כפתור וואטסאפ ישיר -->
+                <a href="https://wa.me/972545465583" target="_blank" rel="noopener noreferrer" class="bg-whatsapp hover:bg-whatsappHover text-white px-8 py-3.5 rounded-full font-medium transition duration-300 shadow-md flex items-center justify-center gap-2 text-lg w-full sm:w-auto">
+                    <i class="fab fa-whatsapp text-2xl"></i> שלחו לי הודעה
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור אודות -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">קצת עליי</h2>
+            <div class="text-lg text-secondary leading-relaxed bg-gray-50 p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100">
+                <p class="mb-4">
+                    שמי אנה בולמבך זסלבסקי, אחות מוסמכת (RN) בעלת תואר שני בסיעוד (MA), מדריכה קלינית מנוסה וסטודנטית בקורס מומחיות קלינית ברפואת משפחה (Nurse Practitioner). 
+                    במהלך למעלה מ-20 שנות עבודתי במערכת הבריאות, צברתי ניסיון עשיר ומגוון בטיפול קליני בבתי חולים ובמרפאות קהילה, תוך התמחות מיוחדת בגריאטריה, אונקולוגיה ורפואה ראשונית.
+                </p>
+                <p class="mb-4">
+                    אני מאמינה במתן טיפול הוליסטי, מקצועי ואמפתי למטופל ולמשפחתו, תוך הקפדה על סטנדרטים קליניים גבוהים. כמדריכה קלינית, אני רואה חשיבות רבה בהעברת הידע ובהכשרת דור העתיד של האחיות והאחים בישראל.
+                </p>
+                <p>
+                    דוברת רוסית (שפת אם), עברית ואנגלית ברמה גבוהה, מה שמאפשר לי לתקשר בצורה מיטבית עם מגוון רחב של מטופלים ולספק להם מענה מותאם אישית.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור מידע מקצועי משולב: הנחיות קליניות וכנסים -->
+    <section class="py-20 px-6 bg-light">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- רובריקה: הנחיות קליניות -->
+                <div id="clinical-guidelines" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative hover:shadow-md transition group">
+                    <div class="w-14 h-14 bg-blue-100 text-accent rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">הנחיות קליניות</h3>
+                    <div class="h-1 w-12 bg-accent mb-6 rounded-full"></div>
+                    <p class="text-secondary text-lg leading-relaxed mb-6 font-medium">
+                        רובריקה זו נועדה לרכז ולפרסם הנחיות קליניות עדכניות בנושאים שונים הנמצאים בשימוש יומיומי במרפאה ראשונית. המידע יתבסס על ספרות מקצועית עדכנית ורפואה מבוססת-ראיות (Evidence-Based Medicine) להבטחת איכות הטיפול.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-sm text-gray-500 italic text-center">
+                        <i class="fas fa-clock mr-1"></i> מאמרים והנחיות יפורסמו כאן בקרוב.
+                    </div>
+                </div>
+
+                <!-- רובריקה: כנסים -->
+                <div id="conferences" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative hover:shadow-md transition group">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">כנסים והשתלמויות</h3>
+                    <div class="h-1 w-12 bg-purple-600 mb-6 rounded-full"></div>
+                    <p class="text-secondary text-lg leading-relaxed mb-6 font-medium">
+                        אזור זה מוקדש ללמידה מתמדת והתפתחות מקצועית. כאן יפורסמו פרטים ועדכונים אודות כנסים, ימי עיון והשתלמויות בנושאים מקצועיים שונים הרלוונטיים לסיעוד ורפואת משפחה בארץ ובעולם.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-sm text-gray-500 italic text-center">
+                        <i class="fas fa-clock mr-1"></i> עדכונים על כנסים קרובים יפורסמו בקרוב.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור מטופלים כותבים -->
+    <section id="testimonials" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">מטופלים כותבים</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- המלצה 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 relative hover:shadow-md transition">
+                    <i class="fas fa-quote-right text-4xl text-blue-100 absolute top-6 right-6"></i>
+                    <p class="text-secondary text-lg leading-relaxed relative z-10 mt-8 mb-6 font-medium">
+                        "אנה היא אשת מקצוע משכמה ומעלה. הטיפול המסור והיחס החם שקיבלנו ממנה לאורך כל הדרך נתנו לנו ביטחון ושקט נפשי. היא תמיד קשובה, סבלנית ומסבירה כל פרט במאור פנים."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-200 pt-4">
+                        <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">מ'</div>
+                        <div>
+                            <h4 class="font-bold text-primary">מ.ר.</h4>
+                            <p class="text-sm text-gray-500">מטופלת במרפאה</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- המלצה 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 relative hover:shadow-md transition">
+                    <i class="fas fa-quote-right text-4xl text-blue-100 absolute top-6 right-6"></i>
+                    <p class="text-secondary text-lg leading-relaxed relative z-10 mt-8 mb-6 font-medium">
+                        "המקצועיות של אנה בולטת בכל בדיקה ופעולה. מעבר לידע הרפואי הרחב, יש לה יכולת נדירה לראות את המטופל כאדם שלם, להרגיע ולהעניק טיפול אנושי ומכבד באמת."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-200 pt-4">
+                        <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">ד'</div>
+                        <div>
+                            <h4 class="font-bold text-primary">דוד ש.</h4>
+                            <p class="text-sm text-gray-500">בן משפחה</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור קורות חיים -->
+    <section id="resume" class="py-20 px-6 bg-light">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">קורות חיים</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- עמודה ימנית: ניסיון מקצועי -->
+                <div>
+                    <h3 class="text-2xl font-bold text-accent mb-6 flex items-center gap-2 border-b-2 border-accent pb-2 inline-flex">
+                        <i class="fas fa-briefcase"></i> ניסיון מקצועי קליני
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-4">
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2018 - הווה</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">קופ"ח מכבי, אשדוד</h4>
+                            <p class="text-secondary font-medium">מרפאה ראשונית | נאמנת אונקולוגית</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2017 (אוג' - נוב')</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">ביה"ח אסותא אשדוד</h4>
+                            <p class="text-secondary font-medium">בית חולים ציבורי | מרפאות חוץ</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2016 - 2017</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">קופ"ח כללית</h4>
+                            <p class="text-secondary font-medium">מרפאה ראשונית | מרפאה גריאטרית</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2016</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">ביה"ח איכילוב</h4>
+                            <p class="text-secondary font-medium">מרפאה פסיכוגריאטרית | מדריכה קלינית</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2014 - 2015</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">קופ"ח מכבי</h4>
+                            <p class="text-secondary font-medium">אחות מנהלת טיפול | מוקד למעקב חולים כרוניים</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2012 - 2016</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">קופ"ח מאוחדת, אשדוד</h4>
+                            <p class="text-secondary font-medium">מרפאה גריאטרית וחדר אחות כללי | מדריכה קלינית</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-sm font-bold text-accent bg-blue-50 px-2 py-1 rounded">2004 - 2011</span>
+                            <h4 class="text-lg font-bold text-primary mt-2">ביה"ח ברזילי, אשקלון</h4>
+                            <p class="text-secondary font-medium">מחלקת גריאטריה | מדריכה קלינית</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- עמודה שמאלית: השכלה וקורסים -->
+                <div>
+                    <!-- השכלה -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-accent mb-6 flex items-center gap-2 border-b-2 border-accent pb-2 inline-flex">
+                            <i class="fas fa-graduation-cap"></i> השכלה אקדמית והסמכות
+                        </h3>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-4 space-y-6">
+                            <div>
+                                <span class="text-sm font-bold text-gray-500">2023 - הווה</span>
+                                <h4 class="text-lg font-bold text-primary">אוניברסיטה/מכללה</h4>
+                                <p class="text-secondary">קורס מומחיות קלינית ברפואת משפחה (Nurse Practitioner)</p>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-gray-500">2008 - 2010</span>
+                                <h4 class="text-lg font-bold text-primary">אוניברסיטת תל אביב</h4>
+                                <p class="text-secondary">תואר שני בסיעוד (M.A. מוסמך האוניברסיטה)</p>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-gray-500">2009</span>
+                                <h4 class="text-lg font-bold text-primary">ביה"ס לסיעוד, אשקלון</h4>
+                                <p class="text-secondary">תעודת מדריכה קלינית מורשת בסיעוד</p>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-gray-500">2006 - 2008</span>
+                                <h4 class="text-lg font-bold text-primary">אוניברסיטת תל אביב</h4>
+                                <p class="text-secondary">תואר ראשון בסיעוד (B.A. בוגר אוניברסיטה)</p>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-gray-500">2002 - 2004</span>
+                                <h4 class="text-lg font-bold text-primary">ביה"ס לסיעוד, אשקלון</h4>
+                                <p class="text-secondary">תעודת אחות מוסמכת (מס' רישום 183652)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- קורסים -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-accent mb-6 flex items-center gap-2 border-b-2 border-accent pb-2 inline-flex">
+                            <i class="fas fa-certificate"></i> השתלמויות מוכרות ועל-בסיסי
+                        </h3>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-4 space-y-4">
+                            <div class="border-b pb-3 last:border-0 last:pb-0">
+                                <h4 class="font-bold text-primary">על בסיסי - רפואת הקהילה (רפואה ראשונית)</h4>
+                                <p class="text-sm text-gray-500">2014 - 2015</p>
+                            </div>
+                            <div class="border-b pb-3 last:border-0 last:pb-0">
+                                <h4 class="font-bold text-primary">על בסיסי - טיפול מוגבר בחולה מבוגר (גריאטריה)</h4>
+                                <p class="text-sm text-gray-500">2011 - 2012</p>
+                            </div>
+                            <div class="border-b pb-3 last:border-0 last:pb-0">
+                                <h4 class="font-bold text-primary">קורס מחנכות סוכרת</h4>
+                                <p class="text-sm text-gray-500">2010 | המרכז הרפואי שיבא</p>
+                            </div>
+                            <div class="border-b pb-3 last:border-0 last:pb-0">
+                                <h4 class="font-bold text-primary">קורס טיפול בפצעים לאחים ואחיות</h4>
+                                <p class="text-sm text-gray-500">2009 | המרכז הרפואי שיבא</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- שפות -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-accent mb-6 flex items-center gap-2 border-b-2 border-accent pb-2 inline-flex">
+                            <i class="fas fa-language"></i> שפות
+                        </h3>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-4 flex flex-wrap gap-4">
+                            <div class="bg-gray-50 px-4 py-2 rounded-lg border border-gray-200 flex-1 min-w-[120px] text-center">
+                                <div class="font-bold text-primary">רוסית</div>
+                                <div class="text-sm text-secondary">שפת אם</div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-2 rounded-lg border border-gray-200 flex-1 min-w-[120px] text-center">
+                                <div class="font-bold text-primary">עברית</div>
+                                <div class="text-sm text-secondary">רמה גבוהה</div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-2 rounded-lg border border-gray-200 flex-1 min-w-[120px] text-center">
+                                <div class="font-bold text-primary">אנגלית</div>
+                                <div class="text-sm text-secondary">רמה טובה-גבוהה</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור צור קשר -->
+    <section id="contact" class="py-24 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6 text-primary">בואו נדבר</h2>
+            <p class="text-lg text-secondary mb-12">אשמח לשמוע מכם. ניתן ליצור איתי קשר בדרכים הבאות:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- כרטיס אימייל -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-blue-100 text-accent rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">אימייל</h3>
+                    <a href="mailto:ANE4KAB@GMAIL.COM" class="text-secondary hover:text-accent transition text-lg" dir="ltr">ANE4KAB@GMAIL.COM</a>
+                </div>
+                
+                <!-- כרטיס וואטסאפ/טלפון -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-green-100 text-whatsapp rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">וואטסאפ / נייד</h3>
+                    <a href="https://wa.me/972545465583" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-whatsapp transition text-lg block mb-1" dir="ltr">הודעת וואטסאפ</a>
+                    <a href="tel:0545465583" class="text-gray-500 hover:text-accent transition text-sm" dir="ltr">054-5465583</a>
+                </div>
+
+                <!-- כרטיס QR Code לאתר -->
+                <div class="bg-gray-50 p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col items-center justify-center">
+                    <h3 class="font-bold text-lg mb-3">לשמירת האתר</h3>
+                    <div class="bg-white p-2 rounded-lg border border-gray-200 shadow-sm mb-2">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://your-website-url.com" alt="QR Code לאתר" class="w-24 h-24">
+                    </div>
+                    <p class="text-sm text-gray-500">סרקו כדי לשמור ולשתף</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- פוטר -->
+    <footer class="bg-gray-800 text-white py-8 text-center text-sm">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="currentYear"></span> אנה בולמבך זסלבסקי. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <!-- מודל יצירת קשר (קופץ בלחיצה על הכפתור) -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content relative text-center border-t-4 border-accent">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl transition">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fas fa-address-card"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-8 text-primary">פרטי התקשרות</h3>
+            
+            <div class="space-y-4">
+                <!-- וואטסאפ ישיר -->
+                <a href="https://wa.me/972545465583" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-whatsapp hover:bg-whatsappHover text-white p-4 rounded-lg font-medium transition shadow-sm w-full">
+                    <i class="fab fa-whatsapp text-2xl"></i> שלחו לי הודעת וואטסאפ
+                </a>
+
+                <!-- העתקת אימייל -->
+                <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-envelope text-accent text-xl"></i>
+                        <span id="emailText" class="font-medium text-lg" dir="ltr">ANE4KAB@GMAIL.COM</span>
+                    </div>
+                    <button onclick="copyText('emailText')" class="text-sm bg-white border border-gray-200 hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-md transition shadow-sm flex items-center gap-2" title="העתק">
+                        <i class="fas fa-copy"></i> העתק
+                    </button>
+                </div>
+                
+                <!-- העתקת טלפון -->
+                <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-phone text-gray-600 text-xl"></i>
+                        <span id="phoneText" class="font-medium text-lg" dir="ltr">0545465583</span>
+                    </div>
+                    <button onclick="copyText('phoneText')" class="text-sm bg-white border border-gray-200 hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-md transition shadow-sm flex items-center gap-2" title="העתק">
+                        <i class="fas fa-copy"></i> העתק
+                    </button>
+                </div>
+            </div>
+            
+            <div id="copyMessage" class="bg-green-100 text-green-700 text-sm font-bold py-2 px-4 rounded-md mt-6 hidden transition-all">
+                <i class="fas fa-check-circle ml-1"></i> הועתק בהצלחה!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // עדכון השנה בפוטר
+        const yearElement = document.getElementById('currentYear');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+
+        // ניהול המודל (חלון קופץ)
+        const modal = document.getElementById("contactModal");
+        
+        function openModal() {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // סגירת מודל בלחיצה על הרקע הכהה
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // פונקציית העתקת טקסט
+        function copyText(elementId) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(showSuccessMsg);
+            } else {
+                let textArea = document.createElement("textarea");
+                textArea.value = textToCopy;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showSuccessMsg();
+                } catch (err) {
+                    console.error('שגיאה בהעתקה: ', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+        
+        // הצגת הודעת הצלחה להעתקה
+        function showSuccessMsg() {
+            const msg = document.getElementById("copyMessage");
+            msg.classList.remove("hidden");
+            setTimeout(() => {
+                msg.classList.add("hidden");
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
