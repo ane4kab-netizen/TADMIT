@@ -79,27 +79,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Language / RTL Toggle Placeholder ---
-    const langToggle = document.querySelector('.lang-toggle');
-    if (langToggle) {
-        langToggle.addEventListener('click', () => {
-            const htmlTag = document.documentElement;
-            const currentLang = htmlTag.getAttribute('lang');
-            
-            if (currentLang === 'en') {
-                // Switch to Hebrew (RTL) simulation
-                htmlTag.setAttribute('lang', 'he');
-                htmlTag.setAttribute('dir', 'rtl');
-                langToggle.textContent = 'HE';
-                langToggle.setAttribute('title', 'Language: Hebrew');
+    // --- Language / RTL Toggle (3 States) ---
+    const htmlTag = document.documentElement;
+    const langBtns = document.querySelectorAll('.lang-btn');
+    
+    function setLanguage(lang) {
+        // Update html tag
+        htmlTag.setAttribute('lang', lang);
+        if (lang === 'he') {
+            htmlTag.setAttribute('dir', 'rtl');
+            document.title = "אנה בולמבך זסלבסקי | פורטפוליו קליני";
+        } else if (lang === 'en') {
+            htmlTag.setAttribute('dir', 'ltr');
+            document.title = "Anna Bolembakh Zaslavsky | Clinical Portfolio";
+        } else if (lang === 'ru') {
+            htmlTag.setAttribute('dir', 'ltr');
+            document.title = "Анна Болембах Заславски | Клиническое Портфолио";
+        }
+        
+        // Update active button state
+        langBtns.forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
             } else {
-                // Switch to English (LTR)
-                htmlTag.setAttribute('lang', 'en');
-                htmlTag.setAttribute('dir', 'ltr');
-                langToggle.textContent = 'EN';
-                langToggle.setAttribute('title', 'Language: English');
+                btn.classList.remove('active');
             }
         });
+        
+        // Save preference
+        localStorage.setItem('preferredLang', lang);
     }
+
+    // Initialize from local storage or default to 'he'
+    const savedLang = localStorage.getItem('preferredLang') || 'he';
+    setLanguage(savedLang);
+
+    // Add click listeners to buttons
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetLang = btn.getAttribute('data-lang');
+            setLanguage(targetLang);
+        });
+    });
 
 });
