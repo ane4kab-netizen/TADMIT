@@ -1,268 +1,775 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אנה | אחות מומחית ברפואת משפחה</title>
-    <!-- Google Fonts -->
+    <title>Anna Bolembakh Zaslavsky | Clinical Portfolio</title>
+    <meta name="description" content="Professional medical portfolio of Anna Bolembakh Zaslavsky, RN, MA, Nurse Practitioner Candidate in Family Medicine at Maccabi Healthcare Services.">
+    
+    <!-- Google Fonts: Inter for a clean, modern, academic look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config for Custom Colors/Fonts -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Heebo', 'sans-serif'],
-                    },
-                    colors: {
-                        medical: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7', // Primary soft medical blue
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
-                    },
-                    boxShadow: {
-                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
-                        'float': '0 20px 40px -5px rgba(2, 132, 199, 0.15)',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
-        
-        /* Entrance animation */
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons for high quality medical/UI icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-700 font-sans antialiased selection:bg-medical-200 selection:text-medical-900 overflow-x-hidden">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-slate-800 tracking-tight">אנה <span class="text-medical-600">.</span></div>
-            <div class="hidden md:flex space-x-8 space-x-reverse text-sm font-medium text-slate-600">
-                <a href="#about" class="hover:text-medical-600 transition-colors">אודות</a>
-                <a href="#expertise" class="hover:text-medical-600 transition-colors">תחומי מומחיות</a>
-                <a href="#contact" class="hover:text-medical-600 transition-colors">צור קשר</a>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <span class="logo-name">A. Zaslavsky</span>
+                    <span class="logo-title">RN, MA, NP Candidate</span>
+                </div>
             </div>
-            <a href="#contact" class="bg-medical-600 hover:bg-medical-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">צור קשר</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center justify-center min-h-[90vh]">
-        <!-- Decorative Background Elements -->
-        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-medical-50 blur-3xl opacity-60"></div>
-        <div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-80 h-80 rounded-full bg-slate-100 blur-3xl opacity-60"></div>
-
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-medical-50 border border-medical-100 text-medical-700 text-sm font-medium opacity-0 animate-fade-in-up">
-                RN, MA
-            </div>
-            <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 mb-6 tracking-tight opacity-0 animate-fade-in-up delay-100">
-                אנה<br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-medical-600 to-medical-400">אחות מומחית ברפואת משפחה</span>
-            </h1>
-            <p class="text-lg lg:text-xl text-slate-500 mb-10 max-w-2xl mx-auto font-light leading-relaxed opacity-0 animate-fade-in-up delay-200">
-                מקצוענות קלינית, אבחון מדויק, ויחס אישי. מתמחה בטיפול ראשוני וניהול רפואי מתקדם בקהילה.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse opacity-0 animate-fade-in-up delay-300">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-medical-600 text-white font-medium shadow-soft hover:shadow-float hover:-translate-y-1 transition-all duration-300">
-                    יצירת קשר
-                </a>
-                <a href="#expertise" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-slate-700 border border-slate-200 font-medium shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                    תחומי מומחיות
-                </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#guidelines">Protocols</a></li>
+                    <li><a href="#presentations">Presentations</a></li>
+                    <li><a href="#philosophy">Philosophy</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <!-- RTL/Language toggle -->
+                <a href="index_he.html" class="lang-toggle" aria-label="Toggle language to Hebrew" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--color-border); padding: var(--space-xs) var(--space-sm); border-radius: var(--border-radius-sm); color: var(--color-text); font-weight: 600; font-size: 0.875rem;">עברית / English</a>
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white relative z-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="relative">
-                        <!-- Floating Image Container -->
-                        <div class="aspect-square rounded-3xl overflow-hidden bg-slate-100 shadow-soft transform transition-transform duration-500 hover:scale-[1.02]">
-                            <!-- Optional Placeholder Image -->
-                            <img src="me.jpg" alt="אנה - אחות מומחית" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800'">
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">Maccabi Healthcare Services</div>
+                    <h1 class="hero-title">Anna Bolembakh Zaslavsky</h1>
+                    <h2 class="hero-subtitle">RN, MA, Nurse Practitioner Candidate in Family Medicine</h2>
+                    <p class="hero-text">
+                        Delivering evidence-based practice, comprehensive primary care, and patient-centered clinical excellence.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#guidelines" class="btn btn-primary">
+                            <i data-lucide="book-open"></i> View Clinical Guidelines
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i data-lucide="mail"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="images/[profile_pic.jg]" alt="Anna Bolembakh Zaslavsky Headshot" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Personal & Professional Summary</h3>
+                        <p>
+                            My name is Anna Zaslavsky, a Registered Nurse (RN, MA) at Maccabi Healthcare Services, currently specializing as a Family Medicine Nurse Practitioner (expected completion May 2027).
+                        </p>
+                        <p>
+                            My clinical approach combines deep human compassion with rigorous analytical thinking. I do not settle for half-answers; I operate with a researcher's mindset. I double-check every detail, challenge underlying assumptions, and believe that excellent medicine requires intellectual honesty and a relentless pursuit of the most accurate scientific and medical truth.
+                        </p>
+                        <p>
+                            Beyond the protocols, my personal journey as a healthcare professional, student, and mother has taught me that behind every medical record is a person with a complex reality. My goal is to provide healthcare that is not only highly professional but also looks the patient in the eye, understands their unique challenges, and gives them absolute confidence in their care.
+                        </p>
+
+                        <div class="resource-group">
+                            <h4 class="resource-group-title">
+                                <i data-lucide="info"></i> About the Nurse Practitioner Role in Israel:
+                            </h4>
+                            <div class="resource-actions">
+                                <a href="docs/np_role_protocol.pdf" target="_blank" class="btn btn-primary">
+                                    <i data-lucide="file-text"></i> 📄 Official Protocol
+                                </a>
+                                <a href="docs/np_presentation.html" target="_blank" class="btn btn-outline">
+                                    <i data-lucide="bar-chart-2"></i> 📊 Clinical Summary Presentation
+                                </a>
+                            </div>
                         </div>
-                        <!-- Floating Badge -->
-                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-float z-10 animate-fade-in-up delay-300">
-                            <div class="flex items-center space-x-4 space-x-reverse">
-                                <div class="w-12 h-12 rounded-full bg-medical-50 flex items-center justify-center text-medical-600">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div class="focus-areas">
+                            <div class="focus-item">
+                                <i data-lucide="activity"></i>
+                                <span>Primary Care</span>
+                            </div>
+                            <div class="focus-item">
+                                <i data-lucide="shield-check"></i>
+                                <span>Preventive Medicine</span>
+                            </div>
+                            <div class="focus-item">
+                                <i data-lucide="heart-pulse"></i>
+                                <span>Chronic Disease Management</span>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section id="cv" class="cv-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Curriculum Vitae</h2>
+                    <div class="section-divider center"></div>
+                </div>
+                <div class="cv-layout">
+                    <!-- Experience -->
+                    <div class="cv-section-block">
+                        <h3 class="cv-header"><i data-lucide="briefcase-medical"></i> Clinical Experience</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Oct 2025 – Present</div>
+                                <div class="timeline-content">
+                                    <h4>Nurse Practitioner Clinical Specialization in Family Medicine</h4>
+                                    <p class="institution">Maccabi Family Medicine Clinics</p>
                                 </div>
-                                <div>
-                                    <p class="text-sm text-slate-500 font-medium">ניסיון קליני</p>
-                                    <p class="text-lg font-bold text-slate-800">מכבי שירותי בריאות</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Oct 2018 – Present</div>
+                                <div class="timeline-content">
+                                    <h4>Registered Nurse & Oncology Trustee (Primary Care)</h4>
+                                    <a href="docs/oncology_care.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Maccabi Healthcare Services, Ashdod</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Nov 2017 – Aug 2018</div>
+                                <div class="timeline-content">
+                                    <h4>RN, Outpatient Clinics - Heart Institute</h4>
+                                    <p class="institution">Assuta Ashdod Public Hospital</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2016 – 2017</div>
+                                <div class="timeline-content">
+                                    <h4>RN, Primary Care & Geriatric Clinic</h4>
+                                    <p class="institution">Clalit Health Services</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2016</div>
+                                <div class="timeline-content">
+                                    <h4>RN & Clinical Instructor, Psychogeriatric Clinic</h4>
+                                    <p class="institution">Ichilov Hospital</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2014 – 2015</div>
+                                <div class="timeline-content">
+                                    <h4>RN, Telemedicine Care Manager for Chronic Patients ("MOMA" Center)</h4>
+                                    <p class="institution">Maccabi Healthcare Services</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2012 – 2016</div>
+                                <div class="timeline-content">
+                                    <h4>RN & Clinical Instructor, Geriatric & General Clinic</h4>
+                                    <p class="institution">Meuhedet Health Services, Ashdod</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2004 – 2011</div>
+                                <div class="timeline-content">
+                                    <h4>RN & Clinical Instructor, Geriatrics Department</h4>
+                                    <p class="institution">Barzilai Medical Center, Ashkelon</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">אודותיי</h2>
-                    <div class="w-20 h-1 bg-medical-500 rounded-full mb-8"></div>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6 font-light">
-                        אחות מוסמכת בעלת ניסיון קליני עשיר ברפואת הקהילה במסגרת קופת חולים מכבי שירותי בריאות, ובעלת הכשרה אקדמית מתקדמת.
-                    </p>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-8 font-light">
-                        מחויבת למצוינות מקצועית, רפואה מונעת וקידום בריאות, תוך מתן טיפול איכותי, בטוח ומסור למטופלים לאורך כל מעגל החיים. כיום, מועמדת מובילה לתפקיד אחות מומחית ברפואת משפחה, במטרה להרחיב את סמכויות הטיפול ולהעניק מענה רפואי שלם ועצמאי בקהילה.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-slate-700">
-                            <span class="w-2 h-2 rounded-full bg-medical-500 ml-3"></span>
-                            <span class="font-medium">תואר שני (MA) בסיעוד</span>
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <span class="w-2 h-2 rounded-full bg-medical-500 ml-3"></span>
-                            <span class="font-medium">אחות מוסמכת (RN)</span>
-                        </li>
-                    </ul>
+
+                    <!-- Education -->
+                    <div class="cv-section-block">
+                        <h3 class="cv-header"><i data-lucide="graduation-cap"></i> Education & Academic Degrees</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">May 2027 (Expected)</div>
+                                <div class="timeline-content">
+                                    <h4>Nurse Practitioner in Family Medicine</h4>
+                                    <p class="institution">Ziva Tal Academic School of Nursing</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">May 2011</div>
+                                <div class="timeline-content">
+                                    <h4>Master of Arts (M.A.) in Health Sciences (Nursing)</h4>
+                                    <a href="docs/ma_nursing_2011.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Tel Aviv University</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">June 2009</div>
+                                <div class="timeline-content">
+                                    <h4>Bachelor of Arts (B.A.) in Nursing</h4>
+                                    <a href="docs/ba_nursing_2009.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Tel Aviv University</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2004</div>
+                                <div class="timeline-content">
+                                    <h4>Registered Nurse (RN) Diploma</h4>
+                                    <a href="docs/rn_license_2004.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Ashkelon Nursing School</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="cv-section-block">
+                        <h3 class="cv-header"><i data-lucide="award"></i> Post-Basic & Advanced Certifications</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">May 2026</div>
+                                <div class="timeline-content">
+                                    <h4>Advanced Cardiovascular Life Support (ACLS) Certification</h4>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Early 2026</div>
+                                <div class="timeline-content">
+                                    <h4>AI in Nursing Specialized Course</h4>
+                                    <p class="institution">Tel Aviv University</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2014 – 2015</div>
+                                <div class="timeline-content">
+                                    <h4>Post-Basic Certification in Community Medicine (Primary Care)</h4>
+                                    <a href="docs/primary_care_2015.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">April 2012</div>
+                                <div class="timeline-content">
+                                    <h4>Post-Basic Certification in Intensive Geriatric Care</h4>
+                                    <a href="docs/geriatric_care_2012.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Dec 2010</div>
+                                <div class="timeline-content">
+                                    <h4>Diabetes Educator Certification</h4>
+                                    <a href="docs/diabetes_educator_2010.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Sheba Medical Center</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Dec 2009</div>
+                                <div class="timeline-content">
+                                    <h4>Wound Care Certification for RNs</h4>
+                                    <a href="docs/wound_care_2009.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Sheba Medical Center</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">March 2009</div>
+                                <div class="timeline-content">
+                                    <h4>Clinical Instructor in Nursing Certification</h4>
+                                    <a href="docs/clinical_instructor_2009.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Ashkelon Nursing School</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Jan 2006</div>
+                                <div class="timeline-content">
+                                    <h4>Infection Prevention in Hospitals & Community</h4>
+                                    <a href="docs/infection_prevention_2006.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width: 14px; height: 14px;"></i> View Certificate</a>
+                                    <p class="institution">Barzilai Medical Center</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="cv-section-block">
+                        <h3 class="cv-header"><i data-lucide="globe"></i> Languages</h3>
+                        <ul class="cert-list">
+                            <li><i data-lucide="check-circle-2"></i> <span><strong>Russian:</strong> Native</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span><strong>Hebrew:</strong> High Proficiency</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span><strong>English:</strong> High Proficiency</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Clinical Expertise Section -->
-    <section id="expertise" class="py-24 bg-slate-50 relative">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">תחומי מומחיות קלינית</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto font-light">
-                    שילוב של ידע אקדמי מעמיק וניסיון שטח מעשי בניהול רפואי בקהילה.
-                </p>
-            </div>
-
-            <!-- Floating Grid Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-float hover:-translate-y-3 transition-all duration-300 border border-slate-50 group">
-                    <div class="w-14 h-14 bg-medical-50 rounded-xl flex items-center justify-center text-medical-600 mb-6 group-hover:bg-medical-600 group-hover:text-white transition-colors duration-300">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">פרוטוקולים ברפואה ראשונית</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        יישום הנחיות קליניות ופרוטוקולים רפואיים מתקדמים בטיפול ומעקב בקהילה.
-                    </p>
+        <!-- Awards & Recognitions Section -->
+        <section id="awards" class="cv-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Awards & Recognitions</h2>
+                    <div class="section-divider center"></div>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-float hover:-translate-y-3 transition-all duration-300 border border-slate-50 group delay-100">
-                    <div class="w-14 h-14 bg-medical-50 rounded-xl flex items-center justify-center text-medical-600 mb-6 group-hover:bg-medical-600 group-hover:text-white transition-colors duration-300">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i data-lucide="award"></i>
+                            <span class="award-title">Above & Beyond Excellence in Care</span>
+                        </div>
+                        <div class="award-year">2024</div>
+                        <div class="award-footer">
+                            <a href="docs/maccabi_award_2024.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width:14px; height:14px;"></i> View Certificate</a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">החייאה מתקדמת (ACLS)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        הסמכה ומוכנות מקצועית למתן טיפול מיידי ומציל חיים במצבי חירום רפואיים.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-float hover:-translate-y-3 transition-all duration-300 border border-slate-50 group delay-200">
-                    <div class="w-14 h-14 bg-medical-50 rounded-xl flex items-center justify-center text-medical-600 mb-6 group-hover:bg-medical-600 group-hover:text-white transition-colors duration-300">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i data-lucide="award"></i>
+                            <span class="award-title">Certificate of Appreciation for Exceptional Dedication</span>
+                        </div>
+                        <div class="award-year">2023</div>
+                        <div class="award-footer">
+                            <a href="docs/maccabi_award_2023.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width:14px; height:14px;"></i> View Certificate</a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">חינוך רפואי</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        הדרכת מטופלים ומשפחותיהם לניהול מחלות כרוניות, מניעה וקידום אורח חיים בריא.
-                    </p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-float hover:-translate-y-3 transition-all duration-300 border border-slate-50 group delay-300">
-                    <div class="w-14 h-14 bg-medical-50 rounded-xl flex items-center justify-center text-medical-600 mb-6 group-hover:bg-medical-600 group-hover:text-white transition-colors duration-300">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i data-lucide="star"></i>
+                            <span class="award-title">Service Star for Exemplary Patient Care</span>
+                        </div>
+                        <div class="award-year">Maccabi Healthcare Services</div>
+                        <div class="award-footer">
+                            <a href="docs/maccabi_service_star.pdf" target="_blank" class="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors mt-1"><i data-lucide="award" style="width:14px; height:14px;"></i> View Certificate</a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">טיפול בחולה</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        ראייה הוליסטית ויחס אישי, תוך דגש על איכות הטיפול, בטיחות המטופל ורצף טיפולי.
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA & Contact Footer -->
-    <footer id="contact" class="bg-white border-t border-slate-100">
-        <div class="max-w-4xl mx-auto px-6 py-20 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 mb-6">נשארים בקשר</h2>
-            <p class="text-slate-500 mb-10 font-light">
-                לפניות מקצועיות, שיתופי פעולה ויצירת קשר:
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 sm:space-x-reverse mb-16">
-                <a href="mailto:ane4kab@gmail.com" class="flex items-center space-x-3 space-x-reverse text-slate-600 hover:text-medical-600 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-medical-50 transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <!-- Clinical Guidelines Hub -->
+        <section id="guidelines" class="guidelines-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Clinical Guidelines & Protocols Hub</h2>
+                    <p class="section-subtitle">Quick-reference resources for evidence-based clinical practice.</p>
+                    <div class="section-divider center"></div>
+                </div>
+
+                <div class="protocols-container">
+                    <!-- Cardiovascular -->
+                    <div class="protocol-category">
+                        <div class="category-header">
+                            <i data-lucide="heart"></i>
+                            <h3>Cardiovascular</h3>
+                        </div>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-trigger">
+                                    <span>Acute Coronary Syndrome (ACS) Management</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="content-inner">
+                                        <div class="clinical-text" id="protocol-acs">
+                                            <strong>Immediate Actions:</strong>
+                                            <ul>
+                                                <li>Assess ABCs and obtain vital signs.</li>
+                                                <li>Administer Aspirin 162-325 mg chewed.</li>
+                                                <li>Perform 12-lead ECG within 10 minutes of presentation.</li>
+                                                <li>Establish IV access and obtain blood work (Cardiac biomarkers, CBC, CMP, Coags).</li>
+                                                <li>Administer Oxygen if Saturation &lt; 90%.</li>
+                                            </ul>
+                                        </div>
+                                        <button class="btn btn-small copy-btn" data-target="protocol-acs">
+                                            <i data-lucide="copy"></i> Copy Protocol
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-trigger">
+                                    <span>Stroke Management (Acute)</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="content-inner">
+                                        <div class="clinical-text" id="protocol-stroke">
+                                            <strong>Initial Assessment:</strong>
+                                            <ul>
+                                                <li>Determine Last Known Well (LKW) time.</li>
+                                                <li>Perform NIHSS (NIH Stroke Scale) assessment.</li>
+                                                <li>Stat non-contrast CT head to rule out hemorrhage.</li>
+                                                <li>Check point-of-care blood glucose.</li>
+                                                <li>Evaluate for tPA eligibility if within 4.5 hour window.</li>
+                                            </ul>
+                                        </div>
+                                        <button class="btn btn-small copy-btn" data-target="protocol-stroke">
+                                            <i data-lucide="copy"></i> Copy Protocol
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="text-lg font-medium" dir="ltr">ane4kab@gmail.com</span>
-                </a>
-                
-                <a href="tel:054-5465583" class="flex items-center space-x-3 space-x-reverse text-slate-600 hover:text-medical-600 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-medical-50 transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+
+                    <!-- Primary Care -->
+                    <div class="protocol-category">
+                        <div class="category-header">
+                            <i data-lucide="stethoscope"></i>
+                            <h3>Primary Care Protocols</h3>
+                        </div>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-trigger">
+                                    <span>Hypertension Management (Adults)</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="content-inner">
+                                        <div class="clinical-text" id="protocol-htn">
+                                            <strong>Diagnosis & Thresholds:</strong>
+                                            <ul>
+                                                <li>Normal: &lt;120/&lt;80 mmHg</li>
+                                                <li>Elevated: 120-129/&lt;80 mmHg</li>
+                                                <li>Stage 1 HTN: 130-139/80-89 mmHg</li>
+                                                <li>Stage 2 HTN: &ge;140/&ge;90 mmHg</li>
+                                            </ul>
+                                            <strong>First-line therapies:</strong> Thiazide diuretics, CCBs, and ACE inhibitors or ARBs.
+                                        </div>
+                                        <button class="btn btn-small copy-btn" data-target="protocol-htn">
+                                            <i data-lucide="copy"></i> Copy Protocol
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="text-lg font-medium" dir="ltr">054-5465583</span>
-                </a>
+
+                    <!-- Pharmacology -->
+                    <div class="protocol-category">
+                        <div class="category-header">
+                            <i data-lucide="pill"></i>
+                            <h3>Pharmacology & Pharmacokinetics</h3>
+                        </div>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-trigger">
+                                    <span>Common Antibiotic Dosages</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="content-inner">
+                                        <div class="clinical-text" id="protocol-abx">
+                                            <em>Placeholder for antibiotic stewardship protocols and weight-based dosing calculators.</em>
+                                        </div>
+                                        <button class="btn btn-small copy-btn" data-target="protocol-abx">
+                                            <i data-lucide="copy"></i> Copy Protocol
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Emergency Response -->
+                    <div class="protocol-category">
+                        <div class="category-header">
+                            <i data-lucide="siren"></i>
+                            <h3>Emergency Response</h3>
+                        </div>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-trigger">
+                                    <span>Anaphylaxis Protocol</span>
+                                    <i data-lucide="chevron-down" class="chevron"></i>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="content-inner">
+                                        <div class="clinical-text" id="protocol-anaphylaxis">
+                                            <strong>First Line:</strong>
+                                            <ul>
+                                                <li>Epinephrine (1:1000) 0.3-0.5 mg IM in anterolateral thigh.</li>
+                                                <li>Repeat every 5-15 mins if no improvement.</li>
+                                            </ul>
+                                            <strong>Adjuncts:</strong> H1/H2 blockers, Corticosteroids, Albuterol for bronchospasm.
+                                        </div>
+                                        <button class="btn btn-small copy-btn" data-target="protocol-anaphylaxis">
+                                            <i data-lucide="copy"></i> Copy Protocol
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <div class="text-sm text-slate-400 font-light">
-                © 2026 אנה. כל הזכויות שמורות.
+        <!-- Academic & Clinical Presentations Section -->
+        <section id="presentations" class="presentations-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Academic & Clinical Presentations</h2>
+                    <p class="section-subtitle">Selected presentations and scholarly work.</p>
+                    <div class="section-divider center"></div>
+                </div>
+                <div class="presentations-grid">
+                    <!-- Card 1: Pediatric Celiac Disease Management -->
+                    <div class="clinical-brief-card">
+                        <div class="brief-header">
+                            <h3 class="brief-title">Clinical Guidelines & Management: Celiac Disease in Children</h3>
+                        </div>
+                        <div class="brief-body">
+                            <h4 class="brief-subtitle">Executive Summary</h4>
+                            <p class="brief-summary">
+                                An interactive clinical guide detailing the pathophysiology, diagnostic pathway (serology and biopsy), and long-term nursing follow-up for children with celiac disease.
+                            </p>
+                            
+                            <h4 class="brief-subtitle mt-3">Key Takeaways</h4>
+                            <ul class="brief-takeaways">
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Strict lifelong gluten-free diet (<20 ppm) is mandatory to prevent systemic damage.</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Diagnosis requires serological testing (IgA TTG) and histological confirmation (biopsy).</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Routine follow-up demands precise anthropometric monitoring, serology, and nutritional support.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="brief-footer">
+                            <a href="docs/celiac.html" target="_blank" class="btn btn-primary btn-block">
+                                <i data-lucide="external-link"></i> View Full Clinical Protocol
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Hypertension Evaluation & Treatment -->
+                    <div class="clinical-brief-card">
+                        <div class="brief-header">
+                            <h3 class="brief-title">Hypertension: Diagnosis, Evaluation, and Treatment</h3>
+                        </div>
+                        <div class="brief-body">
+                            <h4 class="brief-subtitle">Executive Summary</h4>
+                            <p class="brief-summary">
+                                An evidence-based medicine (EBM) clinical review integrating AHA/ACC guidelines with Israeli society guidelines, focusing on target populations.
+                            </p>
+                            
+                            <h4 class="brief-subtitle mt-3">Key Takeaways</h4>
+                            <ul class="brief-takeaways">
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>First-line treatment is based on drug combinations (ACEi/ARB + CCB/Diuretics).</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Strict BP targets (<130/80) for high-risk patients, versus more moderate targets in the elderly (140-150/90).</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Out-of-office monitoring (HBPM/ABPM) is a critical component in accurate diagnosis.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="brief-footer">
+                            <a href="docs/htn-presentation.html" target="_blank" class="btn btn-primary btn-block">
+                                <i data-lucide="external-link"></i> View Full Clinical Protocol
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Return to School Guidelines Post-Infection -->
+                    <div class="clinical-brief-card">
+                        <div class="brief-header">
+                            <h3 class="brief-title">Medical Clearance for Return to Educational Institutions</h3>
+                        </div>
+                        <div class="brief-body">
+                            <h4 class="brief-subtitle">Executive Summary</h4>
+                            <p class="brief-summary">
+                                Integration of Ministry of Health and IMA guidelines defining clinical criteria for children's return to educational settings following infectious illnesses.
+                            </p>
+                            
+                            <h4 class="brief-subtitle mt-3">Key Takeaways</h4>
+                            <ul class="brief-takeaways">
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Fever (≥38°C) requires exclusion until 24 hours pass without fever and without antipyretics.</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Gastrointestinal infections require 24-48 hours symptom-free prior to return, depending on the pathogen.</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="chevron-right"></i>
+                                    <span>Streptococcal tonsillitis requires 24 hours without fever and a minimum of 12 hours of antibiotic therapy.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="brief-footer">
+                            <a href="docs/return_to_school.html" target="_blank" class="btn btn-primary btn-block">
+                                <i data-lucide="external-link"></i> View Full Clinical Protocol
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy of Care -->
+        <section id="philosophy" class="philosophy-section">
+            <div class="container">
+                <div class="philosophy-card">
+                    <div class="quote-icon">
+                        <i data-lucide="quote"></i>
+                    </div>
+                    <img src="images/logo.jpg.jpeg" alt="A. Zaslavsky Professional Seal" class="philosophy-seal">
+                    <h2 class="section-title text-center">Philosophy of Care: Medicine at Eye Level</h2>
+                    <div class="section-divider center"></div>
+                    <div class="philosophy-content">
+                        <p class="lead-text text-center">
+                            My clinical worldview as a Family Medicine Nurse Practitioner relies on integrating medical professionalism with patient empowerment, guided by three core principles:
+                        </p>
+                        <ul class="philosophy-list">
+                            <li>
+                                <strong><i data-lucide="user-check"></i> "If I am not for myself, who will be for me?" – Empowerment and Personal Responsibility:</strong> Healing begins with the patient. My role is to provide the knowledge, tools, and confidence necessary for patients to take control of their health, properly manage chronic illnesses, and make informed choices.
+                            </li>
+                            <li>
+                                <strong><i data-lucide="users"></i> "And being only for myself, what am I?" – Clinical Alliance and Partnership:</strong> The patient never walks alone. I believe in medicine based on trust, listening, and continuous personal connection. In the clinic, I serve as a professional anchor and guide through moments of crisis and routine.
+                            </li>
+                            <li>
+                                <strong><i data-lucide="shield-check"></i> "And if not now, when?" – Preventive and Proactive Medicine:</strong> The best time to treat a disease is before it worsens or breaks out. My approach places supreme emphasis on preventive medicine, early detection, and rapid clinical intervention.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">For clinical consultations, academic inquiries, or professional networking.</p>
+                    <div class="section-divider center"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <div class="info-icon"><i data-lucide="phone"></i></div>
+                            <div class="info-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+972545465583" dir="ltr">054-5465583</a>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon"><i data-lucide="mail"></i></div>
+                            <div class="info-details">
+                                <h4>Email</h4>
+                                <a href="mailto:ane4kab@gmail.com">ane4kab@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon"><i data-lucide="map-pin"></i></div>
+                            <div class="info-details">
+                                <h4>Affiliation</h4>
+                                <p>Maccabi Healthcare Services</p>
+                            </div>
+                        </div>
+                        <div class="info-card languages-card">
+                            <div class="info-icon"><i data-lucide="languages"></i></div>
+                            <div class="info-details">
+                                <h4>Communication Languages</h4>
+                                <div class="lang-tags">
+                                    <span class="lang-tag">Hebrew</span>
+                                    <span class="lang-tag">Russian</span>
+                                    <span class="lang-tag">English</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message feature is a placeholder.');">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Dr. Jane Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="jane.doe@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" placeholder="Clinical Consultation" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" rows="5" placeholder="How can I help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i data-lucide="send"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-info">
+                <h3>Anna Bolembakh Zaslavsky</h3>
+                <p>RN, MA, Nurse Practitioner Candidate</p>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Anna Bolembakh Zaslavsky. All rights reserved.</p>
+                <p class="disclaimer">The clinical guidelines provided are for reference only and do not substitute professional medical judgment.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Image Load Script to add class when image is missing -->
+    <!-- Initialize Icons -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Apply slight stagger animations to grid items if in view (simple implementation)
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100');
-                        entry.target.classList.remove('opacity-0');
-                        entry.target.classList.add('translate-y-0');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.group').forEach(el => {
-                el.classList.add('opacity-0', 'transition-all', 'duration-700', 'translate-y-8');
-                observer.observe(el);
-            });
-        });
+        lucide.createIcons();
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
