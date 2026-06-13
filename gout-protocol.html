@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gout Protocol | Anna Bolembakh Zaslavsky</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .protocol-header {
+            background-color: var(--color-primary-dark);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 70px;
+        }
+        .protocol-content {
+            padding: 4rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .protocol-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .protocol-section h2 {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .protocol-section ul {
+            list-style: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .protocol-section ul li {
+            position: relative;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        html[dir="rtl"] .protocol-section ul li::before {
+            content: "•";
+            color: var(--color-primary);
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+        html[dir="ltr"] .protocol-section ul li::before {
+            content: "•";
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-text" style="text-decoration: none; color: inherit;">
+                    <span class="logo-name">
+                        <span class="he">א. זסלבסקי</span>
+                        <span class="en">A. Zaslavsky</span>
+                        <span class="ru">А. Заславски</span>
+                    </span>
+                    <span class="logo-title">
+                        <span class="he">חזרה לפורטפוליו</span>
+                        <span class="en">Back to Portfolio</span>
+                        <span class="ru">Вернуться в Портфолио</span>
+                    </span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html#about"><span class="he">אודותיי</span><span class="en">About Me</span><span class="ru">Обо Мне</span></a></li>
+                    <li><a href="index.html#cv"><span class="he">קורות חיים</span><span class="en">Curriculum Vitae</span><span class="ru">Резюме</span></a></li>
+                    <li><a href="index.html#presentations"><span class="he">מצגות</span><span class="en">Presentations</span><span class="ru">Презентации</span></a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-group">
+                    <button class="lang-btn" data-lang="he" aria-label="Switch to Hebrew">HE</button>
+                    <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
+                    <button class="lang-btn" data-lang="ru" aria-label="Switch to Russian">RU</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="protocol-header">
+            <div class="container text-center">
+                <h1>
+                    <span class="he">גאוט: הלכה למעשה - פרוטוקול קליני</span>
+                    <span class="en">Gout: In Practice - Clinical Protocol</span>
+                    <span class="ru">Подагра: На Практике - Клинический Протокол</span>
+                </h1>
+                <p class="lead-text mt-3 text-white">
+                    <span class="he">מבוסס על הנחיות ACR 2020</span>
+                    <span class="en">Based on ACR 2020 Guidelines</span>
+                    <span class="ru">На основе рекомендаций ACR 2020</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="container protocol-content">
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">מנגנון ההיפראוריקמיה (פתופיזיולוגיה)</span>
+                    <span class="en">Mechanism of Hyperuricemia (Pathophysiology)</span>
+                    <span class="ru">Механизм гиперурикемии (Патофизиология)</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span class="he">שקיעת גבישי מונוסודיום אוראט (MSU) במפרקים מובילה לתגובה דלקתית חריפה.</span>
+                        <span class="en">Deposition of monosodium urate (MSU) crystals in joints leads to an acute inflammatory response.</span>
+                        <span class="ru">Отложение кристаллов моноурата натрия (MSU) в суставах приводит к острой воспалительной реакции.</span>
+                    </li>
+                    <li>
+                        <span class="he">היפראוריקמיה מוגדרת כרמת חומצת שתן בדם מעל 6.8 מ"ג/ד"ל, רמת הרוויה שמעליה הגבישים שוקעים.</span>
+                        <span class="en">Hyperuricemia is defined as a serum uric acid level above 6.8 mg/dL, the saturation point at which crystals precipitate.</span>
+                        <span class="ru">Гиперурикемия определяется как уровень мочевой кислоты в сыворотке выше 6.8 мг/дл, точка насыщения, при которой выпадают кристаллы.</span>
+                    </li>
+                    <li>
+                        <span class="he">ברוב המקרים מדובר בהפרשה כלייתית לקויה (Underexcretion) ולא בייצור יתר.</span>
+                        <span class="en">In most cases, it is due to renal underexcretion rather than overproduction.</span>
+                        <span class="ru">В большинстве случаев это связано с недостаточной почечной экскрецией, а не с перепроизводством.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">טיפול בהתקף חריף</span>
+                    <span class="en">Acute Flare Treatment</span>
+                    <span class="ru">Лечение острого приступа</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span class="he">התחלת טיפול בהקדם האפשרי (עדיף תוך 24 שעות).</span>
+                        <span class="en">Initiate treatment as early as possible (preferably within 24 hours).</span>
+                        <span class="ru">Начать лечение как можно раньше (желательно в течение 24 часов).</span>
+                    </li>
+                    <li>
+                        <span class="he">קו ראשון: קולכיצין (Colchicine), NSAIDs, או קורטיקוסטרואידים סיסטמיים - בהתאם למחלות הרקע והעדפת המטופל.</span>
+                        <span class="en">First-line options: Colchicine, NSAIDs, or systemic corticosteroids - tailored to comorbidities and patient preference.</span>
+                        <span class="ru">Первая линия: Колхицин, НПВП или системные кортикостероиды - в зависимости от сопутствующих заболеваний и предпочтений пациента.</span>
+                    </li>
+                    <li>
+                        <span class="he">קולכיצין במינון נמוך (1.2 מ"ג מיד, ועוד 0.6 מ"ג כעבור שעה) נמצא יעיל כמו מינון גבוה, אך עם פחות תופעות לוואי במערכת העיכול.</span>
+                        <span class="en">Low-dose colchicine (1.2 mg stat, followed by 0.6 mg 1 hour later) is as effective as high-dose regimens, but with fewer GI side effects.</span>
+                        <span class="ru">Низкие дозы колхицина (1.2 мг сразу, затем 0.6 мг через 1 час) так же эффективны, как и высокие дозы, но с меньшим количеством побочных эффектов со стороны ЖКТ.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">טיפול מונע להורדת חומצת שתן (ULT) ויעדים (T2T)</span>
+                    <span class="en">Urate-Lowering Therapy (ULT) and Treat-to-Target (T2T)</span>
+                    <span class="ru">Уратснижающая терапия (УСТ) и лечение до цели (T2T)</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span class="he"><strong>קו טיפול ראשון:</strong> אלופורינול (Allopurinol) היא תרופת הבחירה לכל המטופלים (כולל מטופלים עם אי-ספיקת כליות כרונית בדרגה מתונה).</span>
+                        <span class="en"><strong>First-line agent:</strong> Allopurinol is the strongly recommended first-line agent for all patients (including those with moderate CKD).</span>
+                        <span class="ru"><strong>Препарат первой линии:</strong> Аллопуринол настоятельно рекомендуется в качестве препарата первой линии для всех пациентов (включая пациентов с умеренной ХБП).</span>
+                    </li>
+                    <li>
+                        <span class="he"><strong>יעד T2T (Treat-to-Target):</strong> יש לשאוף ליעד חומצת שתן נמוך מ-6 מ"ג/ד"ל לכל הפחות. במטופלים עם טופי (Tophi) היעד עשוי להיות נמוך מ-5 מ"ג/ד"ל.</span>
+                        <span class="en"><strong>T2T Target:</strong> A serum urate target of &lt;6 mg/dL is strongly recommended. For patients with tophi, a target &lt;5 mg/dL may be considered.</span>
+                        <span class="ru"><strong>Цель T2T:</strong> Настоятельно рекомендуется целевой уровень мочевой кислоты &lt;6 мг/дл. Для пациентов с тофусами может рассматриваться цель &lt;5 мг/дл.</span>
+                    </li>
+                    <li>
+                        <span class="he"><strong>טיפול מונע נלווה:</strong> התחלת ULT גורמת לשינוי חד ברמות חומצת השתן ועלולה לעורר התקף. יש להוסיף טיפול מונע-דלקת (למשל קולכיצין או NSAID) לתקופה של 3-6 חודשים ממועד התחלת ה-ULT.</span>
+                        <span class="en"><strong>Concomitant Flare Prophylaxis:</strong> Initiating ULT can trigger a flare. Anti-inflammatory prophylaxis (e.g., colchicine or NSAID) is recommended for 3-6 months.</span>
+                        <span class="ru"><strong>Сопутствующая профилактика обострений:</strong> Начало УСТ может спровоцировать приступ. Противовоспалительная профилактика (например, колхицин или НПВП) рекомендуется на 3-6 месяцев.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">התאמות תזונתיות ואורח חיים</span>
+                    <span class="en">Dietary and Lifestyle Modifications</span>
+                    <span class="ru">Модификация диеты и образа жизни</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span class="he">הימנעות ממוחלטת מצריכת אלכוהול עודפת, ובמיוחד בירה.</span>
+                        <span class="en">Strictly limit excess alcohol consumption, particularly beer.</span>
+                        <span class="ru">Строго ограничить избыточное употребление алкоголя, особенно пива.</span>
+                    </li>
+                    <li>
+                        <span class="he">הגבלת צריכת בשר אדום ואיברים פנימיים (עשירים בפורינים).</span>
+                        <span class="en">Limit intake of purine-rich red meats and organ meats.</span>
+                        <span class="ru">Ограничить потребление богатого пуринами красного мяса и субпродуктов.</span>
+                    </li>
+                    <li>
+                        <span class="he">הימנעות ממשקאות ממותקים וסירופ תירס עתיר פרוקטוז.</span>
+                        <span class="en">Avoid sugar-sweetened beverages and high-fructose corn syrup.</span>
+                        <span class="ru">Избегать сахаросодержащих напитков и кукурузного сиропа с высоким содержанием фруктозы.</span>
+                    </li>
+                    <li>
+                        <span class="he">המלצה חזקה לשמירה על משקל גוף תקין ופעילות גופנית קבועה.</span>
+                        <span class="en">Strongly recommend weight management and regular physical activity.</span>
+                        <span class="ru">Настоятельно рекомендуется контроль веса и регулярная физическая активность.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="text-center mt-5 mb-5">
+                <a href="index.html#presentations" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                    <i data-lucide="arrow-right"></i>
+                    <span class="he">חזרה למצגות</span>
+                    <span class="en">Back to Presentations</span>
+                    <span class="ru">Вернуться к Презентациям</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p>
+                <span class="he">&copy; 2024 אנה בולמבך זסלבסקי. כל הזכויות שמורות.</span>
+                <span class="en">&copy; 2024 Anna Bolembakh Zaslavsky. All rights reserved.</span>
+                <span class="ru">&copy; 2024 Анна Болембах Заславски. Все права защищены.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
