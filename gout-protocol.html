@@ -24,7 +24,7 @@
         }
         .protocol-content {
             padding: 4rem 0;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         .protocol-section {
@@ -39,6 +39,13 @@
             border-bottom: 2px solid var(--color-secondary);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .protocol-section h3 {
+            color: var(--color-primary-dark);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
         .protocol-section ul {
             list-style: none;
@@ -50,6 +57,7 @@
             padding-right: 1.5rem;
             padding-left: 1.5rem;
             margin-bottom: 1rem;
+            line-height: 1.6;
         }
         html[dir="rtl"] .protocol-section ul li::before {
             content: "•";
@@ -64,6 +72,25 @@
             position: absolute;
             left: 0;
             font-weight: bold;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-right: 4px solid var(--color-secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        html[dir="ltr"] .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--color-secondary);
+        }
+        .text-danger {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        .text-success {
+            color: #198754;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -105,130 +132,231 @@
         <div class="protocol-header">
             <div class="container text-center">
                 <h1>
-                    <span class="he">גאוט: הלכה למעשה - פרוטוקול קליני</span>
-                    <span class="en">Gout: In Practice - Clinical Protocol</span>
-                    <span class="ru">Подагра: На Практике - Клинический Протокол</span>
+                    <span class="he">גאוט והיפראוריקמיה: מדריך קליני לאחות המומחית</span>
+                    <span class="en">Gout & Hyperuricemia: Clinical Guide for the Nurse Practitioner</span>
+                    <span class="ru">Подагра и Гиперурикемия: Клиническое руководство для медсестры-специалиста</span>
                 </h1>
                 <p class="lead-text mt-3 text-white">
-                    <span class="he">מבוסס על הנחיות ACR 2020</span>
-                    <span class="en">Based on ACR 2020 Guidelines</span>
-                    <span class="ru">На основе рекомендаций ACR 2020</span>
+                    <span class="he">פרוטוקול אבחון, טיפול וניהול במרפאה הראשונית - מבוסס הנחיות ACR 2020</span>
+                    <span class="en">Diagnosis, Treatment, and Management Protocol in Primary Care - Based on ACR 2020 Guidelines</span>
+                    <span class="ru">Протокол диагностики, лечения и ведения в первичном звене - На основе рекомендаций ACR 2020</span>
                 </p>
             </div>
         </div>
 
         <div class="container protocol-content">
+            
             <div class="protocol-section">
                 <h2>
-                    <span class="he">מנגנון ההיפראוריקמיה (פתופיזיולוגיה)</span>
-                    <span class="en">Mechanism of Hyperuricemia (Pathophysiology)</span>
-                    <span class="ru">Механизм гиперурикемии (Патофизиология)</span>
+                    <span class="he">1. מנגנון ההיפראוריקמיה (פתופיזיולוגיה וטריגרים)</span>
+                    <span class="en">1. Mechanism of Hyperuricemia (Pathophysiology & Triggers)</span>
+                    <span class="ru">1. Механизм гиперурикемии (Патофизиология и триггеры)</span>
                 </h2>
+                <div class="highlight-box">
+                    <span class="he"><strong>תיאוריית הדלי (Bucket Theory):</strong> היפראוריקמיה נגרמת משילוב של ייצור יתר, תת-הפרשה כלייתית או שניהם. רמת הרוויה הפיזיולוגית היא 6.8 מ"ג/ד"ל. מעבר לערך זה מתחילה שקיעת קריסטלים (MSU) ברקמות, המייצרת את התגובה הדלקתית החריפה.</span>
+                    <span class="en"><strong>The Bucket Theory:</strong> Hyperuricemia results from a combination of overproduction, renal underexcretion, or both. The physiological saturation point is 6.8 mg/dL. Above this level, monosodium urate (MSU) crystals precipitate in tissues, initiating an acute inflammatory response.</span>
+                    <span class="ru"><strong>Теория ведра (Bucket Theory):</strong> Гиперурикемия возникает из-за комбинации гиперпродукции, недостаточной почечной экскреции или того и другого. Физиологическая точка насыщения составляет 6.8 мг/дл. Выше этого уровня кристаллы мочевой кислоты (MSU) оседают в тканях, вызывая острый воспалительный ответ.</span>
+                </div>
                 <ul>
                     <li>
-                        <span class="he">שקיעת גבישי מונוסודיום אוראט (MSU) במפרקים מובילה לתגובה דלקתית חריפה.</span>
-                        <span class="en">Deposition of monosodium urate (MSU) crystals in joints leads to an acute inflammatory response.</span>
-                        <span class="ru">Отложение кристаллов моноурата натрия (MSU) в суставах приводит к острой воспалительной реакции.</span>
+                        <span class="he"><strong>תת-הפרשה כלייתית (Underexcretion):</strong> מהווה כ-33% עד מרבית המקרים. חסימת הפינוי נגרמת עקב נטילת משתני תיאזיד (HCTZ) או תרופות משתנות לולאה, ירידה ב-GFR (מחלת כליות כרונית - CKD), ותסמונת מטבולית או היפראינסולינמיה (הגברת ספיגה חוזרת).</span>
+                        <span class="en"><strong>Renal Underexcretion:</strong> Accounts for ~33% to the majority of cases. Clearance is impaired by thiazide (HCTZ) or loop diuretics, reduced GFR (Chronic Kidney Disease - CKD), and metabolic syndrome or hyperinsulinemia (increased reabsorption).</span>
+                        <span class="ru"><strong>Недостаточная экскреция почками:</strong> Составляет от ~33% до большинства случаев. Клиренс снижается из-за приема тиазидных (HCTZ) или петлевых диуретиков, снижения СКФ (Хроническая болезнь почек - ХБП), а также метаболического синдрома или гиперинсулинемии (повышенная реабсорбция).</span>
                     </li>
                     <li>
-                        <span class="he">היפראוריקמיה מוגדרת כרמת חומצת שתן בדם מעל 6.8 מ"ג/ד"ל, רמת הרוויה שמעליה הגבישים שוקעים.</span>
-                        <span class="en">Hyperuricemia is defined as a serum uric acid level above 6.8 mg/dL, the saturation point at which crystals precipitate.</span>
-                        <span class="ru">Гиперурикемия определяется как уровень мочевой кислоты в сыворотке выше 6.8 мг/дл, точка насыщения, при которой выпадают кристаллы.</span>
-                    </li>
-                    <li>
-                        <span class="he">ברוב המקרים מדובר בהפרשה כלייתית לקויה (Underexcretion) ולא בייצור יתר.</span>
-                        <span class="en">In most cases, it is due to renal underexcretion rather than overproduction.</span>
-                        <span class="ru">В большинстве случаев это связано с недостаточной почечной экскрецией, а не с перепроизводством.</span>
+                        <span class="he"><strong>ייצור יתר (Overproduction):</strong> טריגרים שכיחים כוללים צריכת פרוקטוז גבוהה (HFCS), צריכת אלכוהול מוגברת (במיוחד בירה בצום), תסמונת ליזיס הגידול (TLS), ורק כ-10% מהווים תרומה של תזונה עשירה בפורינים (בשר אדום).</span>
+                        <span class="en"><strong>Overproduction:</strong> Common triggers include high fructose consumption (HFCS), excess alcohol intake (especially fasting beer), Tumor Lysis Syndrome (TLS), and only ~10% is contributed by a purine-rich diet (red meat).</span>
+                        <span class="ru"><strong>Гиперпродукция:</strong> Общие триггеры включают высокое потребление фруктозы (HFCS), избыточное потребление алкоголя (особенно пиво натощак), синдром лизиса опухоли (TLS), и лишь ~10% приходится на диету, богатую пуринами (красное мясо).</span>
                     </li>
                 </ul>
             </div>
 
             <div class="protocol-section">
                 <h2>
-                    <span class="he">טיפול בהתקף חריף</span>
-                    <span class="en">Acute Flare Treatment</span>
-                    <span class="ru">Лечение острого приступа</span>
+                    <span class="he">2. היפראוריקמיה אסימפטומטית: לטפל או לא?</span>
+                    <span class="en">2. Asymptomatic Hyperuricemia: To Treat or Not?</span>
+                    <span class="ru">2. Бессимптомная гиперурикемия: Лечить или нет?</span>
                 </h2>
                 <ul>
                     <li>
-                        <span class="he">התחלת טיפול בהקדם האפשרי (עדיף תוך 24 שעות).</span>
-                        <span class="en">Initiate treatment as early as possible (preferably within 24 hours).</span>
-                        <span class="ru">Начать лечение как можно раньше (желательно в течение 24 часов).</span>
+                        <span class="he"><span class="text-danger">STOP - אל תתחיל טיפול ב-ULT!</span> כ-80% מהמטופלים (1 מתוך 5) עם היפראוריקמיה ללא סימפטומים לעולם לא יפתחו גאוט. אין מקום לטיפול תרופתי למניעה ראשונית.</span>
+                        <span class="en"><span class="text-danger">STOP - Do NOT initiate ULT!</span> Approximately 80% (1 in 5) of patients with asymptomatic hyperuricemia will never develop gout. Pharmacological therapy for primary prevention is not recommended.</span>
+                        <span class="ru"><span class="text-danger">СТОП - НЕ начинайте УСТ!</span> Около 80% (1 из 5) пациентов с бессимптомной гиперурикемией никогда не заболеют подагрой. Медикаментозная терапия для первичной профилактики не рекомендуется.</span>
                     </li>
                     <li>
-                        <span class="he">קו ראשון: קולכיצין (Colchicine), NSAIDs, או קורטיקוסטרואידים סיסטמיים - בהתאם למחלות הרקע והעדפת המטופל.</span>
-                        <span class="en">First-line options: Colchicine, NSAIDs, or systemic corticosteroids - tailored to comorbidities and patient preference.</span>
-                        <span class="ru">Первая линия: Колхицин, НПВП или системные кортикостероиды - в зависимости от сопутствующих заболеваний и предпочтений пациента.</span>
-                    </li>
-                    <li>
-                        <span class="he">קולכיצין במינון נמוך (1.2 מ"ג מיד, ועוד 0.6 מ"ג כעבור שעה) נמצא יעיל כמו מינון גבוה, אך עם פחות תופעות לוואי במערכת העיכול.</span>
-                        <span class="en">Low-dose colchicine (1.2 mg stat, followed by 0.6 mg 1 hour later) is as effective as high-dose regimens, but with fewer GI side effects.</span>
-                        <span class="ru">Низкие дозы колхицина (1.2 мг сразу, затем 0.6 мг через 1 час) так же эффективны, как и высокие дозы, но с меньшим количеством побочных эффектов со стороны ЖКТ.</span>
+                        <span class="he"><strong>התערבות במרפאה הראשונית כוללת:</strong><br>- שינוי תרופתי: שקילת החלפת משתני תיאזיד/לולאה.<br>- תזונה: הפחתת פרוקטוז, אלכוהול ובשר שומני.<br>- עידוד: צריכת מוצרי חלב דלי שומן (מפחיתים את הסיכון בכ-40%).</span>
+                        <span class="en"><strong>Primary Care Interventions:</strong><br>- Medication modification: Consider alternatives to thiazide/loop diuretics.<br>- Diet: Reduce fructose, alcohol, and fatty meat intake.<br>- Encourage: Consumption of low-fat dairy products (reduces risk by ~40%).</span>
+                        <span class="ru"><strong>Вмешательство в первичном звене:</strong><br>- Коррекция терапии: Рассмотреть замену тиазидных/петлевых диуретиков.<br>- Диета: Снижение потребления фруктозы, алкоголя и жирного мяса.<br>- Рекомендация: Потребление обезжиренных молочных продуктов (снижает риск на ~40%).</span>
                     </li>
                 </ul>
             </div>
 
             <div class="protocol-section">
                 <h2>
-                    <span class="he">טיפול מונע להורדת חומצת שתן (ULT) ויעדים (T2T)</span>
-                    <span class="en">Urate-Lowering Therapy (ULT) and Treat-to-Target (T2T)</span>
-                    <span class="ru">Уратснижающая терапия (УСТ) и лечение до цели (T2T)</span>
+                    <span class="he">3. פרוטוקול כיבוי שריפות: ניהול התקף חריף (Acute Flare)</span>
+                    <span class="en">3. Acute Flare Management Protocol</span>
+                    <span class="ru">3. Протокол лечения острого приступа (Acute Flare)</span>
                 </h2>
+                <div class="highlight-box">
+                    <span class="he"><strong>עקרון יסוד:</strong> התחלת טיפול מוקדמת ככל האפשר מבטיחה יעילות מקסימלית (24 השעות הראשונות קריטיות).</span>
+                    <span class="en"><strong>Core Principle:</strong> Initiating treatment as early as possible guarantees maximum efficacy (the first 24 hours are critical).</span>
+                    <span class="ru"><strong>Основной принцип:</strong> Начинать лечение как можно раньше для обеспечения максимальной эффективности (первые 24 часа критически важны).</span>
+                </div>
+                <h3>
+                    <span class="he">חלופות הטיפול (Pathways):</span>
+                    <span class="en">Treatment Pathways:</span>
+                    <span class="ru">Варианты лечения:</span>
+                </h3>
                 <ul>
                     <li>
-                        <span class="he"><strong>קו טיפול ראשון:</strong> אלופורינול (Allopurinol) היא תרופת הבחירה לכל המטופלים (כולל מטופלים עם אי-ספיקת כליות כרונית בדרגה מתונה).</span>
-                        <span class="en"><strong>First-line agent:</strong> Allopurinol is the strongly recommended first-line agent for all patients (including those with moderate CKD).</span>
-                        <span class="ru"><strong>Препарат первой линии:</strong> Аллопуринол настоятельно рекомендуется в качестве препарата первой линии для всех пациентов (включая пациентов с умеренной ХБП).</span>
+                        <span class="he"><strong>קו ראשון מועדף (בהעדר התוויות נגד):</strong> תרופות ממשפחת ה-NSAIDs במינון מלא (לדוגמה Indomethacin או Naproxen).</span>
+                        <span class="en"><strong>Preferred first-line (absence of contraindications):</strong> Full-dose NSAIDs (e.g., Indomethacin or Naproxen).</span>
+                        <span class="ru"><strong>Предпочтительная первая линия (при отсутствии противопоказаний):</strong> НПВП в полных дозах (например, Индометацин или Напроксен).</span>
                     </li>
                     <li>
-                        <span class="he"><strong>יעד T2T (Treat-to-Target):</strong> יש לשאוף ליעד חומצת שתן נמוך מ-6 מ"ג/ד"ל לכל הפחות. במטופלים עם טופי (Tophi) היעד עשוי להיות נמוך מ-5 מ"ג/ד"ל.</span>
-                        <span class="en"><strong>T2T Target:</strong> A serum urate target of &lt;6 mg/dL is strongly recommended. For patients with tophi, a target &lt;5 mg/dL may be considered.</span>
-                        <span class="ru"><strong>Цель T2T:</strong> Настоятельно рекомендуется целевой уровень мочевой кислоты &lt;6 мг/дл. Для пациентов с тофусами может рассматриваться цель &lt;5 мг/дл.</span>
+                        <span class="he"><strong>גלוקוקורטיקואידים:</strong> מתן פומי (בטאפר). לחולי NPO (צום) ניתנת המלצה למתן תוך-שרירי (IM), תוך-ורידי או תוך-מפרקי (IA).</span>
+                        <span class="en"><strong>Glucocorticoids:</strong> Oral administration. For NPO patients, intra-muscular (IM), intra-venous (IV), or intra-articular (IA) routes are recommended.</span>
+                        <span class="ru"><strong>Глюкокортикоиды:</strong> Пероральный прием. Для пациентов NPO (натощак) рекомендуется внутримышечное (ВМ), внутривенное (ВВ) или внутрисуставное (ВС) введение.</span>
                     </li>
                     <li>
-                        <span class="he"><strong>טיפול מונע נלווה:</strong> התחלת ULT גורמת לשינוי חד ברמות חומצת השתן ועלולה לעורר התקף. יש להוסיף טיפול מונע-דלקת (למשל קולכיצין או NSAID) לתקופה של 3-6 חודשים ממועד התחלת ה-ULT.</span>
-                        <span class="en"><strong>Concomitant Flare Prophylaxis:</strong> Initiating ULT can trigger a flare. Anti-inflammatory prophylaxis (e.g., colchicine or NSAID) is recommended for 3-6 months.</span>
-                        <span class="ru"><strong>Сопутствующая профилактика обострений:</strong> Начало УСТ может спровоцировать приступ. Противовоспалительная профилактика (например, колхицин или НПВП) рекомендуется на 3-6 месяцев.</span>
+                        <span class="he"><strong>מהפכת הקולכיצין (Colchicine) - פרוטוקול מינון נמוך (ACR 2020):</strong> <span class="text-success">"פחות זה יותר"</span>. מתן 1.2 מ"ג פומי מיד, ועוד 0.6 מ"ג כעבור שעה אחת בלבד (סה"כ 1.8 מ"ג בתוך שעה). המינון ההיסטורי נפסל! המינון הנמוך מספק יעילות קלינית זהה לחלוטין עם צניחה דרמטית ברעילות ובשלשולים.</span>
+                        <span class="en"><strong>The Colchicine Revolution - Low Dose Protocol (ACR 2020):</strong> <span class="text-success">"Less is More"</span>. Administer 1.2 mg PO immediately, followed by 0.6 mg 1 hour later (total 1.8 mg within 1 hour). The historical high-dose regimen is obsolete! The low dose provides identical clinical efficacy with a dramatic drop in GI toxicity.</span>
+                        <span class="ru"><strong>Колхициновая революция - Протокол низких доз (ACR 2020):</strong> <span class="text-success">"Меньше значит больше"</span>. Прием 1.2 мг перорально немедленно, затем 0.6 мг через 1 час (всего 1.8 мг за 1 час). Исторический протокол высоких доз отменен! Низкая доза обеспечивает идентичную клиническую эффективность при резком снижении токсичности для ЖКТ.</span>
                     </li>
                 </ul>
             </div>
 
             <div class="protocol-section">
                 <h2>
-                    <span class="he">התאמות תזונתיות ואורח חיים</span>
-                    <span class="en">Dietary and Lifestyle Modifications</span>
-                    <span class="ru">Модификация диеты и образа жизни</span>
+                    <span class="he">4. התחלת טיפול מוריד חומצת שתן (ULT)</span>
+                    <span class="en">4. Initiating Urate-Lowering Therapy (ULT)</span>
+                    <span class="ru">4. Начало уратснижающей терапии (УСТ)</span>
+                </h2>
+                <div class="highlight-box">
+                    <span class="he"><strong>שינוי פרדיגמה קלינית: עיתוי התחלת ULT</strong><br>גישת ספר הלימוד הישן המליצה להמתין חודש לאחר ההתקף מחשש להחמרה. <strong>הנחיית ACR 2020 המודרנית:</strong> "התחל ULT באופן מיידי במהלך ההתקף הפעיל." חובה לתת במקביל טיפול מונע דלקת (Prophylaxis) הולם.</span>
+                    <span class="en"><strong>Clinical Paradigm Shift: Timing of ULT Initiation</strong><br>The old textbook approach recommended waiting a month post-flare. <strong>Modern ACR 2020 Guidelines:</strong> "Initiate ULT immediately during the active flare." It is mandatory to provide concomitant anti-inflammatory prophylaxis.</span>
+                    <span class="ru"><strong>Смена клинической парадигмы: Время начала УСТ</strong><br>Старый подход рекомендовал ждать месяц после приступа. <strong>Современные рекомендации ACR 2020:</strong> "Начинайте УСТ немедленно во время активного обострения." Обязательно применение сопутствующей противовоспалительной профилактики.</span>
+                </div>
+                <h3>
+                    <span class="he">עץ החלטות: מתי מתחילים?</span>
+                    <span class="en">Decision Tree: When to initiate?</span>
+                    <span class="ru">Дерево решений: Когда начинать?</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="he"><strong>המלצה חזקה להתחלה:</strong> מטופל עם 1 ומעלה טופוס (Tophus) תת-עורי, נזק הדמייתי/רנטגני המיוחס לגאוט, או התקפים תכופים (2 ומעלה התקפים בשנה).</span>
+                        <span class="en"><strong>Strong Recommendation:</strong> Patients with ≥1 subcutaneous tophus, radiographic damage attributable to gout, or frequent flares (≥2 flares per year).</span>
+                        <span class="ru"><strong>Строгая рекомендация:</strong> Пациенты с ≥1 подкожным тофусом, рентгенологическим повреждением, связанным с подагрой, или частыми обострениями (≥2 обострений в год).</span>
+                    </li>
+                    <li>
+                        <span class="he"><strong>המלצה מותנית (לאחר התקף ראשון):</strong> יש לשקול התחלה אם קיים אחד מהבאים: מחלת כליות כרונית (CKD) שלב 3 ומעלה, רמת חומצת שתן קיצונית מעל 9.0 מ"ג/ד"ל, או היסטוריה של אבני כליה (Nephrolithiasis).</span>
+                        <span class="en"><strong>Conditional Recommendation (after 1st flare):</strong> Consider initiating if any of the following apply: Chronic Kidney Disease (CKD) stage ≥3, extreme serum urate >9.0 mg/dL, or a history of urolithiasis.</span>
+                        <span class="ru"><strong>Условная рекомендация (после 1-го обострения):</strong> Рассмотреть начало при наличии любого из следующего: Хроническая болезнь почек (ХБП) стадии ≥3, экстремальный уровень мочевой кислоты >9.0 мг/дл или мочекаменная болезнь в анамнезе.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">5. אסטרטגיית העל: טפל למטרה (Treat-to-Target / T2T)</span>
+                    <span class="en">5. Master Strategy: Treat-to-Target (T2T)</span>
+                    <span class="ru">5. Главная стратегия: Лечение до цели (Treat-to-Target / T2T)</span>
                 </h2>
                 <ul>
                     <li>
-                        <span class="he">הימנעות ממוחלטת מצריכת אלכוהול עודפת, ובמיוחד בירה.</span>
-                        <span class="en">Strictly limit excess alcohol consumption, particularly beer.</span>
-                        <span class="ru">Строго ограничить избыточное употребление алкоголя, особенно пива.</span>
+                        <span class="he"><strong>היעד (SU < 6.0 mg/dL):</strong> ערך המטרה האוניברסלי לכלל המטופלים ב-ULT הוא רמת חומצת שתן בדם הקטנה מ-6.0 מ"ג/ד"ל. במקרה של טופי כרוני קשה, ניתן לשאוף לערך נמוך יותר (<5.0).</span>
+                        <span class="en"><strong>Target (SU < 6.0 mg/dL):</strong> The universal target serum urate (SU) level for all patients on ULT is <6.0 mg/dL. In cases of severe chronic tophi, a lower target (<5.0) may be pursued.</span>
+                        <span class="ru"><strong>Цель (SU < 6.0 мг/дл):</strong> Универсальный целевой уровень мочевой кислоты (SU) в сыворотке для всех пациентов на УСТ составляет <6.0 мг/дл. При тяжелой хронической тофусной подагре может потребоваться более низкая цель (<5.0).</span>
                     </li>
                     <li>
-                        <span class="he">הגבלת צריכת בשר אדום ואיברים פנימיים (עשירים בפורינים).</span>
-                        <span class="en">Limit intake of purine-rich red meats and organ meats.</span>
-                        <span class="ru">Ограничить потребление богатого пуринами красного мяса и субпродуктов.</span>
+                        <span class="he"><strong>יישום:</strong> מדובר באסטרטגיה של טיטרציה (העלאת מינון הדרגתית) וניטור סדרתי של חומצת השתן. <strong>אין להסתפק במינון קבוע!</strong> טיפול תת-מינוני לא ימיס את קריסטלי האורט ולא ימנע התקפים כרוניים.</span>
+                        <span class="en"><strong>Execution:</strong> This relies on dose titration (gradual dose escalation) and serial monitoring of serum urate. <strong>Do not settle for a fixed dose!</strong> Sub-therapeutic dosing will not dissolve urate crystals nor prevent chronic flares.</span>
+                        <span class="ru"><strong>Исполнение:</strong> Основано на титровании дозы (постепенном увеличении дозы) и серийном мониторинге мочевой кислоты. <strong>Не останавливайтесь на фиксированной дозе!</strong> Субтерапевтическое дозирование не растворит кристаллы уратов и не предотвратит хронические приступы.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">6. קו ראשון: פרוטוקול אלופורינול (Allopurinol)</span>
+                    <span class="en">6. First-Line: Allopurinol Protocol</span>
+                    <span class="ru">6. Первая линия: Протокол Аллопуринола</span>
+                </h2>
+                <div class="highlight-box">
+                    <span class="he">אלופורינול היא תרופת הבחירה בקו ראשון באופן גורף לכל המטופלים, <strong>כולל חולי CKD!</strong></span>
+                    <span class="en">Allopurinol is strongly recommended as the preferred first-line agent for all patients, <strong>including those with CKD!</strong></span>
+                    <span class="ru">Аллопуринол настоятельно рекомендуется как препарат первой линии для всех пациентов, <strong>включая пациентов с ХБП!</strong></span>
+                </div>
+                <ul>
+                    <li>
+                        <span class="he"><strong>התחלה נמוכה (Start Low):</strong> מינון התחלתי צריך להיות ≤ 100 מ"ג ליום (בחולי כליות CKD שלב 3 ומעלה, המינון ההתחלתי הוא 50 מ"ג ליום). צעד זה קריטי כדי למנוע התקפים חריפים עם תחילת הטיפול, ובעיקר כדי להפחית את הסיכון לרגישות יתר.</span>
+                        <span class="en"><strong>Start Low:</strong> Initial dosing should be ≤ 100 mg/day (for CKD stage ≥3, the starting dose is 50 mg/day). This step is critical to prevent acute flares upon initiation, and primarily to reduce the risk of hypersensitivity syndrome.</span>
+                        <span class="ru"><strong>Начинать с малого (Start Low):</strong> Начальная доза должна составлять ≤ 100 мг/день (при ХБП стадии ≥3 начальная доза составляет 50 мг/день). Этот шаг критически важен для предотвращения острых приступов в начале лечения и снижения риска синдрома гиперчувствительности.</span>
                     </li>
                     <li>
-                        <span class="he">הימנעות ממשקאות ממותקים וסירופ תירס עתיר פרוקטוז.</span>
-                        <span class="en">Avoid sugar-sweetened beverages and high-fructose corn syrup.</span>
-                        <span class="ru">Избегать сахаросодержащих напитков и кукурузного сиропа с высоким содержанием фруктозы.</span>
+                        <span class="he"><strong>טיטרציה ליעד:</strong> תחת ניטור חומצת שתן ותפקודי כליה, ניתן וצריך להעלות את המינון בהדרגה. העדכון הקליני קובע שניתן בבטחה לחצות מינון מקסימלי היסטורי של 300 מ"ג ביום <strong>גם בחולי CKD</strong>, בכדי להגיע ליעד המטרה של <6.0 מ"ג/ד"ל.</span>
+                        <span class="en"><strong>Titration to Target:</strong> Under monitoring of serum urate and renal function, the dose should be gradually increased. Clinical updates dictate that it is safe to exceed the historical maximum dose of 300 mg/day <strong>even in CKD patients</strong>, to achieve the <6.0 mg/dL target.</span>
+                        <span class="ru"><strong>Титрование до цели:</strong> Под контролем уровня мочевой кислоты и функции почек дозу следует постепенно увеличивать. Клинические обновления гласят, что безопасно превышать историческую максимальную дозу 300 мг/день <strong>даже у пациентов с ХБП</strong> для достижения цели <6.0 мг/дл.</span>
                     </li>
                     <li>
-                        <span class="he">המלצה חזקה לשמירה על משקל גוף תקין ופעילות גופנית קבועה.</span>
-                        <span class="en">Strongly recommend weight management and regular physical activity.</span>
-                        <span class="ru">Настоятельно рекомендуется контроль веса и регулярная физическая активность.</span>
+                        <span class="he"><strong>סכנת חיים - רגישות יתר (AHS):</strong> תסמונת נדירה אך קטלנית (תמותה של 15-25%). חובה לבצע סקר גנטי לאלל HLA-B*5801 לפני תחילת טיפול באוכלוסיות בסיכון גבוה (אסיאתיים ואפרו-אמריקאים).</span>
+                        <span class="en"><strong>Life Threat - Hypersensitivity Syndrome (AHS):</strong> A rare but fatal syndrome (15-25% mortality). It is mandatory to screen for the HLA-B*5801 allele before initiating therapy in high-risk populations (Asians and African Americans).</span>
+                        <span class="ru"><strong>Угроза жизни - Синдром гиперчувствительности (AHS):</strong> Редкий, но смертельный синдром (смертность 15-25%). Обязательно проведение скрининга на аллель HLA-B*5801 перед началом терапии в группах высокого риска (выходцы из Азии и афроамериканцы).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">7. חומת המגן: טיפול מונע (Prophylaxis)</span>
+                    <span class="en">7. The Shield: Prophylaxis Therapy</span>
+                    <span class="ru">7. Щит: Профилактическая терапия</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span class="he"><strong>הגנה חובה:</strong> התחלת טיפול ב-ULT מורידה בחדות את רמת האורט בדם, מה שמייצר פירוק ומוביליזציה של קריסטלים מהרקמות, וכתוצאה מכך מעלה דרמטית את הסיכון להתקפים חריפים. לכן, יש לתת טיפול מניעתי נוגד דלקת נלווה (קולכיצין במינון נמוך או NSAIDs) יחד עם כל התחלת ULT.</span>
+                        <span class="en"><strong>Mandatory Protection:</strong> Initiating ULT sharply drops serum urate levels, causing crystal mobilization and dissolution from tissues, which dramatically increases the risk of acute flares. Therefore, concomitant anti-inflammatory prophylaxis (low-dose colchicine or NSAIDs) MUST be prescribed alongside ULT initiation.</span>
+                        <span class="ru"><strong>Обязательная защита:</strong> Начало УСТ резко снижает уровень уратов в сыворотке, вызывая мобилизацию и растворение кристаллов в тканях, что резко увеличивает риск острых приступов. Поэтому сопутствующая противовоспалительная профилактика (низкие дозы колхицина или НПВП) ОБЯЗАТЕЛЬНА при начале УСТ.</span>
+                    </li>
+                    <li>
+                        <span class="he"><strong>משך הטיפול המונע (Duration):</strong> יש לתת כיסוי מלא למשך <strong>3 עד 6 חודשים רצופים לפחות</strong>. אסור להפסיק לפני! במקרים של טופי פעיל יש להאריך את התקופה בהתאם להחלטת ראומטולוג.</span>
+                        <span class="en"><strong>Duration:</strong> Full prophylactic coverage should be provided for <strong>at least 3 to 6 consecutive months</strong>. Do not discontinue prematurely! In cases of active tophi, the duration should be extended according to rheumatological consultation.</span>
+                        <span class="ru"><strong>Продолжительность:</strong> Полное профилактическое покрытие должно предоставляться <strong>в течение не менее 3-6 месяцев подряд</strong>. Не прекращайте лечение преждевременно! При наличии активных тофусов продолжительность следует увеличить по согласованию с ревматологом.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="protocol-section">
+                <h2>
+                    <span class="he">8. מחלות רקע, מלכודות והמלצות (Clinical Pearls)</span>
+                    <span class="en">8. Comorbidities, Pitfalls, & Clinical Pearls</span>
+                    <span class="ru">8. Сопутствующие заболевания, подводные камни и клинические советы (Clinical Pearls)</span>
+                </h2>
+                <ul>
+                    <li>
+                        <span class="he"><strong>קשר קרדיווסקולרי:</strong> תחלואה קרדיווסקולרית מהווה קורלציה סטטיסטית לגאוט, אך לא קשר סיבתי. אין הוכחה שטיפול ב-ULT ימנע אירועים לבביים או מגן על הכליות במטופלים אסימפטומטיים. טפל במחלות הרקע במקום באורט.</span>
+                        <span class="en"><strong>Cardiovascular Link:</strong> Cardiovascular disease is a statistical correlation to gout, not a causal link. There is no evidence that ULT prevents cardiac events or protects kidneys in asymptomatic patients. Treat the underlying comorbidities instead of the urate.</span>
+                        <span class="ru"><strong>Сердечно-сосудистая связь:</strong> Сердечно-сосудистые заболевания статистически коррелируют с подагрой, но причинно-следственная связь отсутствует. Нет доказательств того, что УСТ предотвращает сердечные события или защищает почки у бессимптомных пациентов. Лечите сопутствующие заболевания, а не уровень уратов.</span>
+                    </li>
+                    <li>
+                        <span class="he"><strong>טיפול ביתר לחץ דם בגאוט:</strong> הימנע במידת האפשר ממשתני תיאזיד (HCTZ) או תרופות משתנות לולאה (מחמירים הפרשת אורט). התרופה המועדפת (Prefer) לטיפול בל"ד בגאוט היא <strong>לוסרטן (Losartan)</strong>, בעלת אפקט אוריקוזורי מתון המסייע בפינוי.</span>
+                        <span class="en"><strong>Hypertension Management in Gout:</strong> Avoid thiazide (HCTZ) or loop diuretics if possible (they worsen urate excretion). The preferred antihypertensive in gout is <strong>Losartan</strong>, which possesses a mild uricosuric effect aiding in clearance.</span>
+                        <span class="ru"><strong>Лечение гипертонии при подагре:</strong> По возможности избегайте тиазидных (HCTZ) или петлевых диуретиков (они ухудшают экскрецию уратов). Предпочтительным антигипертензивным препаратом при подагре является <strong>Лозартан</strong>, обладающий легким урикозурическим эффектом, способствующим выведению.</span>
+                    </li>
+                    <li>
+                        <span class="he"><strong>מלכודת האבחון הפנוטיפית - רמת חומצת שתן תקינה בהתקף:</strong> רמת חומצת שתן תקינה בדם בזמן התקף חריף <strong>אינה שוללת גאוט!</strong> רמות האורט בדם לעיתים קרובות צונחות עקב שקיעה מוגברת במפרק המודלק או עלייה בהפרשה הכלייתית במצב הדלקתי החריף. יש לחזור על בדיקת הדם כ-4 שבועות לאחר חלוף ההתקף.</span>
+                        <span class="en"><strong>Diagnostic Pitfall - Normal Urate During Flare:</strong> A normal serum uric acid level during an acute flare <strong>does NOT rule out gout!</strong> Urate levels often drop due to increased deposition in the inflamed joint or enhanced renal excretion during the acute inflammatory state. Repeat the blood test ~4 weeks post-flare.</span>
+                        <span class="ru"><strong>Диагностическая ловушка - Нормальный уровень уратов во время приступа:</strong> Нормальный уровень мочевой кислоты в сыворотке во время острого приступа <strong>НЕ исключает подагру!</strong> Уровни уратов часто падают из-за повышенного отложения в воспаленном суставе или усиленной почечной экскреции во время острого воспалительного состояния. Повторите анализ крови примерно через 4 недели после приступа.</span>
                     </li>
                 </ul>
             </div>
             
             <div class="text-center mt-5 mb-5">
-                <a href="index.html#presentations" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                <a href="index.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;">
                     <i data-lucide="arrow-right"></i>
-                    <span class="he">חזרה למצגות</span>
-                    <span class="en">Back to Presentations</span>
-                    <span class="ru">Вернуться к Презентациям</span>
+                    <span class="he">חזרה לאתר</span>
+                    <span class="en">Back to Site</span>
+                    <span class="ru">Вернуться на сайт</span>
                 </a>
             </div>
         </div>
