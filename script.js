@@ -123,3 +123,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Image Modal Logic
+function openImageModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('imageModalImg');
+    if (modal && modalImg) {
+        modalImg.src = imageSrc;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closeImageModal(event) {
+    // Only close if clicking the background or the close button
+    if (event.target.id === 'imageModal' || event.target.classList.contains('image-modal-close')) {
+        const modal = document.getElementById('imageModal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            
+            // Clear src after transition ends to avoid flickering
+            setTimeout(() => {
+                const modalImg = document.getElementById('imageModalImg');
+                if (modalImg) modalImg.src = '';
+            }, 300);
+        }
+    }
+}
+
+// Add escape key support
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('imageModal');
+        if (modal && modal.classList.contains('active')) {
+            closeImageModal({ target: modal });
+        }
+    }
+});
