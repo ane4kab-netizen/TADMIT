@@ -166,9 +166,9 @@ document.addEventListener('keydown', function(event) {
 function calculateEGFR(event) {
     event.preventDefault();
     
-    const age = parseFloat(document.getElementById('calcAge').value);
-    const sex = document.getElementById('calcSex').value;
-    const scr = parseFloat(document.getElementById('calcCreatinine').value);
+    const age = parseFloat(document.getElementById('egfr-age').value);
+    const sex = document.getElementById('egfr-sex').value;
+    const scr = parseFloat(document.getElementById('egfr-creat').value);
     
     if (!sex) {
         const lang = document.documentElement.getAttribute('lang') || 'he';
@@ -198,7 +198,7 @@ function calculateEGFR(event) {
     let egfr = 142 * Math.pow(minScrK, a) * Math.pow(maxScrK, -1.200) * Math.pow(0.9938, age) * sexMultiplier;
     egfr = Math.round(egfr);
     
-    const resultDiv = document.getElementById('calcResult');
+    const resultDiv = document.getElementById('egfr-result');
     resultDiv.style.display = 'block';
     
     let bgColor, textColor, stage;
@@ -232,19 +232,14 @@ function calculateEGFR(event) {
         '</span>';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const resetBtn = document.getElementById('reset-calculator-btn');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-            document.getElementById('calcAge').value = '';
-            document.getElementById('calcSex').value = '';
-            document.getElementById('calcCreatinine').value = '';
-            
-            const resultDiv = document.getElementById('calcResult');
-            if (resultDiv) {
-                resultDiv.style.display = 'none';
-                resultDiv.innerHTML = '';
-            }
-        });
+window.forceClearEGFR = function() {
+    document.getElementById('egfr-age').value = '';
+    document.getElementById('egfr-sex').selectedIndex = 0;
+    document.getElementById('egfr-creat').value = '';
+    
+    let resultDiv = document.getElementById('egfr-result');
+    if (resultDiv) {
+        resultDiv.innerHTML = '';
+        resultDiv.style.display = 'none';
     }
-});
+};
