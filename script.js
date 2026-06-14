@@ -215,11 +215,11 @@ function calculateEGFR(event) {
     let enDesc = egfr >= 60 ? 'Normal or mildly decreased' : (egfr >= 30 ? 'Moderately decreased' : 'Severely decreased / Kidney failure');
     let ruDesc = egfr >= 60 ? 'В норме или немного снижена' : (egfr >= 30 ? 'Умеренно снижена' : 'Сильно снижена / Почечная недостаточность');
 
-    resultDiv.innerHTML = ` +
-        eGFR:  + egfr +  mL/min/1.73m² (CKD Stage:  + stage + )<br> +
-        <span style="font-size: 1rem; font-weight: 400; margin-top: 0.5rem; display: block;"> +
-            <span class="he">רמת תפקוד כלייתי:  + heDesc + </span> +
-            <span class="en">Renal Function:  + enDesc + </span> +
-            <span class="ru">Функция почек:  + ruDesc + </span> +
-        </span>;
+    resultDiv.innerHTML =
+        'eGFR: ' + egfr + ' mL/min/1.73m² (CKD Stage: ' + stage + ')<br>' +
+        '<span style="font-size: 1rem; font-weight: 400; margin-top: 0.5rem; display: block;">' +
+            '<span class="he">רמת תפקוד כלייתי: ' + heDesc + '</span>' +
+            '<span class="en">Renal Function: ' + enDesc + '</span>' +
+            '<span class="ru">Функция почек: ' + ruDesc + '</span>' +
+        '</span>';
 }
