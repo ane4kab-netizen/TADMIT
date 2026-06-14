@@ -1013,7 +1013,7 @@
                         <span class="ru">Калькулятор eGFR (CKD-EPI 2021)</span>
                     </h3>
                     
-                    <form id="egfrForm" onsubmit="calculateEGFR(event)">
+                    <div id="egfrForm">
                         <div class="form-group" style="margin-bottom: 1rem;">
                             <label for="calcAge" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary-dark);">
                                 <span class="he">גיל (שנים)</span>
@@ -1048,12 +1048,12 @@
                             <input type="number" id="calcCreatinine" required step="0.01" min="0.1" max="15.0" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
                         </div>
                         
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
+                        <button type="button" onclick="calculateEGFR(event)" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
                             <span class="he">חשב תפקוד כלייתי</span>
                             <span class="en">Calculate eGFR</span>
                             <span class="ru">Рассчитать eGFR</span>
                         </button>
-                    </form>
+                    </div>
                     
                     <div id="calcResult" style="display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 8px; text-align: center; font-weight: bold; font-size: 1.25rem;">
                     </div>
@@ -1518,13 +1518,13 @@
                                 </label>
                                 <textarea id="message" class="form-control" rows="5" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <button type="button" onclick="calculateEGFR(event)" class="btn btn-primary btn-block">
                                 <i data-lucide="send"></i> 
                                 <span class="he">שלח הודעה</span>
                                 <span class="en">Send Message</span>
                                 <span class="ru">Отправить Сообщение</span>
                             </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
