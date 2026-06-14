@@ -78,26 +78,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Initialize language from local storage or default to 'he'
+    const savedLang = localStorage.getItem('preferredLang') || 'he';
+    if(window.switchLanguage) {
+        window.switchLanguage(savedLang);
+    }
+});
 
-    // --- Language / RTL Toggle (3 States) ---
+// --- Language / RTL Toggle Global Function ---
+window.switchLanguage = function(lang) {
     const htmlTag = document.documentElement;
     const langBtns = document.querySelectorAll('.lang-btn');
     
-    function setLanguage(lang) {
-        // Update html tag
-        htmlTag.setAttribute('lang', lang);
-        if (lang === 'he') {
-            htmlTag.setAttribute('dir', 'rtl');
-            document.title = "אנה בולמבך זסלבסקי | פורטפוליו קליני";
-        } else if (lang === 'en') {
-            htmlTag.setAttribute('dir', 'ltr');
-            document.title = "Anna Bolembakh Zaslavsky | Clinical Portfolio";
-        } else if (lang === 'ru') {
-            htmlTag.setAttribute('dir', 'ltr');
-            document.title = "Анна Болембах Заславски | Клиническое Портфолио";
-        }
-        
-        // Update active button state
+    // Update html tag
+    htmlTag.setAttribute('lang', lang);
+    if (lang === 'he') {
+        htmlTag.setAttribute('dir', 'rtl');
+        document.title = "אנה בולמבך זסלבסקי | פורטפוליו קליני";
+    } else if (lang === 'en') {
+        htmlTag.setAttribute('dir', 'ltr');
+        document.title = "Anna Bolembakh Zaslavsky | Clinical Portfolio";
+    } else if (lang === 'ru') {
+        htmlTag.setAttribute('dir', 'ltr');
+        document.title = "Анна Болембах Заславски | Клиническое Портфолио";
+    }
+    
+    // Update active button state
+    if (langBtns) {
         langBtns.forEach(btn => {
             if (btn.getAttribute('data-lang') === lang) {
                 btn.classList.add('active');
@@ -105,24 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.remove('active');
             }
         });
-        
-        // Save preference
-        localStorage.setItem('preferredLang', lang);
     }
-
-    // Initialize from local storage or default to 'he'
-    const savedLang = localStorage.getItem('preferredLang') || 'he';
-    setLanguage(savedLang);
-
-    // Add click listeners to buttons
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetLang = btn.getAttribute('data-lang');
-            setLanguage(targetLang);
-        });
-    });
-
-});
+    
+    // Save preference
+    localStorage.setItem('preferredLang', lang);
+};
 
 // Image Modal Logic
 function openImageModal(imageSrc) {
