@@ -246,89 +246,61 @@ window.forceClearEGFR = function() {
 
 // Beers Criteria Database (Proof of Concept - Table 2)
 const beersDatabase = [
-    { drug: "diphenhydramine", recommendation: "Avoid", rationale: "Highly anticholinergic; clearance reduced with advanced age. Cumulative exposure increases risk of falls, delirium, and dementia." },
-    { drug: "chlorpheniramine", recommendation: "Avoid", rationale: "Highly anticholinergic; risk of confusion, dry mouth, constipation, and toxicity." },
-    { drug: "promethazine", recommendation: "Avoid", rationale: "Highly anticholinergic; risk of severe anticholinergic effects and toxicity in older adults." },
-    { drug: "nitrofurantoin", recommendation: "Avoid if CrCl <30 mL/min or for long-term", rationale: "Potential for pulmonary toxicity, hepatoxicity, and peripheral neuropathy." },
-    { drug: "amiodarone", recommendation: "Avoid as first-line for AFib", rationale: "Greater toxicities than other antiarrhythmics; avoid unless patient has heart failure or substantial left ventricular hypertrophy." },
-    { drug: "digoxin", recommendation: "Avoid as first-line", rationale: "Safer and more effective alternatives exist. Higher doses increase toxicity risk without additional benefits." },
-    { drug: "nifedipine", recommendation: "Avoid (immediate release)", rationale: "Potential for hypotension; risk of precipitating myocardial ischemia." },
-    { drug: "clonidine", recommendation: "Avoid as first-line", rationale: "High risk of adverse CNS effects, bradycardia, and orthostatic hypotension." },
-    { drug: "doxazosin", recommendation: "Avoid as antihypertensive", rationale: "High risk of orthostatic hypotension and associated harms in older adults." },
-    { drug: "amitriptyline", recommendation: "Avoid", rationale: "Highly anticholinergic, sedating, and causes orthostatic hypotension." },
-    { drug: "paroxetine", recommendation: "Avoid", rationale: "Highly anticholinergic compared to other SSRIs; sedating." },
-    { drug: "haloperidol", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
-    { drug: "risperidone", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
-    { drug: "quetiapine", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
-    { drug: "olanzapine", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
-    { drug: "diazepam", recommendation: "Avoid", rationale: "Long-acting benzodiazepine; decreased metabolism in older adults. Increases risk of cognitive impairment, delirium, falls." },
-    { drug: "alprazolam", recommendation: "Avoid", rationale: "Benzodiazepine; increases risk of cognitive impairment, delirium, falls, fractures, and motor vehicle crashes." },
-    { drug: "lorazepam", recommendation: "Avoid", rationale: "Benzodiazepine; increases risk of cognitive impairment, delirium, falls, fractures, and motor vehicle crashes." },
-    { drug: "clonazepam", recommendation: "Avoid", rationale: "Benzodiazepine; increases risk of cognitive impairment, delirium, falls, fractures, and motor vehicle crashes." },
-    { drug: "zolpidem", recommendation: "Avoid", rationale: "Adverse events similar to benzodiazepines (delirium, falls, fractures); minimal improvement in sleep latency." },
-    { drug: "eszopiclone", recommendation: "Avoid", rationale: "Adverse events similar to benzodiazepines; minimal improvement in sleep latency and duration." },
-    { drug: "glimepiride", recommendation: "Avoid", rationale: "Long-acting sulfonylurea; higher risk of cardiovascular events, mortality, and prolonged hypoglycemia." },
-    { drug: "glyburide", recommendation: "Avoid", rationale: "Long-acting sulfonylurea; higher risk of cardiovascular events, mortality, and prolonged hypoglycemia." },
-    { drug: "glipizide", recommendation: "Avoid as first/second line", rationale: "Short-acting sulfonylurea. Class has higher CV and hypoglycemia risks than safer alternative agents." },
-    { drug: "ibuprofen", recommendation: "Avoid chronic use", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury. Can induce blood pressure elevations." },
-    { drug: "naproxen", recommendation: "Avoid chronic use", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
-    { drug: "diclofenac", recommendation: "Avoid chronic use", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
-    { drug: "indomethacin", recommendation: "Avoid", rationale: "Highest risk among NSAIDs for GI bleeding, AKI, and adverse CNS effects." },
-    { drug: "ketorolac", recommendation: "Avoid", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
-    { drug: "cyclobenzaprine", recommendation: "Avoid", rationale: "Muscle relaxant; poorly tolerated by older adults due to anticholinergic effects, sedation, and fracture risk." },
-    { drug: "omeprazole", recommendation: "Avoid scheduled use >8 weeks", rationale: "Risk of C. difficile infection, pneumonia, bone loss, and fractures unless high-risk indication is present." },
-    { drug: "pantoprazole", recommendation: "Avoid scheduled use >8 weeks", rationale: "Risk of C. difficile infection, pneumonia, bone loss, and fractures unless high-risk indication is present." },
-    { drug: "metoclopramide", recommendation: "Avoid (unless gastroparesis <12 weeks)", rationale: "Can cause extrapyramidal effects, including tardive dyskinesia; risk is greater in frail older adults." }
+    { generic: "oxybutynin", tradeNames: ["novitropan", "lyrinel", "ditropan"], recommendation: "Avoid", rationale: "Highly anticholinergic; risk of cognitive decline, delirium, and falls. Clear evidence for adverse cognitive effects." },
+    { generic: "tolterodine", tradeNames: ["detrusitol"], recommendation: "Avoid", rationale: "Antimuscarinic/Anticholinergic; potential for cognitive impairment and delirium." },
+    { generic: "solifenacin", tradeNames: ["vesicare"], recommendation: "Avoid", rationale: "Antimuscarinic/Anticholinergic; potential for cognitive impairment and delirium." },
+    { generic: "amitriptyline", tradeNames: ["elatrolet", "elatrol"], recommendation: "Avoid", rationale: "Highly anticholinergic antidepressant; sedating, and causes orthostatic hypotension." },
+    { generic: "diphenhydramine", tradeNames: ["benadryl", "unisom", "sleep aid"], recommendation: "Avoid", rationale: "Highly anticholinergic; clearance reduced with advanced age. Cumulative exposure increases risk of falls, delirium, and dementia." },
+    { generic: "diazepam", tradeNames: ["assival", "valium"], recommendation: "Avoid", rationale: "Long-acting benzodiazepine; decreases metabolism. Increases risk of cognitive impairment, delirium, and falls." },
+    { generic: "zolpidem", tradeNames: ["ambien", "zodorm", "stilnox", "dorim"], recommendation: "Avoid", rationale: "Z-drug; adverse events similar to benzodiazepines (delirium, falls, fractures)." },
+    { generic: "ibuprofen", tradeNames: ["advil", "nurofen", "ibufen", "adx"], recommendation: "Avoid chronic use", rationale: "NSAID; Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
+    { generic: "omeprazole", tradeNames: ["losec", "omepradex"], recommendation: "Avoid scheduled use >8 weeks", rationale: "PPI; Risk of C. difficile infection, pneumonia, and bone loss." }
 ];
 
 window.searchBeers = function() {
-    const inputField = document.getElementById('beers-search-input');
-    const query = inputField.value.trim().toLowerCase();
+    const inputElement = document.querySelector('#beers-section input[type="text"]');
+    if(!inputElement) return;
+    const searchInput = inputElement.value.trim().toLowerCase();
     const resultDiv = document.getElementById('beers-result');
-    
-    if (!query) return;
-    
-    const foundDrug = beersDatabase.find(item => item.drug.toLowerCase() === query);
-    
+
+    if(!searchInput) {
+        resultDiv.innerHTML = '<span style="color:red;">נא להזין שם תרופה לחיפוש.</span>';
+        resultDiv.style.display = 'block';
+        return;
+    }
+
+    const found = beersDatabase.find(d => 
+        d.generic.toLowerCase() === searchInput || 
+        d.tradeNames.some(t => t.toLowerCase() === searchInput)
+    );
+
     resultDiv.style.display = 'block';
-    
-    if (foundDrug) {
-        resultDiv.style.backgroundColor = '#f8d7da';
-        resultDiv.style.color = '#721c24';
-        resultDiv.style.borderRightColor = '#dc3545';
-        
-        resultDiv.innerHTML = 
-            <div style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem; text-transform: capitalize;"> + foundDrug.drug + </div>
-            <div style="margin-bottom: 0.5rem;"><strong>Recommendation:</strong>  + foundDrug.recommendation + </div>
-            <div><strong>Rationale:</strong>  + foundDrug.rationale + </div>
-        ;
-    } else {
-        resultDiv.style.backgroundColor = '#d4edda';
-        resultDiv.style.color = '#155724';
-        resultDiv.style.borderRightColor = '#28a745';
-        
-        resultDiv.innerHTML = 
-            <div style="font-weight: bold; margin-bottom: 0.5rem;">
-                <span class="he">התרופה לא נמצאה במאגר ה-Beers המקומי כסיכון כללי (Table 2). יש להפעיל שיקול דעת קליני.</span>
-                <span class="en" style="display:none;">Drug not found in the local Beers database as a general risk (Table 2). Use clinical judgment.</span>
-                <span class="ru" style="display:none;">Лекарство не найдено в местной базе данных Beers как общий риск (Таблица 2). Используйте клиническое суждение.</span>
+
+    if(found) {
+        resultDiv.innerHTML = `
+            <div style="background-color: #ffebee; border: 2px solid #c62828; padding: 15px; border-radius: 8px; color: #c62828; margin-top: 15px; text-align: left; direction: ltr;">
+                <h3 style="margin-top:0;">${found.generic.toUpperCase()}</h3>
+                <p><strong>Recommendation:</strong> ${found.recommendation}</p>
+                <p><strong>Rationale:</strong> ${found.rationale}</p>
             </div>
-        ;
-        
-        // Trigger translation update for dynamic content
-        if (typeof window.setLanguage === 'function') {
-            const currentLang = document.documentElement.getAttribute('lang') || 'he';
-            window.setLanguage(currentLang);
-        }
+        `;
+    } else {
+        resultDiv.innerHTML = `
+            <div style="background-color: #e8f5e9; border: 2px solid #2e7d32; padding: 15px; border-radius: 8px; color: #2e7d32; margin-top: 15px; text-align: right; direction: rtl;">
+                <h3 style="margin-top:0;">לא נמצאה אזהרת סיכון כללית</h3>
+                <p>התרופה אינה מופיעה במאגר המקומי של ה-Beers. יש להפעיל שיקול דעת קליני.</p>
+            </div>
+        `;
     }
 };
 
 window.clearBeers = function() {
-    document.getElementById('beers-search-input').value = '';
+    const inputElement = document.querySelector('#beers-section input[type="text"]');
+    if(inputElement) inputElement.value = '';
     const resultDiv = document.getElementById('beers-result');
-    if (resultDiv) {
-        resultDiv.style.display = 'none';
+    if(resultDiv) {
         resultDiv.innerHTML = '';
+        resultDiv.style.display = 'none';
     }
 };
 
