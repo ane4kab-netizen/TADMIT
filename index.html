@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -998,6 +998,74 @@
         </section>
 
         <!-- Academic & Clinical Presentations Section -->
+                <!-- Clinical Calculators Section -->
+        <section id="calculators" class="calculators-section" style="padding-top: 4rem; padding-bottom: 4rem; background-color: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 3rem;">
+                    <span class="he">מחשבונים קליניים</span>
+                    <span class="en">Clinical Calculators</span>
+                    <span class="ru">Клинические Калькуляторы</span>
+                </h2>
+                <div class="calculator-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; padding: 2.5rem;">
+                    <h3 style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary); padding-bottom: 0.5rem; margin-bottom: 1.5rem; font-size: 1.25rem;">
+                        <span class="he">מחשבון תפקוד כלייתי - eGFR (CKD-EPI 2021)</span>
+                        <span class="en">Renal Function Calculator - eGFR (CKD-EPI 2021)</span>
+                        <span class="ru">Калькулятор eGFR (CKD-EPI 2021)</span>
+                    </h3>
+                    
+                    <form id="egfrForm" onsubmit="calculateEGFR(event)">
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label for="calcAge" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary-dark);">
+                                <span class="he">גיל (שנים)</span>
+                                <span class="en">Age (years)</span>
+                                <span class="ru">Возраст (лет)</span>
+                            </label>
+                            <input type="number" id="calcAge" required min="18" max="120" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label for="calcSex" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary-dark);">
+                                <span class="he">מין</span>
+                                <span class="en">Sex</span>
+                                <span class="ru">Пол</span>
+                            </label>
+                            <select id="calcSex" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; background-color: white;">
+                                <option value="male" class="he">זכר</option>
+                                <option value="male" class="en">Male</option>
+                                <option value="male" class="ru">Мужской</option>
+                                <option value="female" class="he">נקבה</option>
+                                <option value="female" class="en">Female</option>
+                                <option value="female" class="ru">Женский</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label for="calcCreatinine" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary-dark);">
+                                <span class="he">קריאטינין בדם (mg/dL)</span>
+                                <span class="en">Serum Creatinine (mg/dL)</span>
+                                <span class="ru">Креатинин Сыворотки (мг/дл)</span>
+                            </label>
+                            <input type="number" id="calcCreatinine" required step="0.01" min="0.1" max="15.0" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
+                            <span class="he">חשב תפקוד כלייתי</span>
+                            <span class="en">Calculate eGFR</span>
+                            <span class="ru">Рассчитать eGFR</span>
+                        </button>
+                    </form>
+                    
+                    <div id="calcResult" style="display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 8px; text-align: center; font-weight: bold; font-size: 1.25rem;">
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #6c757d; text-align: center; border-top: 1px solid #eee; padding-top: 1rem;">
+                        <span class="he">המחשבון נועד להדגמה אקדמית בלבד ואינו מהווה תחליף לייעוץ רפואי מוסמך.</span>
+                        <span class="en">This calculator is for academic demonstration purposes only and is not a substitute for professional medical advice.</span>
+                        <span class="ru">Данный калькулятор предназначен только для академической демонстрации и не заменяет профессиональную медицинскую консультацию.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
         <section id="presentations" class="presentations-section">
             <div class="container">
                 <div class="section-header text-center">

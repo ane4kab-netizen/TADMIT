@@ -161,3 +161,65 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+// Clinical Calculators - eGFR CKD-EPI 2021
+function calculateEGFR(event) {
+    event.preventDefault();
+    
+    const age = parseFloat(document.getElementById('calcAge').value);
+    const sex = document.getElementById('calcSex').value;
+    const scr = parseFloat(document.getElementById('calcCreatinine').value);
+    
+    if (!age || !sex || !scr) return;
+    
+    let k, a, sexMultiplier;
+    
+    if (sex === 'female') {
+        k = 0.7;
+        a = -0.241;
+        sexMultiplier = 1.012;
+    } else {
+        k = 0.9;
+        a = -0.302;
+        sexMultiplier = 1;
+    }
+    
+    const minScrK = Math.min(scr / k, 1);
+    const maxScrK = Math.max(scr / k, 1);
+    
+    let egfr = 142 * Math.pow(minScrK, a) * Math.pow(maxScrK, -1.200) * Math.pow(0.9938, age) * sexMultiplier;
+    egfr = Math.round(egfr);
+    
+    const resultDiv = document.getElementById('calcResult');
+    resultDiv.style.display = 'block';
+    
+    let bgColor, textColor, stage;
+    if (egfr >= 60) {
+        bgColor = '#d1e7dd';
+        textColor = '#0f5132';
+        stage = egfr >= 90 ? 'G1' : 'G2';
+    } else if (egfr >= 30) {
+        bgColor = '#fff3cd';
+        textColor = '#664d03';
+        stage = egfr >= 45 ? 'G3a' : 'G3b';
+    } else {
+        bgColor = '#f8d7da';
+        textColor = '#842029';
+        stage = egfr >= 15 ? 'G4' : 'G5';
+    }
+    
+    resultDiv.style.backgroundColor = bgColor;
+    resultDiv.style.color = textColor;
+    
+    let heDesc = egfr >= 60 ? 'תקין או ירידה קלה' : (egfr >= 30 ? 'ירידה בינונית' : 'ירידה קשה / אי ספיקת כליות');
+    let enDesc = egfr >= 60 ? 'Normal or mildly decreased' : (egfr >= 30 ? 'Moderately decreased' : 'Severely decreased / Kidney failure');
+    let ruDesc = egfr >= 60 ? 'В норме или немного снижена' : (egfr >= 30 ? 'Умеренно снижена' : 'Сильно снижена / Почечная недостаточность');
+
+    resultDiv.innerHTML = ` +
+        eGFR:  + egfr +  mL/min/1.73m² (CKD Stage:  + stage + )<br> +
+        <span style="font-size: 1rem; font-weight: 400; margin-top: 0.5rem; display: block;"> +
+            <span class="he">רמת תפקוד כלייתי:  + heDesc + </span> +
+            <span class="en">Renal Function:  + enDesc + </span> +
+            <span class="ru">Функция почек:  + ruDesc + </span> +
+        </span>;
+}
