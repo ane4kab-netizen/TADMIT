@@ -170,7 +170,15 @@ function calculateEGFR(event) {
     const sex = document.getElementById('calcSex').value;
     const scr = parseFloat(document.getElementById('calcCreatinine').value);
     
-    if (!age || !sex || !scr) return;
+    if (!sex) {
+        const lang = document.documentElement.getAttribute('lang') || 'he';
+        if (lang === 'he') alert("נא לבחור מין לפני ביצוע החישוב.");
+        else if (lang === 'en') alert("Please select sex before calculating.");
+        else alert("Пожалуйста, выберите пол перед расчетом.");
+        return;
+    }
+    
+    if (!age || !scr) return;
     
     let k, a, sexMultiplier;
     
@@ -222,4 +230,15 @@ function calculateEGFR(event) {
             '<span class="en">Renal Function: ' + enDesc + '</span>' +
             '<span class="ru">Функция почек: ' + ruDesc + '</span>' +
         '</span>';
+}
+
+// Clear Data for eGFR Calculator
+function clearEGFR() {
+    document.getElementById('calcAge').value = '';
+    document.getElementById('calcSex').value = '';
+    document.getElementById('calcCreatinine').value = '';
+    
+    const resultDiv = document.getElementById('calcResult');
+    resultDiv.style.display = 'none';
+    resultDiv.innerHTML = '';
 }

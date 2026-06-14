@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -1030,6 +1030,7 @@
                                 <span class="ru">Пол</span>
                             </label>
                             <select id="calcSex" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; background-color: white;">
+                                <option value="" disabled selected>בחר/י...</option>
                                 <option value="male" class="he">זכר</option>
                                 <option value="male" class="en">Male</option>
                                 <option value="male" class="ru">Мужской</option>
@@ -1048,11 +1049,18 @@
                             <input type="number" id="calcCreatinine" required step="0.01" min="0.1" max="15.0" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
                         </div>
                         
-                        <button type="button" onclick="calculateEGFR(event)" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
-                            <span class="he">חשב תפקוד כלייתי</span>
-                            <span class="en">Calculate eGFR</span>
-                            <span class="ru">Рассчитать eGFR</span>
-                        </button>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button type="button" onclick="calculateEGFR(event)" class="btn btn-primary" style="flex: 1; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
+                                <span class="he">חשב תפקוד כלייתי</span>
+                                <span class="en">Calculate eGFR</span>
+                                <span class="ru">Рассчитать eGFR</span>
+                            </button>
+                            <button type="button" onclick="clearEGFR()" class="btn btn-outline" style="flex: 1; justify-content: center; padding: 1rem; font-size: 1.1rem; cursor: pointer;">
+                                <span class="he">ניקוי נתונים</span>
+                                <span class="en">Clear Data</span>
+                                <span class="ru">Очистить Данные</span>
+                            </button>
+                        </div>
                     </div>
                     
                     <div id="calcResult" style="display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 8px; text-align: center; font-weight: bold; font-size: 1.25rem;">
@@ -1518,13 +1526,13 @@
                                 </label>
                                 <textarea id="message" class="form-control" rows="5" required></textarea>
                             </div>
-                            <button type="button" onclick="calculateEGFR(event)" class="btn btn-primary btn-block">
+                            <button type="submit" class="btn btn-primary btn-block">
                                 <i data-lucide="send"></i> 
                                 <span class="he">שלח הודעה</span>
                                 <span class="en">Send Message</span>
                                 <span class="ru">Отправить Сообщение</span>
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1568,7 +1576,7 @@
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal-overlay" onclick="closeImageModal(event)">
         <div class="image-modal-content">
-            <button class="image-modal-close" onclick="closeImageModal(event)" aria-label="Close modal">&times;</button>
+            <button type="button" class="image-modal-close" onclick="closeImageModal(event)" aria-label="Close modal">&times;</button>
             <img id="imageModalImg" src="" alt="Certificate Document">
         </div>
     </div>
