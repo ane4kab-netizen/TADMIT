@@ -281,7 +281,7 @@ const beersDatabase = [
     { drug: "metoclopramide", recommendation: "Avoid (unless gastroparesis <12 weeks)", rationale: "Can cause extrapyramidal effects, including tardive dyskinesia; risk is greater in frail older adults." }
 ];
 
-window.searchBeersDrug = function() {
+window.searchBeers = function() {
     const inputField = document.getElementById('beers-search-input');
     const query = inputField.value.trim().toLowerCase();
     const resultDiv = document.getElementById('beers-result');
@@ -323,7 +323,7 @@ window.searchBeersDrug = function() {
     }
 };
 
-window.clearBeersSearch = function() {
+window.clearBeers = function() {
     document.getElementById('beers-search-input').value = '';
     const resultDiv = document.getElementById('beers-result');
     if (resultDiv) {
@@ -332,25 +332,9 @@ window.clearBeersSearch = function() {
     }
 };
 
-window.switchCvTab = function(tabId) {
-    // Hide all panes
-    const panes = ['cv-edu', 'cv-exp', 'cv-cert'];
-    panes.forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.style.display = 'none';
-    });
-
-    // Remove active class from all buttons
-    const btns = ['btn-tab-edu', 'btn-tab-exp', 'btn-tab-cert'];
-    btns.forEach(id => {
-        const btn = document.getElementById(id);
-        if(btn) btn.classList.remove('active');
-    });
-
-    // Show selected pane and set button as active
-    const selectedPane = document.getElementById('cv-' + tabId);
-    const selectedBtn = document.getElementById('btn-tab-' + tabId);
-    
-    if(selectedPane) selectedPane.style.display = 'block';
-    if(selectedBtn) selectedBtn.classList.add('active');
+window.switchTab = function(paneId, clickedBtn) {
+    document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(paneId).classList.add('active');
+    if(clickedBtn) clickedBtn.classList.add('active');
 };

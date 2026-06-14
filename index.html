@@ -201,20 +201,20 @@
                     </h2>
                     <div class="section-divider center"></div>
                 </div>
-                <div class="cv-tabs-nav">
-                    <button class="tab-btn active" onclick="switchCvTab('edu')" id="btn-tab-edu">
+                <div class="cv-tabs">
+                    <button class="tab-btn active" onclick="switchTab('cv-edu', this)">
                         <i data-lucide="graduation-cap" style="width: 18px; height: 18px; margin-inline-end: 0.5rem;"></i>
                         <span class="he">השכלה אקדמית</span>
                         <span class="en">Academic Education</span>
                         <span class="ru">Академическое Образование</span>
                     </button>
-                    <button class="tab-btn" onclick="switchCvTab('exp')" id="btn-tab-exp">
+                    <button class="tab-btn" onclick="switchTab('cv-exp', this)">
                         <i data-lucide="briefcase-medical" style="width: 18px; height: 18px; margin-inline-end: 0.5rem;"></i>
                         <span class="he">ניסיון קליני</span>
                         <span class="en">Clinical Experience</span>
                         <span class="ru">Клинический Опыт</span>
                     </button>
-                    <button class="tab-btn" onclick="switchCvTab('cert')" id="btn-tab-cert">
+                    <button class="tab-btn" onclick="switchTab('cv-cert', this)">
                         <i data-lucide="award" style="width: 18px; height: 18px; margin-inline-end: 0.5rem;"></i>
                         <span class="he">הסמכות מקצועיות</span>
                         <span class="en">Certifications</span>
@@ -223,7 +223,7 @@
                 </div>
                 <div class="cv-layout">
                     <!-- Experience -->
-                    <div id="cv-exp" class="cv-section-block tab-pane" style="display: none;">
+                    <div id="cv-exp" class="cv-section-block tab-pane">
                         <h3 class="cv-header"><i data-lucide="briefcase-medical"></i> 
                             <span class="he">ניסיון קליני</span>
                             <span class="en">Clinical Experience</span>
@@ -375,7 +375,7 @@
                     </div>
 
                     <!-- Education -->
-                    <div id="cv-edu" class="cv-section-block tab-pane" style="display: block;">
+                    <div id="cv-edu" class="cv-section-block tab-pane active">
                         <h3 class="cv-header"><i data-lucide="graduation-cap"></i> 
                             <span class="he">השכלה ותארים אקדמיים</span>
                             <span class="en">Education & Academic Degrees</span>
@@ -465,7 +465,7 @@
                     </div>
 
                     <!-- Certifications -->
-                    <div id="cv-cert" class="cv-section-block tab-pane" style="display: none;">
+                    <div id="cv-cert" class="cv-section-block tab-pane">
                         <h3 class="cv-header"><i data-lucide="award"></i> 
                             <span class="he">השתלמויות מוכרות והסמכות מתקדמות</span>
                             <span class="en">Advanced Certifications & Post-Basic Courses</span>
@@ -1017,8 +1017,7 @@
             </div>
         </section>
 
-        <!-- Academic & Clinical Presentations Section -->
-                <!-- Clinical Calculators Section -->
+        <!-- Clinical Calculators Section -->
         <section id="calculators" class="calculators-section" style="padding-top: 4rem; padding-bottom: 4rem; background-color: #f8f9fa;">
             <div class="container">
                 <h2 class="section-title text-center" style="margin-bottom: 3rem;">
@@ -1112,13 +1111,13 @@
                         </div>
                         
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <button type="button" onclick="searchBeersDrug()" class="btn btn-primary" style="flex: 1; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
+                            <button type="button" onclick="searchBeers()" class="btn btn-primary" style="flex: 1; justify-content: center; padding: 1rem; font-size: 1.1rem; border: none; cursor: pointer;">
                                 <i data-lucide="search" style="width: 18px; height: 18px; margin-right: 8px;"></i>
                                 <span class="he">חפש תרופה</span>
                                 <span class="en">Search Drug</span>
                                 <span class="ru">Поиск Лекарства</span>
                             </button>
-                            <button type="button" onclick="clearBeersSearch()" class="btn btn-outline" style="flex: 1; justify-content: center; padding: 1rem; font-size: 1.1rem; cursor: pointer;">
+                            <button type="button" onclick="clearBeers()" class="btn btn-outline" style="flex: 1; justify-content: center; padding: 1rem; font-size: 1.1rem; cursor: pointer;">
                                 <span class="he">ניקוי</span>
                                 <span class="en">Clear</span>
                                 <span class="ru">Очистить</span>

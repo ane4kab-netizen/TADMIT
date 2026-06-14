@@ -418,41 +418,12 @@ section {
 /* ==========================================================================
    CV Section
    ========================================================================== */
-.cv-tabs-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    font-weight: bold;
-    border-radius: 30px;
-    border: 2px solid var(--color-primary);
-    background: transparent;
-    color: var(--color-primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-    background: var(--color-primary-light);
-    color: white;
-}
-
-.tab-btn.active {
-    background: var(--color-primary);
-    color: white;
-}
-
-.tab-pane {
-    display: none;
-    animation: fadeIn 0.4s ease forwards;
-}
+.cv-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.tab-btn { padding: 12px 24px; border: 2px solid #1a365d; background-color: #ffffff; color: #1a365d; border-radius: 8px; cursor: pointer; font-weight: bold; font-family: inherit; transition: all 0.3s ease; }
+.tab-btn:hover, .tab-btn.active { background-color: #1a365d; color: #ffffff; }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; animation: fadeIn 0.5s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .cv-layout {
     display: flex;
