@@ -232,13 +232,19 @@ function calculateEGFR(event) {
         '</span>';
 }
 
-// Clear Data for eGFR Calculator
-function clearEGFR() {
-    document.getElementById('calcAge').value = '';
-    document.getElementById('calcSex').value = '';
-    document.getElementById('calcCreatinine').value = '';
-    
-    const resultDiv = document.getElementById('calcResult');
-    resultDiv.style.display = 'none';
-    resultDiv.innerHTML = '';
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const resetBtn = document.getElementById('reset-calculator-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            document.getElementById('calcAge').value = '';
+            document.getElementById('calcSex').value = '';
+            document.getElementById('calcCreatinine').value = '';
+            
+            const resultDiv = document.getElementById('calcResult');
+            if (resultDiv) {
+                resultDiv.style.display = 'none';
+                resultDiv.innerHTML = '';
+            }
+        });
+    }
+});
