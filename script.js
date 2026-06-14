@@ -246,11 +246,39 @@ window.forceClearEGFR = function() {
 
 // Beers Criteria Database (Proof of Concept - Table 2)
 const beersDatabase = [
-    { drug: "diphenhydramine", recommendation: "Avoid", rationale: "Highly anticholinergic; risk of confusion, dry mouth, constipation. Cumulative exposure increases risk of falls and dementia." },
+    { drug: "diphenhydramine", recommendation: "Avoid", rationale: "Highly anticholinergic; clearance reduced with advanced age. Cumulative exposure increases risk of falls, delirium, and dementia." },
+    { drug: "chlorpheniramine", recommendation: "Avoid", rationale: "Highly anticholinergic; risk of confusion, dry mouth, constipation, and toxicity." },
+    { drug: "promethazine", recommendation: "Avoid", rationale: "Highly anticholinergic; risk of severe anticholinergic effects and toxicity in older adults." },
+    { drug: "nitrofurantoin", recommendation: "Avoid if CrCl <30 mL/min or for long-term", rationale: "Potential for pulmonary toxicity, hepatoxicity, and peripheral neuropathy." },
+    { drug: "amiodarone", recommendation: "Avoid as first-line for AFib", rationale: "Greater toxicities than other antiarrhythmics; avoid unless patient has heart failure or substantial left ventricular hypertrophy." },
+    { drug: "digoxin", recommendation: "Avoid as first-line", rationale: "Safer and more effective alternatives exist. Higher doses increase toxicity risk without additional benefits." },
+    { drug: "nifedipine", recommendation: "Avoid (immediate release)", rationale: "Potential for hypotension; risk of precipitating myocardial ischemia." },
+    { drug: "clonidine", recommendation: "Avoid as first-line", rationale: "High risk of adverse CNS effects, bradycardia, and orthostatic hypotension." },
+    { drug: "doxazosin", recommendation: "Avoid as antihypertensive", rationale: "High risk of orthostatic hypotension and associated harms in older adults." },
+    { drug: "amitriptyline", recommendation: "Avoid", rationale: "Highly anticholinergic, sedating, and causes orthostatic hypotension." },
+    { drug: "paroxetine", recommendation: "Avoid", rationale: "Highly anticholinergic compared to other SSRIs; sedating." },
+    { drug: "haloperidol", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
+    { drug: "risperidone", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
+    { drug: "quetiapine", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
+    { drug: "olanzapine", recommendation: "Avoid (except specific FDA indications)", rationale: "Increased risk of stroke, cognitive decline, and mortality in persons with dementia." },
+    { drug: "diazepam", recommendation: "Avoid", rationale: "Long-acting benzodiazepine; decreased metabolism in older adults. Increases risk of cognitive impairment, delirium, falls." },
+    { drug: "alprazolam", recommendation: "Avoid", rationale: "Benzodiazepine; increases risk of cognitive impairment, delirium, falls, fractures, and motor vehicle crashes." },
+    { drug: "lorazepam", recommendation: "Avoid", rationale: "Benzodiazepine; increases risk of cognitive impairment, delirium, falls, fractures, and motor vehicle crashes." },
+    { drug: "clonazepam", recommendation: "Avoid", rationale: "Benzodiazepine; increases risk of cognitive impairment, delirium, falls, fractures, and motor vehicle crashes." },
     { drug: "zolpidem", recommendation: "Avoid", rationale: "Adverse events similar to benzodiazepines (delirium, falls, fractures); minimal improvement in sleep latency." },
-    { drug: "glimepiride", recommendation: "Avoid as first- or second-line", rationale: "Higher risk of cardiovascular events, all-cause mortality, and prolonged hypoglycemia." },
-    { drug: "indomethacin", recommendation: "Avoid", rationale: "Increased risk of GI bleeding/peptic ulcer disease and acute kidney injury. Most adverse effects among NSAIDs." },
-    { drug: "diazepam", recommendation: "Avoid", rationale: "Increased sensitivity to benzodiazepines in older adults; increases risk of cognitive impairment, delirium, falls, and motor vehicle crashes." }
+    { drug: "eszopiclone", recommendation: "Avoid", rationale: "Adverse events similar to benzodiazepines; minimal improvement in sleep latency and duration." },
+    { drug: "glimepiride", recommendation: "Avoid", rationale: "Long-acting sulfonylurea; higher risk of cardiovascular events, mortality, and prolonged hypoglycemia." },
+    { drug: "glyburide", recommendation: "Avoid", rationale: "Long-acting sulfonylurea; higher risk of cardiovascular events, mortality, and prolonged hypoglycemia." },
+    { drug: "glipizide", recommendation: "Avoid as first/second line", rationale: "Short-acting sulfonylurea. Class has higher CV and hypoglycemia risks than safer alternative agents." },
+    { drug: "ibuprofen", recommendation: "Avoid chronic use", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury. Can induce blood pressure elevations." },
+    { drug: "naproxen", recommendation: "Avoid chronic use", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
+    { drug: "diclofenac", recommendation: "Avoid chronic use", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
+    { drug: "indomethacin", recommendation: "Avoid", rationale: "Highest risk among NSAIDs for GI bleeding, AKI, and adverse CNS effects." },
+    { drug: "ketorolac", recommendation: "Avoid", rationale: "Increased risk of GI bleeding, peptic ulcer disease, and acute kidney injury." },
+    { drug: "cyclobenzaprine", recommendation: "Avoid", rationale: "Muscle relaxant; poorly tolerated by older adults due to anticholinergic effects, sedation, and fracture risk." },
+    { drug: "omeprazole", recommendation: "Avoid scheduled use >8 weeks", rationale: "Risk of C. difficile infection, pneumonia, bone loss, and fractures unless high-risk indication is present." },
+    { drug: "pantoprazole", recommendation: "Avoid scheduled use >8 weeks", rationale: "Risk of C. difficile infection, pneumonia, bone loss, and fractures unless high-risk indication is present." },
+    { drug: "metoclopramide", recommendation: "Avoid (unless gastroparesis <12 weeks)", rationale: "Can cause extrapyramidal effects, including tardive dyskinesia; risk is greater in frail older adults." }
 ];
 
 window.searchBeersDrug = function() {
@@ -260,7 +288,7 @@ window.searchBeersDrug = function() {
     
     if (!query) return;
     
-    const foundDrug = beersDatabase.find(item => item.drug === query);
+    const foundDrug = beersDatabase.find(item => item.drug.toLowerCase() === query);
     
     resultDiv.style.display = 'block';
     
@@ -302,4 +330,27 @@ window.clearBeersSearch = function() {
         resultDiv.style.display = 'none';
         resultDiv.innerHTML = '';
     }
+};
+
+window.switchCvTab = function(tabId) {
+    // Hide all panes
+    const panes = ['cv-edu', 'cv-exp', 'cv-cert'];
+    panes.forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.style.display = 'none';
+    });
+
+    // Remove active class from all buttons
+    const btns = ['btn-tab-edu', 'btn-tab-exp', 'btn-tab-cert'];
+    btns.forEach(id => {
+        const btn = document.getElementById(id);
+        if(btn) btn.classList.remove('active');
+    });
+
+    // Show selected pane and set button as active
+    const selectedPane = document.getElementById('cv-' + tabId);
+    const selectedBtn = document.getElementById('btn-tab-' + tabId);
+    
+    if(selectedPane) selectedPane.style.display = 'block';
+    if(selectedBtn) selectedBtn.classList.add('active');
 };

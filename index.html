@@ -37,9 +37,9 @@
                 <ul class="nav-links">
                     <li><a href="#about"><span class="he">אודותיי</span><span class="en">About Me</span><span class="ru">Обо Мне</span></a></li>
                     <li><a href="#cv"><span class="he">קורות חיים</span><span class="en">Curriculum Vitae</span><span class="ru">Резюме</span></a></li>
-                    <li><a href="#guidelines"><span class="he">פרוטוקולים</span><span class="en">Protocols</span><span class="ru">Протоколы</span></a></li>
-                    <li><a href="#presentations"><span class="he">מצגות</span><span class="en">Presentations</span><span class="ru">Презентации</span></a></li>
-                    <li><a href="#philosophy"><span class="he">פילוסופיה</span><span class="en">Philosophy</span><span class="ru">Философия</span></a></li>
+                    <li><a href="#philosophy"><span class="he">פילוסופיה קלינית</span><span class="en">Clinical Philosophy</span><span class="ru">Клиническая Философия</span></a></li>
+                    <li><a href="#calculators"><span class="he">כלים קליניים</span><span class="en">Clinical Tools</span><span class="ru">Клинические Инструменты</span></a></li>
+                    <li><a href="#presentations"><span class="he">מצגות והדרכות</span><span class="en">Presentations & Tutorials</span><span class="ru">Презентации и Учебные Пособия</span></a></li>
                     <li><a href="#contact"><span class="he">צור קשר</span><span class="en">Contact</span><span class="ru">Контакты</span></a></li>
                 </ul>
             </nav>
@@ -201,9 +201,29 @@
                     </h2>
                     <div class="section-divider center"></div>
                 </div>
+                <div class="cv-tabs-nav">
+                    <button class="tab-btn active" onclick="switchCvTab('edu')" id="btn-tab-edu">
+                        <i data-lucide="graduation-cap" style="width: 18px; height: 18px; margin-inline-end: 0.5rem;"></i>
+                        <span class="he">השכלה אקדמית</span>
+                        <span class="en">Academic Education</span>
+                        <span class="ru">Академическое Образование</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchCvTab('exp')" id="btn-tab-exp">
+                        <i data-lucide="briefcase-medical" style="width: 18px; height: 18px; margin-inline-end: 0.5rem;"></i>
+                        <span class="he">ניסיון קליני</span>
+                        <span class="en">Clinical Experience</span>
+                        <span class="ru">Клинический Опыт</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchCvTab('cert')" id="btn-tab-cert">
+                        <i data-lucide="award" style="width: 18px; height: 18px; margin-inline-end: 0.5rem;"></i>
+                        <span class="he">הסמכות מקצועיות</span>
+                        <span class="en">Certifications</span>
+                        <span class="ru">Сертификации</span>
+                    </button>
+                </div>
                 <div class="cv-layout">
                     <!-- Experience -->
-                    <div class="cv-section-block">
+                    <div id="cv-exp" class="cv-section-block tab-pane" style="display: none;">
                         <h3 class="cv-header"><i data-lucide="briefcase-medical"></i> 
                             <span class="he">ניסיון קליני</span>
                             <span class="en">Clinical Experience</span>
@@ -355,7 +375,7 @@
                     </div>
 
                     <!-- Education -->
-                    <div class="cv-section-block">
+                    <div id="cv-edu" class="cv-section-block tab-pane" style="display: block;">
                         <h3 class="cv-header"><i data-lucide="graduation-cap"></i> 
                             <span class="he">השכלה ותארים אקדמיים</span>
                             <span class="en">Education & Academic Degrees</span>
@@ -445,7 +465,7 @@
                     </div>
 
                     <!-- Certifications -->
-                    <div class="cv-section-block">
+                    <div id="cv-cert" class="cv-section-block tab-pane" style="display: none;">
                         <h3 class="cv-header"><i data-lucide="award"></i> 
                             <span class="he">השתלמויות מוכרות והסמכות מתקדמות</span>
                             <span class="en">Advanced Certifications & Post-Basic Courses</span>
@@ -1110,9 +1130,9 @@
                     </div>
                     
                     <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #6c757d; text-align: center; border-top: 1px solid #eee; padding-top: 1rem;">
-                        <span class="he">מאגר זה הינו חלקי (5 תרופות בלבד) ונועד להדגמת הרכיב האקדמי.</span>
-                        <span class="en">This database is partial (5 drugs only) and intended for academic demonstration.</span>
-                        <span class="ru">Эта база данных является частичной (всего 5 лекарств) и предназначена для академической демонстрации.</span>
+                        <span class="he">מאגר זה הינו חלקי (33 תרופות נבחרות) ונועד להדגמת הרכיב האקדמי.</span>
+                        <span class="en">This database is partial (33 selected drugs) and intended for academic demonstration.</span>
+                        <span class="ru">Эта база данных является частичной (33 выбранных лекарств) и предназначена для академической демонстрации.</span>
                     </p>
                 </div>
             </div>
@@ -1388,6 +1408,30 @@
             </div>
         </section>
 
+        <!-- Clinical Tutorials Section -->
+        <section id="tutorials" class="tutorials-section" style="padding-top: 4rem; padding-bottom: 4rem; background-color: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 3rem;">
+                    <span class="he">הדרכות קליניות - בדיקה פיזיקלית</span>
+                    <span class="en">Clinical Tutorials - Physical Examination</span>
+                    <span class="ru">Клинические Учебные Пособия - Физическое Обследование</span>
+                </h2>
+                
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dxUHp85M8kQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="https://www.youtube.com/@DrJamesGill" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1.1rem;">
+                        <i data-lucide="youtube" style="width: 20px; height: 20px;"></i>
+                        <span class="he">למעבר לערוץ ההדרכות המלא של Dr. James Gill ביוטיוב</span>
+                        <span class="en">Go to Dr. James Gill's Full YouTube Channel</span>
+                        <span class="ru">Перейти на полный канал Dr. James Gill на YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Philosophy of Care -->
         <section id="philosophy" class="philosophy-section">
             <div class="container">
@@ -1449,29 +1493,6 @@
         </section>
 
         <!-- Contact Section -->
-        <!-- Clinical Tutorials Section -->
-        <section id="tutorials" class="tutorials-section" style="padding-top: 4rem; padding-bottom: 4rem;">
-            <div class="container">
-                <h2 class="section-title text-center" style="margin-bottom: 3rem;">
-                    <span class="he">הדרכות קליניות - בדיקה פיזיקלית</span>
-                    <span class="en">Clinical Tutorials - Physical Examination</span>
-                    <span class="ru">Клинические Учебные Пособия - Физическое Обследование</span>
-                </h2>
-                
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dxUHp85M8kQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                
-                <div class="text-center" style="margin-top: 2rem;">
-                    <a href="https://www.youtube.com/@DrJamesGill" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1.1rem;">
-                        <i data-lucide="youtube" style="width: 20px; height: 20px;"></i>
-                        <span class="he">למעבר לערוץ ההדרכות המלא של Dr. James Gill ביוטיוב</span>
-                        <span class="en">Go to Dr. James Gill's Full YouTube Channel</span>
-                        <span class="ru">Перейти на полный канал Dr. James Gill на YouTube</span>
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <section id="contact" class="contact-section bg-light">
             <div class="container">
