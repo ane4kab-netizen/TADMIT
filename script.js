@@ -243,3 +243,63 @@ window.forceClearEGFR = function() {
         resultDiv.style.display = 'none';
     }
 };
+
+// Beers Criteria Database (Proof of Concept - Table 2)
+const beersDatabase = [
+    { drug: "diphenhydramine", recommendation: "Avoid", rationale: "Highly anticholinergic; risk of confusion, dry mouth, constipation. Cumulative exposure increases risk of falls and dementia." },
+    { drug: "zolpidem", recommendation: "Avoid", rationale: "Adverse events similar to benzodiazepines (delirium, falls, fractures); minimal improvement in sleep latency." },
+    { drug: "glimepiride", recommendation: "Avoid as first- or second-line", rationale: "Higher risk of cardiovascular events, all-cause mortality, and prolonged hypoglycemia." },
+    { drug: "indomethacin", recommendation: "Avoid", rationale: "Increased risk of GI bleeding/peptic ulcer disease and acute kidney injury. Most adverse effects among NSAIDs." },
+    { drug: "diazepam", recommendation: "Avoid", rationale: "Increased sensitivity to benzodiazepines in older adults; increases risk of cognitive impairment, delirium, falls, and motor vehicle crashes." }
+];
+
+window.searchBeersDrug = function() {
+    const inputField = document.getElementById('beers-search-input');
+    const query = inputField.value.trim().toLowerCase();
+    const resultDiv = document.getElementById('beers-result');
+    
+    if (!query) return;
+    
+    const foundDrug = beersDatabase.find(item => item.drug === query);
+    
+    resultDiv.style.display = 'block';
+    
+    if (foundDrug) {
+        resultDiv.style.backgroundColor = '#f8d7da';
+        resultDiv.style.color = '#721c24';
+        resultDiv.style.borderRightColor = '#dc3545';
+        
+        resultDiv.innerHTML = 
+            <div style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem; text-transform: capitalize;"> + foundDrug.drug + </div>
+            <div style="margin-bottom: 0.5rem;"><strong>Recommendation:</strong>  + foundDrug.recommendation + </div>
+            <div><strong>Rationale:</strong>  + foundDrug.rationale + </div>
+        ;
+    } else {
+        resultDiv.style.backgroundColor = '#d4edda';
+        resultDiv.style.color = '#155724';
+        resultDiv.style.borderRightColor = '#28a745';
+        
+        resultDiv.innerHTML = 
+            <div style="font-weight: bold; margin-bottom: 0.5rem;">
+                <span class="he">התרופה לא נמצאה במאגר ה-Beers המקומי כסיכון כללי (Table 2). יש להפעיל שיקול דעת קליני.</span>
+                <span class="en" style="display:none;">Drug not found in the local Beers database as a general risk (Table 2). Use clinical judgment.</span>
+                <span class="ru" style="display:none;">Лекарство не найдено в местной базе данных Beers как общий риск (Таблица 2). Используйте клиническое суждение.</span>
+            </div>
+        ;
+        
+        // Trigger translation update for dynamic content
+        if (typeof window.setLanguage === 'function') {
+            const currentLang = document.documentElement.getAttribute('lang') || 'he';
+            window.setLanguage(currentLang);
+        }
+    }
+};
+
+window.clearBeersSearch = function() {
+    document.getElementById('beers-search-input').value = '';
+    const resultDiv = document.getElementById('beers-result');
+    if (resultDiv) {
+        resultDiv.style.display = 'none';
+        resultDiv.innerHTML = '';
+    }
+};
