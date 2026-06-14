@@ -305,8 +305,19 @@ window.clearBeers = function() {
 };
 
 window.switchTab = function(paneId, clickedBtn) {
+    const targetPane = document.getElementById(paneId);
+    if (!targetPane) return; // הגנה במקרה של ID שגוי
+    
+    // בדיקה האם הלשונית הספציפית כבר פתוחה
+    const isActive = targetPane.classList.contains('active');
+
+    // סגירת כל הלשוניות וכיבוי כל הכפתורים
     document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(paneId).classList.add('active');
-    if(clickedBtn) clickedBtn.classList.add('active');
+
+    // אם הלשונית לא הייתה פתוחה, פתח אותה והדלק את הכפתור
+    if (!isActive) {
+        targetPane.classList.add('active');
+        if (clickedBtn) clickedBtn.classList.add('active');
+    }
 };
