@@ -441,52 +441,52 @@ const beersDatabase = [
 ];
 
 window.searchBeers = function() {
-    console.log("=== אבחון: לחיצה על כפתור החיפוש נקלטה ===");
-    
-    const inputElement = document.getElementById('beers-search-input');
-    console.log("=== אבחון: אלמנט הקלט שנמצא ב-DOM:", inputElement);
+    try {
+        const inputElement = document.getElementById('beers-search-input');
+        const resultDiv = document.getElementById('beers-result');
 
-    const resultDiv = document.getElementById('beers-result');
-    console.log("=== אבחון: אלמנט התוצאה שנמצא ב-DOM:", resultDiv);
+        // הגנה 1: זיהוי נתק מה-HTML
+        if (!inputElement || !resultDiv) {
+            console.error("שגיאת אדריכלות: חסרים אלמנטים ב-HTML.");
+            return;
+        }
 
-    if (!inputElement) {
-        console.error("❌ שגיאה קריטית: האלמנט עם ID 'beers-search-input' לא קיים ב-HTML!");
-        return;
-    }
-    if (!resultDiv) {
-        console.error("❌ שגיאה קריטית: האלמנט עם ID 'beers-result' לא קיים ב-HTML!");
-        return;
-    }
+        const searchInput = inputElement.value.trim().toLowerCase();
 
-    const searchInput = inputElement.value.trim().toLowerCase();
-    console.log("=== אבחון: הערך שהמשתמש הקליד:", searchInput);
+        // הגנה 2: קלט ריק
+        if (!searchInput) {
+            resultDiv.innerHTML = '<span style="color:red; font-weight:bold;">נא להזין שם תרופה לחיפוש.</span>';
+            return;
+        }
 
-    if (!searchInput) {
-        resultDiv.innerHTML = '<span style="color:red; font-weight:bold;">נא להזין שם גנרי או מסחרי לחיפוש.</span>';
-        return;
-    }
+        // הגנה 3: חיפוש בטוח גם אם חסר שדה מסחרי או שיש שגיאת הקלדה במסד
+        const found = beersDatabase.find(d => {
+            const matchGeneric = d.generic && d.generic.toLowerCase() === searchInput;
+            const matchTrade = d.tradeNames && Array.isArray(d.tradeNames) && d.tradeNames.some(t => t.toLowerCase() === searchInput);
+            return matchGeneric || matchTrade;
+        });
 
-    const found = beersDatabase.find(d => 
-        d.generic.toLowerCase() === searchInput || 
-        d.tradeNames.some(t => t.toLowerCase() === searchInput)
-    );
-    console.log("=== אבחון: תוצאת הסריקה במסד הנתונים:", found);
-
-    if (found) {
-        resultDiv.innerHTML = `
-            <div style="background-color: #ffebee; border: 2px solid #c62828; padding: 15px; border-radius: 8px; color: #c62828; margin-top: 15px; text-align: left; direction: ltr;">
-                <h3 style="margin-top:0; color:#b71c1c;">⚠️ אזהרת סיכון לקשיש: ${found.generic.toUpperCase()}</h3>
-                <p><strong>Recommendation:</strong> ${found.recommendation}</p>
-                <p><strong>Rationale:</strong> ${found.rationale}</p>
-            </div>
-        `;
-    } else {
-        resultDiv.innerHTML = `
-            <div style="background-color: #e8f5e9; border: 2px solid #2e7d32; padding: 15px; border-radius: 8px; color: #2e7d32; margin-top: 15px; text-align: right; direction: rtl;">
-                <h3 style="margin-top:0; color:#1b5e20;">ℹ️ הערה מפורשת: התרופה לא נמצאה במאגר</h3>
-                <p>השם שהוקלד אינו מופיעה במאגר ה-Beers המקומי. יש להפעיל שיקול דעת קליני.</p>
-            </div>
-        `;
+        // הצגת תוצאות חלקה
+        if (found) {
+            resultDiv.innerHTML = `
+                <div style="background-color: #ffebee; border: 2px solid #c62828; padding: 15px; border-radius: 8px; color: #c62828; margin-top: 15px; text-align: left; direction: ltr;">
+                    <h3 style="margin-top:0; color:#b71c1c;">⚠️ אזהרת סיכון לקשיש: ${found.generic.toUpperCase()}</h3>
+                    <p><strong>Recommendation:</strong> ${found.recommendation}</p>
+                    <p><strong>Rationale:</strong> ${found.rationale}</p>
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = `
+                <div style="background-color: #e8f5e9; border: 2px solid #2e7d32; padding: 15px; border-radius: 8px; color: #2e7d32; margin-top: 15px; text-align: right; direction: rtl;">
+                    <h3 style="margin-top:0; color:#1b5e20;">ℹ️ התרופה לא נמצאה במאגר</h3>
+                    <p>השם שהוקלד אינו מופיע במאגר ה-Beers המקומי. יש להפעיל שיקול דעת קליני.</p>
+                </div>
+            `;
+        }
+    } catch (error) {
+        // הגנה 4: טיפול באסון קריסה ודיווח למשתמש
+        console.error("קריסת מנוע חיפוש:", error);
+        document.getElementById('beers-result').innerHTML = '<span style="color:red;">שגיאת מערכת: מסד הנתונים חסר או פגום. לחץ F12 לבדיקת ה-Console.</span>';
     }
 };
 
