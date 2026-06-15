@@ -441,23 +441,38 @@ const beersDatabase = [
 ];
 
 window.searchBeers = function() {
+    console.log("=== אבחון: לחיצה על כפתור החיפוש נקלטה ===");
+    
     const inputElement = document.getElementById('beers-search-input');
-    if(!inputElement) return;
-    const searchInput = inputElement.value.trim().toLowerCase();
-    const resultDiv = document.getElementById('beers-result');
+    console.log("=== אבחון: אלמנט הקלט שנמצא ב-DOM:", inputElement);
 
-    if(!searchInput) {
+    const resultDiv = document.getElementById('beers-result');
+    console.log("=== אבחון: אלמנט התוצאה שנמצא ב-DOM:", resultDiv);
+
+    if (!inputElement) {
+        console.error("❌ שגיאה קריטית: האלמנט עם ID 'beers-search-input' לא קיים ב-HTML!");
+        return;
+    }
+    if (!resultDiv) {
+        console.error("❌ שגיאה קריטית: האלמנט עם ID 'beers-result' לא קיים ב-HTML!");
+        return;
+    }
+
+    const searchInput = inputElement.value.trim().toLowerCase();
+    console.log("=== אבחון: הערך שהמשתמש הקליד:", searchInput);
+
+    if (!searchInput) {
         resultDiv.innerHTML = '<span style="color:red; font-weight:bold;">נא להזין שם גנרי או מסחרי לחיפוש.</span>';
         return;
     }
 
-    // אלגוריתם חיפוש דו-שכבתי (גנרי ומסחרי)
     const found = beersDatabase.find(d => 
         d.generic.toLowerCase() === searchInput || 
         d.tradeNames.some(t => t.toLowerCase() === searchInput)
     );
+    console.log("=== אבחון: תוצאת הסריקה במסד הנתונים:", found);
 
-    if(found) {
+    if (found) {
         resultDiv.innerHTML = `
             <div style="background-color: #ffebee; border: 2px solid #c62828; padding: 15px; border-radius: 8px; color: #c62828; margin-top: 15px; text-align: left; direction: ltr;">
                 <h3 style="margin-top:0; color:#b71c1c;">⚠️ אזהרת סיכון לקשיש: ${found.generic.toUpperCase()}</h3>
@@ -466,11 +481,10 @@ window.searchBeers = function() {
             </div>
         `;
     } else {
-        // פליטת הערה מפורשת במידה והתרופה לא מופיעה במאגר ה-Beers המקומי
         resultDiv.innerHTML = `
             <div style="background-color: #e8f5e9; border: 2px solid #2e7d32; padding: 15px; border-radius: 8px; color: #2e7d32; margin-top: 15px; text-align: right; direction: rtl;">
                 <h3 style="margin-top:0; color:#1b5e20;">ℹ️ הערה מפורשת: התרופה לא נמצאה במאגר</h3>
-                <p>השם שהוקלד אינו מופיע במאגר ה-Beers Criteria 2023 המקומי (Table 2 - הסיכון הכללי). אין להניח כי התרופה בטוחה; יש להפעיל שיקול דעת קליני, לבדוק התאמה למחלות רקע ולעיין במדריך הרשמי המלא.</p>
+                <p>השם שהוקלד אינו מופיעה במאגר ה-Beers המקומי. יש להפעיל שיקול דעת קליני.</p>
             </div>
         `;
     }
