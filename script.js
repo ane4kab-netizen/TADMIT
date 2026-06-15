@@ -445,28 +445,24 @@ window.searchBeers = function() {
         const inputElement = document.getElementById('beers-search-input');
         const resultDiv = document.getElementById('beers-result');
 
-        // הגנה 1: זיהוי נתק מה-HTML
         if (!inputElement || !resultDiv) {
-            console.error("שגיאת אדריכלות: חסרים אלמנטים ב-HTML.");
+            console.error("שגיאה מבנית: אלמנטי ה-HTML של ה-Beers חסרים.");
             return;
         }
 
         const searchInput = inputElement.value.trim().toLowerCase();
 
-        // הגנה 2: קלט ריק
         if (!searchInput) {
             resultDiv.innerHTML = '<span style="color:red; font-weight:bold;">נא להזין שם תרופה לחיפוש.</span>';
             return;
         }
 
-        // הגנה 3: חיפוש בטוח גם אם חסר שדה מסחרי או שיש שגיאת הקלדה במסד
         const found = beersDatabase.find(d => {
             const matchGeneric = d.generic && d.generic.toLowerCase() === searchInput;
             const matchTrade = d.tradeNames && Array.isArray(d.tradeNames) && d.tradeNames.some(t => t.toLowerCase() === searchInput);
             return matchGeneric || matchTrade;
         });
 
-        // הצגת תוצאות חלקה
         if (found) {
             resultDiv.innerHTML = `
                 <div style="background-color: #ffebee; border: 2px solid #c62828; padding: 15px; border-radius: 8px; color: #c62828; margin-top: 15px; text-align: left; direction: ltr;">
@@ -484,19 +480,25 @@ window.searchBeers = function() {
             `;
         }
     } catch (error) {
-        // הגנה 4: טיפול באסון קריסה ודיווח למשתמש
-        console.error("קריסת מנוע חיפוש:", error);
-        document.getElementById('beers-result').innerHTML = '<span style="color:red;">שגיאת מערכת: מסד הנתונים חסר או פגום. לחץ F12 לבדיקת ה-Console.</span>';
+        console.error("קריסה בפונקציית החיפוש:", error);
     }
 };
 
 window.clearBeers = function() {
-    const inputElement = document.querySelector('#beers-section input[type="text"]');
-    if(inputElement) inputElement.value = '';
-    const resultDiv = document.getElementById('beers-result');
-    if(resultDiv) {
-        resultDiv.innerHTML = '';
-        resultDiv.style.display = 'none';
+    try {
+        const inputElement = document.getElementById('beers-search-input');
+        const resultDiv = document.getElementById('beers-result');
+
+        // שימוש בקוד הגנתי - מניעת קריסה אם האלמנטים מנותקים זמנית מה-DOM
+        if (inputElement) {
+            inputElement.value = '';
+        }
+        if (resultDiv) {
+            resultDiv.innerHTML = '';
+        }
+        console.log("הניקוי בוצע בהצלחה, הזיכרון מאופס.");
+    } catch (error) {
+        console.error("קריסה בפונקציית הניקוי:", error);
     }
 };
 
