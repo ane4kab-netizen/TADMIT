@@ -444,14 +444,9 @@ window.searchBeers = function() {
     try {
         const inputElement = document.getElementById('beers-search-input');
         const resultDiv = document.getElementById('beers-result');
-
-        if (!inputElement || !resultDiv) {
-            console.error("שגיאה מבנית: אלמנטי ה-HTML של ה-Beers חסרים.");
-            return;
-        }
+        if (!inputElement || !resultDiv) return;
 
         const searchInput = inputElement.value.trim().toLowerCase();
-
         if (!searchInput) {
             resultDiv.innerHTML = '<span style="color:red; font-weight:bold;">נא להזין שם תרופה לחיפוש.</span>';
             return;
@@ -475,31 +470,21 @@ window.searchBeers = function() {
             resultDiv.innerHTML = `
                 <div style="background-color: #e8f5e9; border: 2px solid #2e7d32; padding: 15px; border-radius: 8px; color: #2e7d32; margin-top: 15px; text-align: right; direction: rtl;">
                     <h3 style="margin-top:0; color:#1b5e20;">ℹ️ התרופה לא נמצאה במאגר</h3>
-                    <p>השם שהוקלד אינו מופיע במאגר ה-Beers המקומי. יש להפעיל שיקול דעת קליני.</p>
+                    <p>השם שהוקלד אינה מופיע במאגר ה-Beers המקומי. יש להפעיל שיקול דעת קליני.</p>
                 </div>
             `;
         }
-    } catch (error) {
-        console.error("קריסה בפונקציית החיפוש:", error);
-    }
+    } catch (e) { console.error("Search error caught:", e); }
 };
 
 window.clearBeers = function() {
     try {
         const inputElement = document.getElementById('beers-search-input');
         const resultDiv = document.getElementById('beers-result');
-
-        // שימוש בקוד הגנתי - מניעת קריסה אם האלמנטים מנותקים זמנית מה-DOM
-        if (inputElement) {
-            inputElement.value = '';
-        }
-        if (resultDiv) {
-            resultDiv.innerHTML = '';
-        }
-        console.log("הניקוי בוצע בהצלחה, הזיכרון מאופס.");
-    } catch (error) {
-        console.error("קריסה בפונקציית הניקוי:", error);
-    }
+        if (inputElement) inputElement.value = '';
+        if (resultDiv) resultDiv.innerHTML = '';
+        console.log("=== אבחון: הזיכרון אופס בהצלחה ללא שגיאות ===");
+    } catch (e) { console.error("Clear error caught:", e); }
 };
 
 window.switchTab = function(paneId, clickedBtn) {
